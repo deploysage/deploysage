@@ -23,6 +23,12 @@ chdir APP_ROOT do
   #   cp 'config/database.yml.sample', 'config/database.yml'
   # end
 
+  puts "\n== Creating database =="
+  system! 'ruby bin/rake db:create:all'
+
+  puts "\n== Migrating dev database =="
+  system! 'ruby bin/rake db:migrate'
+
   puts "\n== Preparing database =="
   system! 'ruby bin/rake db:setup'
 
