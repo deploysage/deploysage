@@ -18,11 +18,12 @@ class CreateFixtures
 
   def set_up_naming
     fbuilder.name_model_with(Repo) do |record|
-      record['url'].split('/').last.split('.').first.gsub('-','_')
+      record['url'].split('/').last.split('.').first.tr('-', '_')
     end
   end
 
   def create_repos
-    create(:repo, github_identifier: 47444606, url: 'https://github.com/deploysage/fixture-repo-1.git')
+    create(:repo, github_identifier: 47_444_606, url: 'https://github
+.com/deploysage/fixture-repo-1.git')
   end
 end

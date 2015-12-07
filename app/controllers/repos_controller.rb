@@ -1,3 +1,4 @@
+# :nodoc:
 class ReposController < ApplicationController
   before_action :set_repo, only: [:show, :update, :destroy]
 
@@ -39,13 +40,14 @@ class ReposController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_repo
-      @repo = Repo.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def repo_params
-      params.require(:repo).permit(:github_identifier, :url)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_repo
+    @repo = Repo.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def repo_params
+    params.require(:repo).permit(:github_identifier, :url)
+  end
 end

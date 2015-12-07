@@ -5,6 +5,7 @@ gem 'arel', github: "rails/arel"
 gem 'rack', github: "rack/rack"
 
 gem 'pg'
+gem 'process_helper'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -28,6 +29,11 @@ group :development do
   # Loading the listen gem enables an evented file system monitor. Check
   # https://github.com/guard/listen#listen-adapters if on Windows or *BSD.
   # gem 'listen', '~> 3.0.5'
+end
+
+group :test do
+  gem 'ruby-lint', '~> 2.0'
+  gem 'rubocop', '>= 0.27.0'
 end
 
 group :development, :test do
