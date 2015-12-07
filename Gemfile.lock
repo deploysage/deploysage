@@ -11,6 +11,14 @@ GIT
   specs:
     arel (7.0.0.alpha)
 
+GIT
+  remote: https://github.com/rdy/fixture_builder.git
+  revision: b2e4f37915bb920ab58ea8bd3d1c788c029c3b39
+  specs:
+    fixture_builder (0.4.1)
+      activerecord (>= 2)
+      activesupport (>= 2)
+
 PATH
   remote: /Users/woolley/workspace/rails
   specs:
@@ -77,7 +85,13 @@ GEM
       railties (>= 4.0)
     builder (3.2.2)
     concurrent-ruby (1.0.0)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -105,6 +119,23 @@ GEM
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
     rake (10.4.2)
+    rspec-core (3.1.7)
+      rspec-support (~> 3.1.0)
+    rspec-expectations (3.1.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.1.0)
+    rspec-mocks (3.1.3)
+      rspec-support (~> 3.1.0)
+    rspec-rails (3.1.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+      rspec-support (~> 3.1.0)
+    rspec-support (3.1.2)
+    spring (1.5.0)
     sprockets (3.5.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -123,10 +154,14 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.0.rc2)
   arel!
+  factory_girl_rails (~> 4.0)
+  fixture_builder!
   pg
   puma
   rack!
   rails!
+  rspec-rails (~> 3.0)
+  spring
 
 BUNDLED WITH
    1.10.6

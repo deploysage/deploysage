@@ -29,3 +29,12 @@ group :development do
   # https://github.com/guard/listen#listen-adapters if on Windows or *BSD.
   # gem 'listen', '~> 3.0.5'
 end
+
+group :development, :test do
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'fixture_builder', git: 'https://github.com/rdy/fixture_builder.git'
+end

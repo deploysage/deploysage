@@ -25,4 +25,8 @@ initdb /usr/local/var/postgres -E utf8
 bin/setup
 ```
 
+### Running Tests
 
+```
+bin/spring rake
+```
