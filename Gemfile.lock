@@ -12,15 +12,8 @@ GIT
     arel (7.0.0.alpha)
 
 GIT
-  remote: https://github.com/rdy/fixture_builder.git
-  revision: b2e4f37915bb920ab58ea8bd3d1c788c029c3b39
-  specs:
-    fixture_builder (0.4.1)
-      activerecord (>= 2)
-      activesupport (>= 2)
-
-PATH
-  remote: /Users/woolley/workspace/rails
+  remote: git://github.com/rails/rails.git
+  revision: cd355a8eeb676d172a1b9fa9855cb2531bd1b4e5
   specs:
     actionmailer (5.0.0.alpha)
       actionpack (= 5.0.0.alpha)
@@ -75,6 +68,14 @@ PATH
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+
+GIT
+  remote: https://github.com/rdy/fixture_builder.git
+  revision: b2e4f37915bb920ab58ea8bd3d1c788c029c3b39
+  specs:
+    fixture_builder (0.4.1)
+      activerecord (>= 2)
+      activesupport (>= 2)
 
 GEM
   remote: https://rubygems.org/
@@ -146,6 +147,9 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
+    rspec_junit_formatter (0.2.2)
+      builder (< 4)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (0.35.1)
       astrolabe (~> 1.3)
       parser (>= 2.2.3.0, < 3.0)
@@ -164,7 +168,7 @@ GEM
     simplecov-html (0.10.0)
     slop (3.6.0)
     spring (1.5.0)
-    sprockets (3.5.0)
+    sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (2.3.3)
@@ -192,6 +196,7 @@ DEPENDENCIES
   rack!
   rails!
   rspec-rails (~> 3.0)
+  rspec_junit_formatter (= 0.2.2)
   rubocop (>= 0.27.0)
   ruby-lint (~> 2.0)
   spring

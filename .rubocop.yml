@@ -8,6 +8,7 @@ AllCops:
     - '**/config.ru'
   Exclude:
     - 'db/**/*'
+    - 'vendor/bundle/**/*'
 
 Metrics/LineLength:
   Max: 99
@@ -15,6 +16,12 @@ Metrics/LineLength:
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 20
+
+Style/FileName:
+  # File names listed in AllCops:Include are excluded by default. Add extra
+  # excludes here.
+  Exclude:
+    - bin/ruby-lint
 
 Style/MultilineOperationIndentation:
   EnforcedStyle: indented

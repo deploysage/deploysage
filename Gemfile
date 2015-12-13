@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', path: "/Users/woolley/workspace/rails"
-gem 'arel', github: "rails/arel"
-gem 'rack', github: "rack/rack"
+gem 'rails', github: 'rails/rails'
+gem 'arel', github: 'rails/arel'
+gem 'rack', github: 'rack/rack'
 
 gem 'pg'
 gem 'process_helper'
@@ -33,6 +33,7 @@ end
 
 group :test do
   gem 'codeclimate-test-reporter', require: nil
+  gem 'rspec_junit_formatter', '0.2.2'
   gem 'ruby-lint', '~> 2.0'
   gem 'rubocop', '>= 0.27.0'
 end
