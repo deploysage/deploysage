@@ -32,6 +32,7 @@ group :development do
 end
 
 group :test do
+  gem 'codeclimate-test-reporter', require: nil
   gem 'ruby-lint', '~> 2.0'
   gem 'rubocop', '>= 0.27.0'
 end
