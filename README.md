@@ -30,3 +30,9 @@ bin/setup
 ```
 bin/spring rake
 ```
+
+### CodeClimate
+
+* https://codeclimate.com/github/deploysage/deploysage
+* Install CLI via HomeBrew: https://github.com/codeclimate/codeclimate
+* Run CLI analysis: `codeclimate analyze`
