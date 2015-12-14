@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :repo do
-    github_identifier '12345'
-    url 'https://github.com/pivotaltracker/dummytest.git'
+    sequence(:github_identifier) { |n| (1000 + n).to_s }
+    sequence(:url) { |n| "https://github.com/deploysage/not_a_real_repo#{n}.git" }
+    # org # disabled until we can scope Repo finds to user to avoid Brakeman warnings
   end
 end

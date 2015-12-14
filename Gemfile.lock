@@ -1,73 +1,124 @@
 GIT
   remote: git://github.com/rack/rack.git
-  revision: c393176b0edf3e5d06cabbb6eb9d9c7a07b2afa7
+  revision: f4562619c3c669404e39d9b09924bed5a6b71c14
   specs:
     rack (2.0.0.alpha)
       json
 
 GIT
   remote: git://github.com/rails/arel.git
-  revision: 3c429c5d86e9e2201c2a35d934ca6a8911c18e69
+  revision: ea2d50706a5f8215ff2346fa562423700b2d2b6e
   specs:
-    arel (7.0.0.alpha)
+    arel (7.0.0)
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: cd355a8eeb676d172a1b9fa9855cb2531bd1b4e5
+  revision: 615f93d314f23a2c6a616273a65c3ad567b89e66
   specs:
-    actionmailer (5.0.0.alpha)
-      actionpack (= 5.0.0.alpha)
-      actionview (= 5.0.0.alpha)
-      activejob (= 5.0.0.alpha)
+    actioncable (5.0.0.beta1)
+      actionpack (= 5.0.0.beta1)
+      celluloid (~> 0.17.2)
+      coffee-rails (~> 4.1.0)
+      em-hiredis (~> 0.3.0)
+      faye-websocket (~> 0.10.0)
+      redis (~> 3.0)
+      websocket-driver (~> 0.6.1)
+    actionmailer (5.0.0.beta1)
+      actionpack (= 5.0.0.beta1)
+      actionview (= 5.0.0.beta1)
+      activejob (= 5.0.0.beta1)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-    actionpack (5.0.0.alpha)
-      actionview (= 5.0.0.alpha)
-      activesupport (= 5.0.0.alpha)
+    actionpack (5.0.0.beta1)
+      actionview (= 5.0.0.beta1)
+      activesupport (= 5.0.0.beta1)
       rack (~> 2.x)
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (5.0.0.alpha)
-      activesupport (= 5.0.0.alpha)
+    actionview (5.0.0.beta1)
+      activesupport (= 5.0.0.beta1)
       builder (~> 3.1)
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    activejob (5.0.0.alpha)
-      activesupport (= 5.0.0.alpha)
-      globalid (>= 0.3.0)
-    activemodel (5.0.0.alpha)
-      activesupport (= 5.0.0.alpha)
+    activejob (5.0.0.beta1)
+      activesupport (= 5.0.0.beta1)
+      globalid (>= 0.3.6)
+    activemodel (5.0.0.beta1)
+      activesupport (= 5.0.0.beta1)
       builder (~> 3.1)
-    activerecord (5.0.0.alpha)
-      activemodel (= 5.0.0.alpha)
-      activesupport (= 5.0.0.alpha)
-      arel (= 7.0.0.alpha)
-    activesupport (5.0.0.alpha)
+    activerecord (5.0.0.beta1)
+      activemodel (= 5.0.0.beta1)
+      activesupport (= 5.0.0.beta1)
+      arel (~> 7.0)
+    activesupport (5.0.0.beta1)
       concurrent-ruby (~> 1.0)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       method_source
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    rails (5.0.0.alpha)
-      actionmailer (= 5.0.0.alpha)
-      actionpack (= 5.0.0.alpha)
-      actionview (= 5.0.0.alpha)
-      activejob (= 5.0.0.alpha)
-      activemodel (= 5.0.0.alpha)
-      activerecord (= 5.0.0.alpha)
-      activesupport (= 5.0.0.alpha)
+    rails (5.0.0.beta1)
+      actioncable (= 5.0.0.beta1)
+      actionmailer (= 5.0.0.beta1)
+      actionpack (= 5.0.0.beta1)
+      actionview (= 5.0.0.beta1)
+      activejob (= 5.0.0.beta1)
+      activemodel (= 5.0.0.beta1)
+      activerecord (= 5.0.0.beta1)
+      activesupport (= 5.0.0.beta1)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 5.0.0.alpha)
+      railties (= 5.0.0.beta1)
       sprockets-rails (>= 2.0.0)
-    railties (5.0.0.alpha)
-      actionpack (= 5.0.0.alpha)
-      activesupport (= 5.0.0.alpha)
+    railties (5.0.0.beta1)
+      actionpack (= 5.0.0.beta1)
+      activesupport (= 5.0.0.beta1)
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+
+GIT
+  remote: git://github.com/rspec/rspec-core.git
+  revision: e27f3a0df9c182de9a7c9727a6d8ed6a20aebbb1
+  specs:
+    rspec-core (3.5.0.pre)
+      rspec-support (= 3.5.0.pre)
+
+GIT
+  remote: git://github.com/rspec/rspec-expectations.git
+  revision: 87376eed1f580682c86ea88448ab0411be238c07
+  specs:
+    rspec-expectations (3.5.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.5.0.pre)
+
+GIT
+  remote: git://github.com/rspec/rspec-mocks.git
+  revision: b94e242ebbc51081fc2245e37c574f5d6d02b7f8
+  specs:
+    rspec-mocks (3.5.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.5.0.pre)
+
+GIT
+  remote: git://github.com/rspec/rspec-rails.git
+  revision: b1dff7fb6c3b67650e05865abc9676738076fcf0
+  specs:
+    rspec-rails (3.5.0.pre)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (= 3.5.0.pre)
+      rspec-expectations (= 3.5.0.pre)
+      rspec-mocks (= 3.5.0.pre)
+      rspec-support (= 3.5.0.pre)
+
+GIT
+  remote: git://github.com/rspec/rspec-support.git
+  revision: a0bc8606b33041dee1e1eae17def1e37ed4bf734
+  specs:
+    rspec-support (3.5.0.pre)
 
 GIT
   remote: https://github.com/rdy/fixture_builder.git
@@ -84,25 +135,121 @@ GEM
       actionpack (>= 4.0)
       activemodel (>= 4.0)
       railties (>= 4.0)
-    ast (2.1.0)
+    addressable (2.4.0)
+    archive-zip (0.7.0)
+      io-like (~> 0.3.0)
+    ast (2.2.0)
     astrolabe (1.3.1)
       parser (~> 2.2)
+    autoprefixer-rails (6.2.0)
+      execjs
+      json
+    awesome_print (1.6.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
+    brakeman (3.1.3)
+      erubis (~> 2.6)
+      fastercsv (~> 1.5)
+      haml (>= 3.0, < 5.0)
+      highline (>= 1.6.20, < 2.0)
+      multi_json (~> 1.2)
+      ruby2ruby (>= 2.1.1, < 2.3.0)
+      ruby_parser (~> 3.7.0)
+      safe_yaml (>= 1.0)
+      sass (~> 3.0)
+      slim (>= 1.3.6, < 4.0)
+      terminal-table (~> 1.4)
     builder (3.2.2)
+    bundler-audit (0.4.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
+    capybara (2.5.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    capybara-screenshot (1.0.11)
+      capybara (>= 1.0, < 3)
+      launchy
+    celluloid (0.17.2)
+      celluloid-essentials
+      celluloid-extras
+      celluloid-fsm
+      celluloid-pool
+      celluloid-supervision
+      timers (>= 4.1.1)
+    celluloid-essentials (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-extras (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-fsm (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-pool (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-supervision (0.20.5)
+      timers (>= 4.1.1)
+    childprocess (0.5.8)
+      ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.0.0)
+      archive-zip (~> 0.7.0)
+      nokogiri (~> 1.6)
     codeclimate-test-reporter (0.4.8)
       simplecov (>= 0.7.1, < 1.0.0)
+    coffee-rails (4.1.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.1.x)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
+    connection_pool (2.2.0)
+    coveralls (0.8.10)
+      json (~> 1.8)
+      rest-client (>= 1.6.8, < 2)
+      simplecov (~> 0.11.0)
+      term-ansicolor (~> 1.3)
+      thor (~> 0.19.1)
+      tins (~> 1.6.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    domain_name (0.5.25)
+      unf (>= 0.0.5, < 1.0.0)
+    em-hiredis (0.3.0)
+      eventmachine (~> 1.0)
+      hiredis (~> 0.5.0)
     erubis (2.7.0)
+    eventmachine (1.0.8)
+    execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    fastercsv (1.5.5)
+    faye-websocket (0.10.2)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
+    ffi (1.9.10)
+    foreman (0.78.0)
+      thor (~> 0.19.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
+    highline (1.7.8)
+    hiredis (0.5.2)
+    hitimes (1.2.3)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     i18n (0.7.0)
+    io-like (0.3.0)
     json (1.8.3)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    libv8 (3.16.14.13)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -111,11 +258,13 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
-    nokogiri (1.6.7)
+    multi_json (1.11.2)
+    netrc (0.11.0)
+    nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     parser (2.2.3.0)
       ast (>= 1.1, < 3.0)
-    pg (0.18.3)
+    pg (0.18.4)
     powerpack (0.1.1)
     process_helper (0.0.3)
     puma (2.15.3)
@@ -129,24 +278,21 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_stdout_logging (0.0.4)
     rainbow (2.0.0)
     rake (10.4.2)
-    rspec-core (3.1.7)
-      rspec-support (~> 3.1.0)
-    rspec-expectations (3.1.2)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.1.0)
-    rspec-mocks (3.1.3)
-      rspec-support (~> 3.1.0)
-    rspec-rails (3.1.0)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 3.1.0)
-      rspec-expectations (~> 3.1.0)
-      rspec-mocks (~> 3.1.0)
-      rspec-support (~> 3.1.0)
-    rspec-support (3.1.2)
+    react_on_rails (1.2.0)
+      connection_pool
+      execjs (~> 2.5)
+      rails (>= 3.2)
+    redis (3.2.2)
+    ref (2.0.0)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    rspec-retry (0.4.5)
+      rspec-core
     rspec_junit_formatter (0.2.2)
       builder (< 4)
       rspec-core (>= 2, < 4, != 2.12.0)
@@ -161,25 +307,75 @@ GEM
       parser (~> 2.2)
       slop (~> 3.4, >= 3.4.7)
     ruby-progressbar (1.7.5)
-    simplecov (0.10.0)
+    ruby2ruby (2.2.0)
+      ruby_parser (~> 3.1)
+      sexp_processor (~> 4.0)
+    ruby_parser (3.7.2)
+      sexp_processor (~> 4.1)
+    rubyzip (1.1.7)
+    safe_yaml (1.0.4)
+    sass (3.4.20)
+    sass-rails (5.0.4)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
+    scss_lint (0.43.2)
+      rainbow (~> 2.0)
+      sass (~> 3.4.15)
+    selenium-webdriver (2.48.1)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
+    sexp_processor (4.6.0)
+    simplecov (0.11.1)
       docile (~> 1.1.0)
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    slim (3.0.6)
+      temple (~> 0.7.3)
+      tilt (>= 1.3.3, < 2.1)
     slop (3.6.0)
-    spring (1.5.0)
+    spring (1.6.0)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (2.3.3)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      sprockets (>= 2.8, < 4.0)
+    sprockets-rails (3.0.0)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
+      sprockets (>= 3.0.0)
+    temple (0.7.6)
+    term-ansicolor (1.3.2)
+      tins (~> 1.0)
+    terminal-table (1.5.2)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
+    tilt (2.0.1)
+    timers (4.1.1)
+      hitimes
     tins (1.6.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
+    websocket (1.2.2)
+    websocket-driver (0.6.3)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -187,19 +383,41 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.0.rc2)
   arel!
+  awesome_print
+  bootstrap-sass
+  brakeman
+  bundler-audit
+  capybara
+  capybara-screenshot
+  chromedriver-helper
   codeclimate-test-reporter
+  coveralls
   factory_girl_rails (~> 4.0)
   fixture_builder!
+  foreman
   pg
   process_helper
   puma
   rack!
   rails!
-  rspec-rails (~> 3.0)
+  rails_stdout_logging
+  react_on_rails
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-rails!
+  rspec-retry
+  rspec-support!
   rspec_junit_formatter (= 0.2.2)
   rubocop (>= 0.27.0)
   ruby-lint (~> 2.0)
+  sass-rails
+  scss_lint
+  selenium-webdriver
   spring
+  spring-commands-rspec
+  therubyracer
+  uglifier
 
 BUNDLED WITH
    1.10.6

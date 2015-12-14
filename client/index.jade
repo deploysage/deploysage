@@ -1,0 +1,22 @@
+doctype html
+html
+
+  head
+    title Express Dev Server Rendering
+
+  body
+
+    h1.alert.alert-info.this-works Express Dev Server Rendering
+    #app
+
+    script(src="vendor-bundle.js")
+    script(src="app-bundle.js")
+    script.
+      ReactDOM.render(React.createElement(
+              DeploySageApp,
+              {
+                orgsById: {'1': {'name': 'Organization from jade'}},
+                orgs: ['1'],
+              }),
+              document.getElementById('app')
+      )

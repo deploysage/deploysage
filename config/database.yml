@@ -11,3 +11,10 @@ development:
 test:
   <<: *default
   database: ds_test
+
+# for verifying production webpack build functionality,
+# the actual production database.yml is auto-generated
+# by the PaaS buildpack
+production:
+  <<: *default
+  database: ds_dev

@@ -7,6 +7,7 @@ AllCops:
     - '**/Rakefile'
     - '**/config.ru'
   Exclude:
+    - 'client/node_modules/**/*'
     - 'db/**/*'
     - 'vendor/bundle/**/*'
 

@@ -17,6 +17,7 @@ chdir APP_ROOT do
   puts '== Installing dependencies =='
   system! 'gem install bundler --conservative'
   system('bundle check') || system!('bundle install')
+  system!('npm install')
 
   # puts "\n== Copying sample files =="
   # unless File.exist?('config/database.yml')
@@ -24,17 +25,24 @@ chdir APP_ROOT do
   # end
 
   puts "\n== Creating database =="
-  system! 'ruby bin/rake db:create:all'
+  system! 'bin/rake db:create:all'
 
   puts "\n== Migrating dev database =="
-  system! 'ruby bin/rake db:migrate'
+  system! 'bin/rake db:migrate'
 
-  puts "\n== Preparing database =="
-  system! 'ruby bin/rake db:setup'
+  puts "\n== Preparing dev database =="
+  system! 'bin/rake db:setup'
+
+  puts "\n== Preparing test database =="
+  system! 'bin/rake db:test:prepare'
+
+  puts "\n== Loading fixtures into dev database =="
+  system! 'bin/rake db:fixtures:load'
 
   puts "\n== Removing old logs and tempfiles =="
-  system! 'ruby bin/rake log:clear tmp:clear'
+  system! 'bin/rake log:clear tmp:clear'
+  system! 'rm -f client/npm-debug.log.*'
 
-  puts "\n== Restarting application server =="
-  system! 'ruby bin/rake restart'
+  puts "\n== Starting foreman (with `bin/start`) =="
+  system! 'bin/start'
 end
