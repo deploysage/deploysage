@@ -19,9 +19,9 @@ if Rails.env.development? || Rails.env.test?
 
   task :rspec_tests do
     puts Rainbow("Running RSpec tests").green
-    if ENV['CIRCLE']
-      sh 'RAILS_ENV=test bin/rspec -r rspec_junit_formatter --format RspecJunitFormatter -o
-$CIRCLE_TEST_REPORTS/rspec/junit.xml'
+    if ENV['CIRCLECI']
+      sh 'RAILS_ENV=test bin/rspec -r rspec_junit_formatter --format RspecJunitFormatter ' \
+        '-o $CIRCLE_TEST_REPORTS/rspec/junit.xml'
     else
       sh "bin/rspec"
     end
