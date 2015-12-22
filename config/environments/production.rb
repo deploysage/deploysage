@@ -1,14 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Inlining of rails_12factor gem functionality to avoid Rails 5 deprecation errors
+  config.action_dispatch.x_sendfile_header = nil
+
   # Code is not reloaded between requests.
-  config.cache_classes = true
+  config.cache_classes = true unless ENV['SKIP_CACHE_CLASSES'] == 'true'
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
+  config.eager_load = true unless ENV['SKIP_EAGER_LOAD'] == 'true'
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -17,6 +20,23 @@ Rails.application.configure do
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
+  # Compress JavaScripts and CSS.
+  config.assets.js_compressor = :uglifier
+  config.assets.css_compressor = :sass
+
+  # Do not fallback to assets pipeline if a precompiled asset is missed.
+  # config.assets.compile = false
+  # WORKAROUND for bug in react_on_rails, see https://www.pivotaltracker.com/story/show/110549168
+  # and https://github.com/shakacode/react_on_rails/issues/170
+  config.assets.compile = true
+
+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+  # yet still be able to expire them through the digest params.
+  config.assets.digest = true
+
+  # `config.assets.precompile` and `config.assets.version` have moved
+  # to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'

@@ -1,0 +1,26 @@
+# See http://sass-guidelin.es/#zeros
+
+scss_files:
+  - 'app/assets/stylesheets/**/*.scss'
+  - 'client/app/**/*.scss'
+
+exclude: 'client/node_modules/**'
+
+linters:
+  ColorKeyword:
+    enabled: false
+  ColorVariable:
+    enabled: false
+  HexLength:
+    enabled: true
+    style: long
+  HexNotation:
+    enabled: true
+    style: uppercase
+  IdSelector:
+    enabled: true
+  LeadingZero:
+    enabled: true
+    style: include_zero
+  SelectorFormat:
+    enabled: false
