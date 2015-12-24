@@ -38,7 +38,7 @@ export default class OrgWidget extends BaseComponent {
 
   render() {
     const $$deploySageStore = this.props.$$deploySageStore;
-    const orgId = $$deploySageStore.get('orgs').get(0);
+    const orgId = $$deploySageStore.get('orgs').first();
     const name = $$deploySageStore.getIn(['orgsById', orgId, 'name']);
 
     return (

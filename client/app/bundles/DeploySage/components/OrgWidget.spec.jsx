@@ -1,5 +1,5 @@
 import { React, expect, TestUtils } from 'libs/testHelper';
-import Immutable from 'immutable';
+import { fixtureState } from 'libs/fixtures';
 
 import OrgWidget from './OrgWidget';
 
@@ -14,10 +14,7 @@ const actions = {
 };
 
 describe('OrgWidget', () => {
-  const $$deploySageStore = Immutable.fromJS({
-    orgsById: { 1: { name: 'disorganization' } },
-    orgs: ['1'],
-  });
+  const $$deploySageStore = fixtureState();
 
   it('receives name from props', () => {
     const component = renderIntoDocument(
@@ -27,6 +24,6 @@ describe('OrgWidget', () => {
       />
     );
     const orgName = findRenderedDOMComponentWithClass(component, 'js-org-name');
-    expect(orgName.textContent).to.equal('Organization is named disorganization');
+    expect(orgName.textContent).to.equal('Organization is named Fixture Organization 1');
   });
 });

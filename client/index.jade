@@ -14,9 +14,6 @@ html
     script.
       ReactDOM.render(React.createElement(
               DeploySageApp,
-              {
-                orgsById: {'1': {'name': 'Organization from jade'}},
-                orgs: ['1'],
-              }),
+              !{props}),
               document.getElementById('app')
       )

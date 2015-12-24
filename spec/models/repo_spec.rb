@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Repo do
   it 'has fixtures' do
-    expect(repos(:fixture_repo_1).github_identifier).to eq(47_444_606)
+    fixture = repos(:fixture_repo_1)
+    expect(fixture.id).to eq(1)
+    expect(fixture.github_identifier).to eq(47_444_606)
+    expect(fixture.created_at).to eq(pi_day)
+    expect(fixture.updated_at).to eq(pi_day)
   end
 
   it 'has factories' do

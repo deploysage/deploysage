@@ -1,22 +1,32 @@
-require 'factory_girl'
+require 'factory_girl_rails'
 
 class CreateFixtures
   include FactoryGirl::Syntax::Methods
 
-  attr_accessor :fbuilder, :models
+  attr_accessor :fbuilder, :models, :fixed_time
 
   def initialize(fbuilder)
     @fbuilder = fbuilder
     @models = {}
+    @fixed_time = Time.utc(2015, 3, 14, 9, 2, 6)
   end
 
   def create_all
+    reset_pk_sequences
     set_up_naming
     create_orgs
     create_repos
+    reset_pk_sequences
   end
 
   private
+
+  def reset_pk_sequences
+    puts 'Resetting Primary Key sequences'
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.reset_pk_sequence!(t)
+    end
+  end
 
   def set_up_naming
     [Org, Repo].each do |model_class|
@@ -27,19 +37,35 @@ class CreateFixtures
   end
 
   def create_orgs
-    model = create(:org, name: 'Fixture Organization 1')
-    name = nameify(model['name'])
-    store_model_reference(:org, name, model)
+    model_hashes = [
+      { name: 'Fixture Organization 1' }
+    ]
+    model_hashes.each do |model_hash|
+      add_fixed_date(model_hash)
+      model = create(:org, model_hash)
+      name = nameify(model['name'])
+      store_model_reference(:org, name, model)
+    end
   end
 
   def create_repos
-    model = create(
-      :repo,
-      org_id: models[:org][:fixture_organization_1].id,
-      github_identifier: 47_444_606,
-      url: 'https://github.com/deploysage/fixture-repo-1.git')
-    name = nameify(model['url'].split('/').last.split('.').first)
-    store_model_reference(:repo, name, model)
+    model_hashes = [
+      {
+        org_id: models[:org][:fixture_organization_1].id,
+        github_identifier: 47_444_606,
+        url: 'https://github.com/deploysage/fixture-repo-1.git',
+      }
+    ]
+    model_hashes.each do |model_hash|
+      add_fixed_date(model_hash)
+      model = create(:repo, model_hash)
+      name = nameify(model['url'].split('/').last.split('.').first)
+      store_model_reference(:repo, name, model)
+    end
+  end
+
+  def add_fixed_date(model_hash)
+    model_hash.merge!(created_at: fixed_time, updated_at: fixed_time)
   end
 
   def nameify(text)
