@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bin/foreman start -f Procfile.express
