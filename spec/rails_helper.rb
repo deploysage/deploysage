@@ -79,3 +79,7 @@ RSpec.configure do |config|
 
   Capybara::Screenshot.prune_strategy = { keep: 10 }
 end
+
+def pi_day
+  Time.utc(2015, 3, 14, 9, 2, 6)
+end

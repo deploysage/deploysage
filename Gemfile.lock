@@ -122,7 +122,7 @@ GIT
 
 GIT
   remote: https://github.com/rdy/fixture_builder.git
-  revision: b2e4f37915bb920ab58ea8bd3d1c788c029c3b39
+  revision: b2478fe4e8c491ef15556da3957804b9d1cf929a
   specs:
     fixture_builder (0.4.1)
       activerecord (>= 2)

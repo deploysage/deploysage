@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Org do
   it 'has fixtures' do
-    expect(orgs(:fixture_organization_1).name).to eq('Fixture Organization 1')
+    fixture = orgs(:fixture_organization_1)
+    expect(fixture.id).to eq(1)
+    expect(fixture.name).to eq('Fixture Organization 1')
+    expect(fixture.created_at).to eq(pi_day)
+    expect(fixture.updated_at).to eq(pi_day)
   end
 
   it 'has factories' do
