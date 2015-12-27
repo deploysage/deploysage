@@ -1,5 +1,5 @@
-import { React, expect, TestUtils } from 'libs/testHelper';
-import { fixtureImmutableState } from 'libs/fixtures';
+import { React, expect, TestUtils } from 'libs/test/testHelper';
+import { fixtureImmutableState } from 'libs/test/fixtures';
 
 import OrgWidget from './OrgWidget';
 
