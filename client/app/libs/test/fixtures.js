@@ -1,5 +1,5 @@
 const Immutable = require('immutable');
-const humps = require('humps');
+const jsonFormatter = require('../formatters/jsonFormatter');
 const YAML = require('yamljs');
 const fs = require('fs');
 const _ = require('lodash');
@@ -28,8 +28,8 @@ function fixtureInitialState() {
 }
 
 function fixtureImmutableState() {
-  const camelizedFixtureInitialState = humps.camelizeKeys(fixtureInitialState());
-  return Immutable.fromJS(camelizedFixtureInitialState);
+  const formattedFixtureInitialState = jsonFormatter.formatJson(fixtureInitialState());
+  return Immutable.fromJS(formattedFixtureInitialState);
 }
 
 module.exports = {
