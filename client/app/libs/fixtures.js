@@ -1,4 +1,5 @@
 const Immutable = require('immutable');
+const humps = require('humps');
 const YAML = require('yamljs');
 const fs = require('fs');
 const _ = require('lodash');
@@ -15,15 +16,23 @@ function loadFixtures() {
   return fixtures;
 }
 
-function fixtureState() {
+function fixtureInitialState() {
   const fixtures = loadFixtures();
   const orgsById = { [fixtures.orgs[0].id]: { name: fixtures.orgs[0].name } };
-  return Immutable.fromJS({
-    orgsById,
+
+  // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+  return {
+    orgs_by_id: orgsById,
     orgs: [fixtures.orgs[0].id.toString()],
-  });
+  };
+}
+
+function fixtureImmutableState() {
+  const camelizedFixtureInitialState = humps.camelizeKeys(fixtureInitialState());
+  return Immutable.fromJS(camelizedFixtureInitialState);
 }
 
 module.exports = {
-  fixtureState,
+  fixtureInitialState,
+  fixtureImmutableState,
 };

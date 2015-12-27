@@ -1,29 +1,27 @@
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
+import Immutable from 'immutable';
+import { camelizeKeys } from 'humps';
 
 // See https://github.com/gaearon/redux-thunk and http://redux.js.org/docs/advanced/AsyncActions.html
 // This is not actually used for this simple example, but you'd probably want to use this once your app has
 // asynchronous actions.
-import thunkMiddleware from 'redux-thunk';
-
-// This provides an example of logging redux actions to the console.
-// You'd want to disable this for production.
-import loggerMiddleware from 'libs/middlewares/loggerMiddleware';
+import thunk from 'redux-thunk';
+import logger from 'libs/middlewares/logger';
 
 import reducers from '../reducers';
-import { initalStates } from '../reducers';
 
 export default props => {
-  // This is how we get initial props Rails into redux.
-  const { $$deploySageState } = initalStates;
+  // props is how we get initial props from Rails view into redux.
+  const camelizedProps = camelizeKeys(props);
 
   // Redux expects to initialize the store using an Object, not an Immutable.Map
   const initialState = {
-    $$deploySageStore: $$deploySageState.merge(props),
+    $$deploySageStore: Immutable.fromJS(camelizedProps),
   };
 
   const reducer = combineReducers(reducers);
   const composedStore = compose(
-    applyMiddleware(thunkMiddleware, loggerMiddleware)
+    applyMiddleware(thunk, logger)
   );
   const storeCreator = composedStore(createStore);
   const store = storeCreator(reducer, initialState);

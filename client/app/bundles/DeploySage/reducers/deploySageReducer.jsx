@@ -1,13 +1,13 @@
-import Immutable from 'immutable';
-
 import actionTypes from '../actions/actionTypes';
 
-export const $$initialState = Immutable.fromJS({
-  orgsById: {},
-  orgs: [],
-});
+export default function deploySageReducer($$state, action) {
+  if ($$state === undefined) {
+    // on app startup, reducer is called with undefined before store passes in
+    // initial state on a subsequent call.  In that case, just no-op
+    // and return an empty object
+    return {};
+  }
 
-export default function deploySageReducer($$state = $$initialState, action) {
   const { type, name } = action;
 
   switch (type) {

@@ -24,7 +24,7 @@ server.app.use(bodyParser.urlencoded({ extended: true }));
 
 server.app.use('/', function(req, res) {
   var locals = {
-    props: JSON.stringify(fixtures.fixtureState()),
+    props: JSON.stringify(fixtures.fixtureInitialState()),
   };
   var layout = process.cwd() + '/index.jade';
   var html = jade.compileFile(layout, { pretty: true })(locals);

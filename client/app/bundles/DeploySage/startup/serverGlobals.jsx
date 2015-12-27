@@ -1,3 +1,3 @@
-import DeploySageAppServer from './DeploySageAppServer';
+import DeploySageApp from './DeploySageApp';
 
-global.DeploySageApp = DeploySageAppServer;
+global.DeploySageApp = DeploySageApp;
