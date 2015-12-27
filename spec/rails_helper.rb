@@ -31,8 +31,9 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.before(:suite) do
     FactoryGirl.lint
-    # Next line will ensure that assets are built if webpack -w is not running
-    EnsureAssetsCompiled.check_built_assets
+    # Next line will ensure that correct servers are running for test
+    # TODO: make bin/start-spec run and be killed around suite if not running
+    EnsureTestServers.check_test_servers
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -64,7 +65,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   # Capybara
-  require 'support/ensure_assets_compiled'
+  require 'support/ensure_test_servers'
   Capybara.register_driver :selenium_chrome do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome)
   end
@@ -74,12 +75,25 @@ RSpec.configure do |config|
     js_driver.browser.save_screenshot(path)
   end
 
-  Capybara.default_max_wait_time = 15
-  puts "Capybara using driver: #{Capybara.javascript_driver}"
+  Capybara.default_driver = Capybara.javascript_driver
+
+  Capybara.default_max_wait_time = 5
 
   Capybara::Screenshot.prune_strategy = { keep: 10 }
 end
 
 def pi_day
   Time.utc(2015, 3, 14, 9, 2, 6)
+end
+
+# Based on https://github.com/jnicklas/capybara/issues/203#issuecomment-12647536
+def trigger_event_for(id, event)
+  fail 'Please supply an id' if id.blank?
+  if Capybara.javascript_driver == :selenium_chrome
+    page.execute_script %{
+      window.top.document.getElementById('#{id}').dispatchEvent(new Event('#{event}'))
+    }
+  else
+    fail "Unsupported #trigger_event_for javascript driver #{Capybara.javascript_driver}"
+  end
 end

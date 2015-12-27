@@ -13,7 +13,7 @@ gem 'process_helper'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveModelSerializers to serialize JSON responses
-gem 'active_model_serializers', '~> 0.10.0.rc2'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -44,6 +44,7 @@ group :test do
   gem 'codeclimate-test-reporter', require: false
   gem "coveralls", require: false
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'fork'
   gem 'rspec-core', github: 'rspec/rspec-core'
   gem 'rspec-expectations', github: 'rspec/rspec-expectations'
   gem 'rspec-mocks', github: 'rspec/rspec-mocks'
@@ -52,6 +53,7 @@ group :test do
   gem "rspec-retry"
   gem 'rspec_junit_formatter', '0.2.2'
   gem "selenium-webdriver"
+  gem 'rails-controller-testing'
 end
 
 group :development, :test do

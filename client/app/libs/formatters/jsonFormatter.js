@@ -1,8 +1,9 @@
-const humps = require('humps');
+const camelizeFormatter = require('./camelizeFormatter');
+const normalizeFormatter = require('./normalizeFormatter');
 
 function formatJson(json) {
-  const camelizedJson = humps.camelizeKeys(json);
-  return camelizedJson;
+  const camelizedJson = camelizeFormatter.camelizeJson(json);
+  return normalizeFormatter.normalizeJson(camelizedJson);
 }
 
 module.exports = {

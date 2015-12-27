@@ -1,4 +1,16 @@
 # :nodoc:
 class RepoSerializer < ActiveModel::Serializer
-  attributes :id, :github_identifier, :url, :created_at, :updated_at
+  attributes :id, :org_id, :github_identifier, :url
+
+  def id
+    object.id.to_s
+  end
+
+  def org_id
+    object.id.to_s
+  end
+
+  def github_identifier
+    object.github_identifier.to_s
+  end
 end
