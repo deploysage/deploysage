@@ -1,4 +1,4 @@
-// OrgWidget is an arbitrary name for any "dumb" component. We do not recommend suffixing all your
+// RepoWidget is an arbitrary name for any "dumb" component. We do not recommend suffixing all your
 // dump component names with Widget.
 
 import React, { PropTypes } from 'react';
@@ -9,11 +9,11 @@ import PageHeader from 'react-bootstrap/lib/PageHeader';
 import Input from 'react-bootstrap/lib/Input';
 import _ from 'lodash';
 
-import css from './OrgWidget.scss';
+import css from './RepoWidget.scss';
 import BaseComponent from 'libs/components/BaseComponent';
 
 // Simple example of a React "dumb" component
-export default class OrgWidget extends BaseComponent {
+export default class RepoWidget extends BaseComponent {
   constructor(props, context) {
     super(props, context);
 
@@ -33,37 +33,38 @@ export default class OrgWidget extends BaseComponent {
 
   // React will automatically provide us with the event `e`
   _handleChange(e) {
-    const name = e.target.value;
-    this.props.actions.updateName(name);
+    const url = e.target.value;
+    this.props.actions.updateUrl(url);
   }
 
   render() {
     const $$deploySageStore = this.props.$$deploySageStore;
-    const orgId = $$deploySageStore.getIn(['result', 'orgs']).first();
-    const name = $$deploySageStore.getIn(['entities', 'orgs', orgId, 'name']);
+    const repoId = $$deploySageStore.getIn(['result', 'repos']).first();
+    const url = $$deploySageStore.getIn(['entities', 'repos', repoId, 'url']);
+    const orgName = $$deploySageStore.getIn(['entities', 'orgs', '1', 'name']);
 
     return (
-      <div className={css.org}>
+      <div className={css.repo}>
         <Row>
           <Col xs={12}>
-            <PageHeader>
-              Example bootstrap header
+            <PageHeader className="js-org-name">
+              Organization: {orgName}
             </PageHeader>
           </Col>
           <Col xs={6}>
             <form className="form-horizontal">
               <Input
-                id="org-name"
+                id="repo-url"
                 type="text"
-                label="Organization name"
-                value={name}
+                label="Repo URL"
+                value={url}
                 onChange={this._handleChange}
               />
             </form>
           </Col>
           <Col xs={6}>
-            <h3 className="js-org-name">
-              Organization is named {name}
+            <h3 className="js-repo-url">
+              Repo URL: {url}
             </h3>
           </Col>
         </Row>

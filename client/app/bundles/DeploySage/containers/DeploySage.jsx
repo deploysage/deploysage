@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import OrgWidget from '../components/OrgWidget';
+import RepoWidget from '../components/RepoWidget';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
@@ -30,9 +30,9 @@ class DeploySage extends React.Component {
 
     // This uses the ES2015 spread operator to pass properties as it is more DRY
     // This is equivalent to:
-    // <OrgWidget $$deploySageStore={$$deploySageStore} actions={actions} />
+    // <RepoWidget $$deploySageStore={$$deploySageStore} actions={actions} />
     return (
-      <OrgWidget {...{ $$deploySageStore, actions }} />
+      <RepoWidget {...{ $$deploySageStore, actions }} />
     );
   }
 }

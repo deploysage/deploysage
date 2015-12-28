@@ -9,8 +9,4 @@ class RepoSerializer < ActiveModel::Serializer
   def org_id
     object.id.to_s
   end
-
-  def github_identifier
-    object.github_identifier.to_s
-  end
 end

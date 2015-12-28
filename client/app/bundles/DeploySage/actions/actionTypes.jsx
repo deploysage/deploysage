@@ -4,5 +4,5 @@
 import mirrorCreator from 'mirror-creator';
 
 export default mirrorCreator([
-  'ORG_NAME_UPDATE',
+  'REPO_URL_UPDATE',
 ]);

@@ -11,14 +11,25 @@ describe('normalizeFormatter', () => {
           name: 'foo',
         },
       ],
+      repos: [
+        {
+          id: '2',
+          githubIdentifier: '314159',
+          url: 'https://github.com/u/r.git',
+        },
+      ],
     };
     const expected = {
       result: {
         orgs: ['1'],
+        repos: ['2'],
       },
       entities: {
         orgs: {
           1: { id: '1', name: 'foo' },
+        },
+        repos: {
+          2: { id: '2', githubIdentifier: '314159', url: 'https://github.com/u/r.git' },
         },
       },
     };
