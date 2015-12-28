@@ -6,6 +6,7 @@ import Immutable from 'immutable';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import PageHeader from 'react-bootstrap/lib/PageHeader';
+import Input from 'react-bootstrap/lib/Input';
 import _ from 'lodash';
 
 import css from './OrgWidget.scss';
@@ -38,8 +39,8 @@ export default class OrgWidget extends BaseComponent {
 
   render() {
     const $$deploySageStore = this.props.$$deploySageStore;
-    const orgId = $$deploySageStore.get('orgs').first();
-    const name = $$deploySageStore.getIn(['orgsById', orgId, 'name']);
+    const orgId = $$deploySageStore.getIn(['result', 'orgs']).first();
+    const name = $$deploySageStore.getIn(['entities', 'orgs', orgId, 'name']);
 
     return (
       <div className={css.org}>
@@ -50,10 +51,15 @@ export default class OrgWidget extends BaseComponent {
             </PageHeader>
           </Col>
           <Col xs={6}>
-            <p>
-              Organization name:
-              <input type="text" value={name} onChange={this._handleChange}/>
-            </p>
+            <form className="form-horizontal">
+              <Input
+                id="org-name"
+                type="text"
+                label="Organization name"
+                value={name}
+                onChange={this._handleChange}
+              />
+            </form>
           </Col>
           <Col xs={6}>
             <h3 className="js-org-name">

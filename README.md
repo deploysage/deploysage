@@ -38,12 +38,13 @@ bin/setup # automatically runs `bin/start` at the end
 
 Running all linters/specs:
 ```
+bin/start-spec # required until it is automated, and remember to restart when needed :(
 bin/rake ci
 ```
 
 Running focused Rails specs for TDD:
 ```
-bin/foreman start -f Procfile.spec
+bin/start-spec
 bin/spring stop
 # Run focused specs from Rubymine, so spring has rubymine libs loaded
 ```

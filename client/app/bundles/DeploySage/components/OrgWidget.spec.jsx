@@ -1,5 +1,5 @@
-import { React, expect, TestUtils } from 'libs/testHelper';
-import { fixtureState } from 'libs/fixtures';
+import { React, expect, TestUtils } from 'libs/test/testHelper';
+import { fixtureImmutableState } from 'libs/test/fixtures';
 
 import OrgWidget from './OrgWidget';
 
@@ -14,7 +14,7 @@ const actions = {
 };
 
 describe('OrgWidget', () => {
-  const $$deploySageStore = fixtureState();
+  const $$deploySageStore = fixtureImmutableState();
 
   it('receives name from props', () => {
     const component = renderIntoDocument(

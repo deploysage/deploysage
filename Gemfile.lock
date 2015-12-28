@@ -1,9 +1,18 @@
 GIT
   remote: git://github.com/rack/rack.git
-  revision: f4562619c3c669404e39d9b09924bed5a6b71c14
+  revision: 7cb3772a03f1b713622f68e178f90a71a66aff0d
   specs:
     rack (2.0.0.alpha)
       json
+
+GIT
+  remote: git://github.com/rails-api/active_model_serializers.git
+  revision: bb67735c79f739e7261382a2d553e0d1a0a9b975
+  specs:
+    active_model_serializers (0.10.0.rc3)
+      actionpack (>= 4.0)
+      activemodel (>= 4.0)
+      railties (>= 4.0)
 
 GIT
   remote: git://github.com/rails/arel.git
@@ -80,7 +89,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-core.git
-  revision: e27f3a0df9c182de9a7c9727a6d8ed6a20aebbb1
+  revision: 8cb45cc8779d09b13e054ecb94c911b7e14f7fde
   specs:
     rspec-core (3.5.0.pre)
       rspec-support (= 3.5.0.pre)
@@ -103,7 +112,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-rails.git
-  revision: b1dff7fb6c3b67650e05865abc9676738076fcf0
+  revision: 7f2b695a2e70af1aa4f78346143e71e926bbccd7
   specs:
     rspec-rails (3.5.0.pre)
       actionpack (>= 3.0)
@@ -116,7 +125,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-support.git
-  revision: a0bc8606b33041dee1e1eae17def1e37ed4bf734
+  revision: b0ff0f6e157288c33f8dc6d57f4ee157d43152fa
   specs:
     rspec-support (3.5.0.pre)
 
@@ -131,10 +140,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    active_model_serializers (0.10.0.rc3)
-      actionpack (>= 4.0)
-      activemodel (>= 4.0)
-      railties (>= 4.0)
     addressable (2.4.0)
     archive-zip (0.7.0)
       io-like (~> 0.3.0)
@@ -235,6 +240,7 @@ GEM
     ffi (1.9.10)
     foreman (0.78.0)
       thor (~> 0.19.1)
+    fork (1.0.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -270,6 +276,8 @@ GEM
     puma (2.15.3)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rails-controller-testing (0.0.3)
+      rails (>= 4.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -381,7 +389,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10.0.rc2)
+  active_model_serializers!
   arel!
   awesome_print
   bootstrap-sass
@@ -395,11 +403,13 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   fixture_builder!
   foreman
+  fork
   pg
   process_helper
   puma
   rack!
   rails!
+  rails-controller-testing
   rails_stdout_logging
   react_on_rails
   rspec-core!

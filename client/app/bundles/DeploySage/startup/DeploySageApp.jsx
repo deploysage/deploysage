@@ -1,14 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import createStore from '../store/deploySageStore';
+import configureStore from '../store/configureStore';
 import DeploySage from '../containers/DeploySage';
 
 // See documentation for https://github.com/rackt/react-redux.
 // This is how you get props from the Rails view into the redux store.
 // This code here binds your smart component to the redux store.
-const DeploySageAppClient = props => {
-  const store = createStore(props);
+// This is how the server redux gets hydrated with data.
+const DeploySageApp = props => {
+  const store = configureStore(props);
   const reactComponent = (
     <Provider store={store}>
       <DeploySage />
@@ -17,4 +18,4 @@ const DeploySageAppClient = props => {
   return reactComponent;
 };
 
-export default DeploySageAppClient;
+export default DeploySageApp;

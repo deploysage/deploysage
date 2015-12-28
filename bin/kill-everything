@@ -1,0 +1,14 @@
+#!/bin/sh
+
+pkill -f -i ruby[^m] # this sometimes misses processes
+killall -9 ruby   # the above sometimes doesn't kill ruby tasks
+pkill -9 -f -i rspec
+pkill -9 -f -i rake
+pkill -9 -f -i rails
+pkill -9 -f -i '.*\.rb( |$)'
+pkill -9 -f -i puma
+pkill -9 -f -i karma
+pkill -9 -f -i npm
+pkill -9 -f -i node
+pkill -9 -f -i redis-server
+exit 0

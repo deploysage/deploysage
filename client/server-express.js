@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var jade = require('jade');
 var config = require('./webpack.client.express.config');
-var fixtures = require('./app/libs/fixtures');
+var fixtures = require('./app/libs/test/fixtures');
 
 var server = new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
@@ -24,7 +24,7 @@ server.app.use(bodyParser.urlencoded({ extended: true }));
 
 server.app.use('/', function(req, res) {
   var locals = {
-    props: JSON.stringify(fixtures.fixtureState()),
+    props: JSON.stringify(fixtures.fixtureInitialState()),
   };
   var layout = process.cwd() + '/index.jade';
   var html = jade.compileFile(layout, { pretty: true })(locals);

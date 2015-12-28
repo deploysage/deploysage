@@ -38,7 +38,7 @@ if %w(development test).include? Rails.env
 
     desc "eslint"
     task :eslint do
-      cmd = "cd client && npm run eslint . -- --ext .jsx,.js"
+      cmd = "cd client && npm run eslint"
       puts "Running eslint via `#{cmd}`"
       sh cmd
     end
