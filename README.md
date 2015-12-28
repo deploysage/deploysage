@@ -1,4 +1,4 @@
-# DeploySage
+# Deploy Sage
 
 
 **CircleCI**:
@@ -10,6 +10,39 @@ master:[![CircleCI master branch](https://circleci.com/gh/deploysage/deploysage/
 [![Issue Count](https://codeclimate.com/github/deploysage/deploysage/badges/issue_count.svg)](https://codeclimate.com/github/deploysage/deploysage)
 
 **[Pivotal Tracker Project](https://www.pivotaltracker.com/n/projects/1477064)**
+
+## Goals
+
+**Since the dawn of computing, humans have asked the question**:
+*"What version of the code is where?"*
+
+Some call it [Release Management](https://en.wikipedia.org/wiki/Release_management).
+
+Some call it [Software Deployment](https://en.wikipedia.org/wiki/Software_deployment).
+
+Whatever you call it, and whoever you are - developer, tester, or product owner -
+Deploy Sage answers your questions.
+
+Accurately.
+
+Reliably.
+
+Automatically.
+
+*In real time.*
+
+Specifically, it is a single page, live-updating, realtime app which mashes up 
+**1)** the Github repo/commits API,
+**2)** deployed or released versions of your code repos, and
+**3)** integrated external items (e.g. Zendesk, Pivotal Tracker, Github Issues, etc)
+to *instantly and automatically provide answers* that are otherwise difficult
+or time-consuming to obtain.  E.g., Release Notes with links to fixed
+(and partially fixed or in-progress!) bugs and features, and all the commits
+which represent them.
+
+More details and documentation to come.  For now, this README only covers technical
+setup and hacking details.
+
 ## Setup
 
 ### Installing/fixing postgres on OSX
@@ -96,3 +129,13 @@ SKIP_EAGER_LOAD=true SKIP_CACHE_CLASSES=true bin/start-local-prod
   * public/system
   * tmp
   * vendor/bundle
+
+## Technologies
+
+* [Rails](http://rubyonrails.org/)
+* [React](https://facebook.github.io/react/)
+* [Redux](http://redux.js.org/)
+* [React on Rails](https://github.com/shakacode/react_on_rails)
+* [ActionCable WebSockets](https://github.com/rails/rails/tree/master/actioncable)
+* [JWT](http://jwt.io/)
+* [GitHub API](https://developer.github.com/)
