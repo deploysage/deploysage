@@ -10,9 +10,8 @@ RSpec.feature 'Repos' do
     expect(el.text).to eq expected_text
   end
 
-  it 'updates url' do
-    fill_in('repo-url', with: 'new url')
-    trigger_event_for('repo-url', :keyup)
+  it 'updates url', js: true do
+    fill_in('Repo URL', with: 'new url')
     el = find('.js-repo-url')
     expected_text = 'Repo URL: new url'
     expect(el.text).to eq expected_text

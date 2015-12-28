@@ -72,17 +72,15 @@ bin/setup # automatically runs `bin/start` at the end
 
 Running all linters/specs:
 ```
-bin/start-spec # required until it is automated, and remember to restart when needed :(
 bin/rake ci
 ```
 
-Running focused Rails specs for TDD:
+Running focused Rails/Capybara specs for TDD:
 ```
 bin/start-spec
 bin/spring stop
 # Run focused specs from Rubymine, so spring has rubymine libs loaded
 ```
-
 
 ### Running App in Dev Env (with hot reloading)
 
