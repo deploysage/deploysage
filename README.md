@@ -9,6 +9,7 @@ master:[![CircleCI master branch](https://circleci.com/gh/deploysage/deploysage/
 [![Test Coverage](https://codeclimate.com/github/deploysage/deploysage/badges/coverage.svg)](https://codeclimate.com/github/deploysage/deploysage/coverage)
 [![Issue Count](https://codeclimate.com/github/deploysage/deploysage/badges/issue_count.svg)](https://codeclimate.com/github/deploysage/deploysage)
 
+**[Pivotal Tracker Project](https://www.pivotaltracker.com/n/projects/1477064)**
 ## Setup
 
 ### Installing/fixing postgres on OSX
