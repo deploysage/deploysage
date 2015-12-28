@@ -9,13 +9,13 @@ export default function deploySageReducer($$state, action) {
     return {};
   }
 
-  const { type, name } = action;
+  const { type, url } = action;
 
   switch (type) {
-    case actionTypes.ORG_NAME_UPDATE:
+    case actionTypes.REPO_URL_UPDATE:
       {
-        const orgId = $$state.getIn(['result', 'orgs']).first();
-        return $$state.setIn(['entities', 'orgs', orgId, 'name'], name);
+        const repoId = $$state.getIn(['result', 'repos']).first();
+        return $$state.setIn(['entities', 'repos', repoId, 'url'], url);
       }
 
     default:

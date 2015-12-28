@@ -1,7 +1,7 @@
 import { React, expect, TestUtils } from 'libs/test/testHelper';
 import { fixtureImmutableState } from 'libs/test/fixtures';
 
-import OrgWidget from './OrgWidget';
+import RepoWidget from './RepoWidget';
 
 const {
   renderIntoDocument,
@@ -9,21 +9,24 @@ const {
   } = TestUtils;
 
 const actions = {
-  updateName: () => {
+  updateUrl: () => {
   },
 };
 
-describe('OrgWidget', () => {
+describe('RepoWidget', () => {
   const $$deploySageStore = fixtureImmutableState();
 
-  it('receives name from props', () => {
+  it('receives org name and repo url from props', () => {
     const component = renderIntoDocument(
-      <OrgWidget
+      <RepoWidget
         actions={actions}
         $$deploySageStore={$$deploySageStore}
       />
     );
     const orgName = findRenderedDOMComponentWithClass(component, 'js-org-name');
-    expect(orgName.textContent).to.equal('Organization is named Fixture Organization 1');
+    expect(orgName.textContent).to.equal('Organization: Fixture Organization 1');
+
+    const repoName = findRenderedDOMComponentWithClass(component, 'js-repo-url');
+    expect(repoName.textContent).to.equal('Repo URL: https://github.com/deploysage/fixture-repo-1.git');
   });
 });

@@ -1,8 +1,8 @@
 import actionTypes from './actionTypes';
 
-export function updateName(name) {
+export function updateUrl(url) {
   return {
-    type: actionTypes.ORG_NAME_UPDATE,
-    name,
+    type: actionTypes.REPO_URL_UPDATE,
+    url,
   };
 }
