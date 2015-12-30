@@ -130,10 +130,13 @@ SKIP_EAGER_LOAD=true SKIP_CACHE_CLASSES=true bin/start-local-prod
 
 ## Technologies
 
-* [Rails](http://rubyonrails.org/)
-* [React](https://facebook.github.io/react/)
-* [Redux](http://redux.js.org/)
+* [Rails](http://rubyonrails.org)
 * [React on Rails](https://github.com/shakacode/react_on_rails)
+* [React](https://facebook.github.io/react)
+* [Redux](http://redux.js.org/)
+* [Webpack](https://webpack.github.io)
 * [ActionCable WebSockets](https://github.com/rails/rails/tree/master/actioncable)
-* [JWT](http://jwt.io/)
-* [GitHub API](https://developer.github.com/)
+* [Redis](http://redis.io)
+* [JSON Web Tokens](http://jwt.io)
+* [GitHub API](https://developer.github.com)
+* [Clockwork Gem](https://github.com/tomykaira/clockwork)
