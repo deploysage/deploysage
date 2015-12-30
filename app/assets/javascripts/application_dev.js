@@ -13,6 +13,4 @@
 // All webpack assets in development will be loaded via webpack dev server
 
 // This will soon be removed as it will be in vendor-bundle with react_on_rails 2.0
-//= require react_on_rails
-
 //= require rails_startup
