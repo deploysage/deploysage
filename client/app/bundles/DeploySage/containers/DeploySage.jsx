@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import RepoWidget from '../components/RepoWidget';
+import Page from '../components/Page';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
@@ -32,7 +32,7 @@ class DeploySage extends React.Component {
     // This is equivalent to:
     // <RepoWidget $$deploySageStore={$$deploySageStore} actions={actions} />
     return (
-      <RepoWidget {...{ $$deploySageStore, actions }} />
+      <Page {...{ $$deploySageStore, actions }} />
     );
   }
 }
