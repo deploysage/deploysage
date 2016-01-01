@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Immutable from 'immutable';
+import Input from 'react-bootstrap/lib/Input';
 import _ from 'lodash';
 
 import css from './RepoWidget.scss';
@@ -40,7 +41,7 @@ export default class RepoWidget extends BaseComponent {
         <h1 className="js-org-name">
           Organization: {orgName}
         </h1>
-        <input
+        <Input
           type="text"
           id="repo-url"
           label="Repo URL"
