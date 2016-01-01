@@ -1,9 +1,5 @@
 import React, { PropTypes } from 'react';
 import Immutable from 'immutable';
-import Col from 'react-bootstrap/lib/Col';
-import Row from 'react-bootstrap/lib/Row';
-import PageHeader from 'react-bootstrap/lib/PageHeader';
-import Input from 'react-bootstrap/lib/Input';
 import _ from 'lodash';
 
 import css from './RepoWidget.scss';
@@ -41,29 +37,20 @@ export default class RepoWidget extends BaseComponent {
 
     return (
       <div className={css.repo}>
-        <Row>
-          <Col xs={12}>
-            <PageHeader className="js-org-name">
-              Organization: {orgName}
-            </PageHeader>
-          </Col>
-          <Col xs={6}>
-            <form className="form-horizontal">
-              <Input
-                id="repo-url"
-                type="text"
-                label="Repo URL"
-                value={url}
-                onChange={this._handleChange}
-              />
-            </form>
-          </Col>
-          <Col xs={6}>
-            <h3 className="js-repo-url">
-              Repo URL: {url}
-            </h3>
-          </Col>
-        </Row>
+        <h1 className="js-org-name">
+          Organization: {orgName}
+        </h1>
+        <input
+          type="text"
+          id="repo-url"
+          label="Repo URL"
+          value={url}
+          size="100"
+          onChange={this._handleChange}
+        />
+        <div className={`${css.repoDisplay} js-repo-url`}>
+          Repo URL: {url}
+        </div>
       </div>
     );
   }

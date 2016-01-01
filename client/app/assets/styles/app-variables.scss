@@ -1,9 +1,20 @@
 // Defining application SASS variables in stand-alone file,
 // so we can use them in bootstrap-loader and CSS Modules via sass-resources-loader
-$body-bg: #EFF8FB;                          // background w/ character
-$navbar-default-bg: #FFFFE0;                // fancy yellow navbar
-$font-size-base: 15px;                      // make it bigger!
-$font-family-sans-serif: 'OpenSans-Light';  // apply custom font
 
-// It will be used in SASS components imported as CSS Modules
-$repo-text-color: purple;
+// palatte
+$grey-medium: #9AA0A8;
+$green1: #A7C4B5;
+$green2: #A9D8B8;
+$green3: #BEFFC7;
+$brown: #72705B;
+$brown-darker: #3F3D28;
+
+$body-bg: $green1;
+$font-size-base: 15px;
+$text-color: $brown-darker;
+$font-family-sans-serif: 'OpenSans-Light';
+
+// Variables will be used in SASS components imported as CSS Modules
+
+// $page-component-border: 1px solid; // page border for debugging page layout
+$page-component-border: 0 solid; // no page border

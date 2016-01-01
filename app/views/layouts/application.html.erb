@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
 <head>
   <title>Deploy Sage (rails dev)</title>
   <%= env_stylesheet_link_tag 'application_prod', 'application_dev', media: 'all' %>
@@ -7,10 +7,16 @@
   <%= env_javascript_include_tag nil, 'http://localhost:3500/app-bundle.js' %>
   <%= env_javascript_include_tag 'application_prod', 'application_dev' %>
   <%= csrf_meta_tags %>
+  <style>
+    #DeploySageApp-react-component-0 {
+      width: 100%;
+      display: flex;
+    }
+  </style>
 </head>
 
-<body>
-  <div class="container">
+<body style="height: 100%; display: flex">
+  <div id="container" style="width: 100%; display: flex">
     <%= yield %>
   </div>
 </body>

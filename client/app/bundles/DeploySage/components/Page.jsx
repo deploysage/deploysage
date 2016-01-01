@@ -1,6 +1,7 @@
 import React from 'react';
 import RepoWidget from '../components/RepoWidget';
 
+import css from './Page.scss';
 import BaseComponent from 'libs/components/BaseComponent';
 
 export default class Page extends BaseComponent {
@@ -10,7 +11,25 @@ export default class Page extends BaseComponent {
 
   render() {
     return (
-      <RepoWidget {...this.props} />
+      <div className={css.parentContainer}>
+        <div className={css.headerRow}>
+          Deploy Sage [LOGIN/LOGOUT PLACEHOLDER]
+        </div>
+        <div className={css.contextRow}>
+          <RepoWidget {...this.props} />
+        </div>
+        <div className={css.columnsRow}>
+          <div className={css.column}>
+            left column
+          </div>
+          <div className={css.column}>
+            middle column
+          </div>
+          <div className={css.column}>
+            right column
+          </div>
+        </div>
+      </div>
     );
   }
 }

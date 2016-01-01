@@ -1,0 +1,30 @@
+.parentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+  width: 100%;
+}
+
+.headerRow {
+  border: $page-component-border; // <--- Loaded via sass-resources-loader
+  height: 20px;
+}
+
+.contextRow {
+  border: $page-component-border;
+  flex-grow: 1;
+}
+
+.columnsRow {
+  border: $page-component-border;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 3;
+  justify-content: space-between;
+}
+
+.column {
+  border: $page-component-border;
+  width: 100%;
+}
