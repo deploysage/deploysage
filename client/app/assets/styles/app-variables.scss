@@ -8,13 +8,19 @@ $green2: #A9D8B8;
 $green3: #BEFFC7;
 $brown: #72705B;
 $brown-darker: #3F3D28;
+$lightblue: #BFD7FF;
+$peach: #A7A7C4;
 
+// bootstrap variables
 $body-bg: $green1;
 $font-size-base: 15px;
-$text-color: $brown-darker;
 $font-family-sans-serif: 'OpenSans-Light';
+$input-border-focus: $lightblue;
+$input-border: $brown;
+$text-color: $brown-darker;
 
-// Variables will be used in SASS components imported as CSS Modules
+
+// Variables to be used in SASS components imported as CSS Modules
 
 // $page-component-border: 1px solid; // page border for debugging page layout
 $page-component-border: 0 solid; // no page border
