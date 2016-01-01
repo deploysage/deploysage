@@ -2,12 +2,10 @@ doctype html
 html
 
   head
-    title Express Dev Server Rendering
+    title Deploy Sage (express dev)
 
   body
-
-    h1.alert.alert-info.this-works Express Dev Server Rendering
-    #app
+    #container
 
     script(src="vendor-bundle.js")
     script(src="app-bundle.js")
@@ -15,5 +13,5 @@ html
       ReactDOM.render(React.createElement(
               DeploySageApp,
               !{props}),
-              document.getElementById('app')
+              document.getElementById('container')
       )

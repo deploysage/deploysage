@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Deploy Sage</title>
+  <title>Deploy Sage (rails dev)</title>
   <%= env_stylesheet_link_tag 'application_prod', 'application_dev', media: 'all' %>
   <%= env_javascript_include_tag nil, 'http://localhost:3500/vendor-bundle.js' %>
   <%= env_javascript_include_tag nil, 'http://localhost:3500/app-bundle.js' %>
@@ -10,10 +10,8 @@
 </head>
 
 <body>
-
-<div class="container">
-  <%= yield %>
-</div>
-
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
