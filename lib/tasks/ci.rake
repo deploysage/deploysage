@@ -9,21 +9,21 @@ if Rails.env.development? || Rails.env.test?
   task :security_audit do
     puts Rainbow("Running security audit on code (brakeman)").green
 
-    sh "brakeman --exit-on-warn --quiet -A -z"
+    process "brakeman --exit-on-warn --quiet -A -z"
   end
 
   task :js_tests do
     puts Rainbow("Running JavaScript tests").green
-    sh "npm run test:client"
+    process "npm run test:client"
   end
 
   task :rspec_tests do
     puts Rainbow("Running RSpec tests").green
     if ENV['CIRCLECI']
-      sh 'RAILS_ENV=test bin/rspec -r rspec_junit_formatter --format RspecJunitFormatter ' \
+      process 'RAILS_ENV=test bin/rspec -r rspec_junit_formatter --format RspecJunitFormatter ' \
         '-o $CIRCLE_TEST_REPORTS/rspec/junit.xml'
     else
-      sh "bin/rspec"
+      process "bin/rspec"
     end
   end
 
