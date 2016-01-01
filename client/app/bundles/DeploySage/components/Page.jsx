@@ -22,7 +22,7 @@ export default class Page extends BaseComponent {
           <div className={css.column}>
             left column
           </div>
-          <div className={css.column}>
+          <div className={css.middleColumn}>
             middle column
           </div>
           <div className={css.column}>
