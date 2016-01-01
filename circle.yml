@@ -1,4 +1,8 @@
 ---
+general:
+  artifacts:
+    - "tmp/capybara" # capybara screenshots
+    - "~/deploysage/tmp/capybara" # capybara screenshots
 machine:
   environment:
     RAILS_ENV: test
