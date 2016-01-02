@@ -18,7 +18,7 @@ class EnsureAssetsCompiled
       if build_output =~ /error/i
         fail "Error in building assets!\n#{build_output}"
       else
-        puts 'Webpack build completed.'
+        puts 'On-demand webpack build completed.  Run `bin/start-spec` to avoid this delay.'
       end
     end
   end

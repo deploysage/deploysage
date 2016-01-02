@@ -3227,6 +3227,11 @@
       "from": "jstransformer@0.0.2",
       "resolved": "https://registry.npmjs.org/jstransformer/-/jstransformer-0.0.2.tgz"
     },
+    "jsuri": {
+      "version": "1.3.1",
+      "from": "jsuri@>=1.3.1 <2.0.0",
+      "resolved": "https://registry.npmjs.org/jsuri/-/jsuri-1.3.1.tgz"
+    },
     "JSV": {
       "version": "4.0.2",
       "from": "JSV@>=4.0.0",
@@ -4549,6 +4554,11 @@
       "version": "0.0.1",
       "from": "requires-port@>=0.0.0 <1.0.0",
       "resolved": "https://registry.npmjs.org/requires-port/-/requires-port-0.0.1.tgz"
+    },
+    "reqwest": {
+      "version": "2.0.5",
+      "from": "reqwest@>=2.0.4 <3.0.0",
+      "resolved": "https://registry.npmjs.org/reqwest/-/reqwest-2.0.5.tgz"
     },
     "reserved-words": {
       "version": "0.1.1",

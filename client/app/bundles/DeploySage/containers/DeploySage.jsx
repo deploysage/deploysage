@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import Page from '../components/page/Page';
+import BaseComponent from 'libs/components/BaseComponent';
+import UiStateMachine from './uiStateMachine/UiStateMachine';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
@@ -11,8 +12,8 @@ function select(state) {
   return { $$deploySageStore: state.$$deploySageStore };
 }
 
-// Simple example of a React "smart" component
-class DeploySage extends React.Component {
+// App entry point; example of a React "smart" component
+class DeploySage extends BaseComponent {
   constructor(props, context) {
     super(props, context);
   }
@@ -32,7 +33,7 @@ class DeploySage extends React.Component {
     // This is equivalent to:
     // <RepoWidget $$deploySageStore={$$deploySageStore} actions={actions} />
     return (
-      <Page {...{ $$deploySageStore, actions }} />
+      <UiStateMachine {...{ $$deploySageStore, actions }} />
     );
   }
 }

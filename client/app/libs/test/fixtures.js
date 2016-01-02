@@ -34,6 +34,10 @@ function fixtureInitialState() {
 
   // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
   return {
+    client_state: {
+      origin: 'http://localhost:4000',
+      ui_state: process.env.DS_UI_STATE || 'authenticated',
+    },
     orgs: fixtures.orgs,
     repos: fixtures.repos,
   };

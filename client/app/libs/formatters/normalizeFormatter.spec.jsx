@@ -3,8 +3,11 @@ import { expect } from 'libs/test/testHelper';
 import normalizeFormatter from './normalizeFormatter';
 
 describe('normalizeFormatter', () => {
-  it('normalizes orgs', () => {
+  it('normalizes', () => {
     const unformatted = {
+      clientState: {
+        uiState: 'unauthenticated',
+      },
       orgs: [
         {
           id: '1',
@@ -21,6 +24,9 @@ describe('normalizeFormatter', () => {
     };
     const expected = {
       result: {
+        clientState: {
+          uiState: 'unauthenticated',
+        },
         orgs: ['1'],
         repos: ['2'],
       },

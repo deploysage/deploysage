@@ -4,7 +4,7 @@
 # You can still run tests, and they will build the webpack file for each test run.
 # Start another shell and run the Procfile.spec to make test runs faster.
 
-rails: PORT=3000 rails s
+rails: PORT=3000 rails s -b 127.0.0.1
 # Run the hot reload server for client development
 rails-assets: sh -c 'rm -f app/assets/webpack/* && HOT_RAILS_PORT=3500 npm run build:dev:client'
 # Keep the JS fresh for server rendering. Remove if not server rendering

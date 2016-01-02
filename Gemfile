@@ -22,6 +22,8 @@ gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem "sass-rails"
 gem 'bootstrap-sass'
 gem 'foreman'
+gem 'jwt'
+gem 'oauth'
 gem 'puma'
 gem 'react_on_rails'
 gem 'therubyracer'
@@ -53,10 +55,14 @@ group :test do
   gem "rspec-retry"
   gem 'rspec_junit_formatter', '0.2.2'
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
   gem 'rails-controller-testing'
 end
 
 group :development, :test do
+  # Must be loaded first to set env vars for subsequent gems
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
+
   ################################################################################
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
