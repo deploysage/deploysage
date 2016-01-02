@@ -1,5 +1,5 @@
 import React from 'react';
-import RepoWidget from '../components/RepoWidget';
+import RepoWidget from './../repo/RepoWidget';
 
 import css from './Page.scss';
 import BaseComponent from 'libs/components/BaseComponent';
@@ -11,7 +11,7 @@ export default class Page extends BaseComponent {
 
   render() {
     return (
-      <div className={css.parentContainer}>
+      <div className={css.page}>
         <div className={css.headerRow}>
           Deploy Sage [LOGIN/LOGOUT PLACEHOLDER]
         </div>

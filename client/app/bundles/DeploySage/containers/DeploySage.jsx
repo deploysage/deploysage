@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Page from '../components/Page';
+import Page from '../components/page/Page';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
