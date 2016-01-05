@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'Repos' do
-  background { visit root_path }
+  before do
+    visit root_path
+  end
 
   it 'shows url' do
     repo = repos(:fixture_repo_1)

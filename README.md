@@ -89,16 +89,21 @@ bin/start # make sure you run bin/setup first
 ```
 
 * Express Dev Server Rendering: [localhost:4000](http://localhost:4000)
-* Rails Server Rendering: [localhost:3000](http://localhost:3000)
+  (Note that this is client only, login/logout/oauth and any functionality
+  which requires the server is not supported)
+* Rails Server Rendering: [127.0.0.1:3000](http://127.0.0.1:3000)
+  (Note this must use 127.0.0.1 and not localhost, for outh callbacks to work)
 * Rails API Server: [localhost:3000/api/v1](http://localhost:3000/api/v1)
 
 ### Running App in Simulated Production Env
+
+(Note: Foreman defaults to using port 5000)
 
 ```
 bin/start-local-prod
 ```
 
-* App Server: [localhost:5000](http://localhost:5000)
+* App Server: [127.0.0.1:5000](http://127.0.0.1:5000)
 * API Server: [localhost:5000/api/v1](http://localhost:5000/api/v1)
 
 Flags for debugging local prod env:

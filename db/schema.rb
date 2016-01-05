@@ -11,23 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222100000) do
+ActiveRecord::Schema.define(version: 20160103025638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "oauths", force: :cascade do |t|
+    t.string   "secret",     null: false
+    t.string   "token",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token"], name: "index_oauths_on_token", using: :btree
+  end
+
   create_table "orgs", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "repos", force: :cascade do |t|
-    t.integer  "github_identifier"
-    t.string   "url"
+    t.integer  "github_identifier", null: false
+    t.string   "url",               null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "org_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "uid",        null: false
+    t.string   "handle",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["uid"], name: "index_users_on_uid", using: :btree
   end
 
 end

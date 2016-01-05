@@ -13,9 +13,10 @@ class CreateFixtures
 
   def create_all
     reset_pk_sequences
-    set_up_naming
+    create_oauths
     create_orgs
     create_repos
+    create_users
     reset_pk_sequences
   end
 
@@ -28,11 +29,15 @@ class CreateFixtures
     end
   end
 
-  def set_up_naming
-    [Org, Repo].each do |model_class|
-      fbuilder.name_model_with(model_class) do |model|
-        model_name_from_hash(model_class, model)
-      end
+  def create_oauths
+    model_hashes = [
+      {
+        secret: 'secret-1',
+        token: 'token-1',
+      }
+    ]
+    create_fixture_model(:oauth, model_hashes) do |model|
+      nameify(model['token'])
     end
   end
 
@@ -40,11 +45,8 @@ class CreateFixtures
     model_hashes = [
       { name: 'Fixture Organization 1' }
     ]
-    model_hashes.each do |model_hash|
-      add_fixed_date(model_hash)
-      model = create(:org, model_hash)
-      name = nameify(model['name'])
-      store_model_reference(:org, name, model)
+    create_fixture_model(:org, model_hashes) do |model|
+      nameify(model['name'])
     end
   end
 
@@ -56,11 +58,37 @@ class CreateFixtures
         url: 'https://github.com/deploysage/fixture-repo-1.git',
       }
     ]
+    create_fixture_model(:repo, model_hashes) do |model|
+      nameify(model['url'].split('/').last.split('.').first)
+    end
+  end
+
+  def create_users
+    model_hashes = [
+      {
+        uid: 'uid-1',
+        handle: 'deploysage-user-1',
+      }
+    ]
+    create_fixture_model(:user, model_hashes) do |model|
+      nameify(model['handle'])
+    end
+  end
+
+  def create_fixture_model(model_class_name, model_hashes)
+    setup_naming_for(model_class_name)
     model_hashes.each do |model_hash|
       add_fixed_date(model_hash)
-      model = create(:repo, model_hash)
-      name = nameify(model['url'].split('/').last.split('.').first)
-      store_model_reference(:repo, name, model)
+      model = create(model_class_name, model_hash)
+      name = yield(model)
+      store_model_reference(model_class_name, name, model)
+    end
+  end
+
+  def setup_naming_for(model_class_name)
+    model_class = model_class_name.to_s.classify.constantize
+    fbuilder.name_model_with(model_class) do |model|
+      model_name_from_hash(model_class, model)
     end
   end
 

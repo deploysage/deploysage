@@ -49,4 +49,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # OAuth config:
+  # ORIGIN is the react client, which is where it redirects after authenticating
+  ENV['ORIGIN'] = 'http://127.0.0.1:3000'
+  # OAUTH_CALLBACK must match callback URL in OAuth provider config
+  ENV['OAUTH_CALLBACK'] = 'http://127.0.0.1:3000/access_token'
 end

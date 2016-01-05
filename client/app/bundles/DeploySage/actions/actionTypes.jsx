@@ -4,5 +4,6 @@
 import mirrorCreator from 'mirror-creator';
 
 export default mirrorCreator([
+  'AUTHENTICATED',
   'REPO_URL_UPDATE',
 ]);
