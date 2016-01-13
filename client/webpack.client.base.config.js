@@ -23,14 +23,27 @@ module.exports = {
 
     // This will contain the app entry points defined by webpack.hot.config and webpack.rails.config
     app: [
-      './app/bundles/DeploySage/startup/clientGlobals',
+      './app/bundles/DeploySage/startup/clientRegistration',
     ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
       libs: path.join(process.cwd(), 'app', 'libs'),
+
+      // testing new npm react on rails...
+      react: path.resolve('./node_modules/react'),
+      'react-dom': path.resolve('./node_modules/react-dom'),
     },
+
+    // testing new npm react on rails...
+    root: [path.join(__dirname, 'app')],
+    fallback: [path.join(__dirname, 'node_modules')],
+  },
+
+  // same issue, for loaders like babel
+  resolveLoader: {
+    fallback: [path.join(__dirname, 'node_modules')],
   },
   plugins: [
     new webpack.DefinePlugin({

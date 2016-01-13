@@ -24,6 +24,14 @@ chdir APP_ROOT do
   #   cp 'config/database.yml.sample', 'config/database.yml'
   # end
 
+  puts "\n== Starting with a clean slate! =="
+
+  puts "\n== Deleting databases =="
+  system! 'bin/rake db:drop:all'
+
+  puts "\n== Cleaning fixtures =="
+  system! 'bin/rake spec:fixture_builder:clean'
+
   puts "\n== Creating database =="
   system! 'bin/rake db:create:all'
 
@@ -35,6 +43,9 @@ chdir APP_ROOT do
 
   puts "\n== Preparing test database =="
   system! 'bin/rake db:test:prepare'
+
+  puts "\n== Building fixtures =="
+  system! 'bin/rake spec:fixture_builder:build'
 
   puts "\n== Loading fixtures into dev database =="
   system! 'bin/rake db:fixtures:load'

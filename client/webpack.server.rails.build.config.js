@@ -11,9 +11,8 @@ module.exports = {
   // the project dir
   context: __dirname,
   entry: [
-    'react',
-    'react-dom/server',
-    './app/bundles/DeploySage/startup/serverGlobals',
+    'babel-polyfill',
+    './app/bundles/DeploySage/startup/serverRegistration',
   ],
   output: {
     filename: 'server-bundle.js',
@@ -23,7 +22,15 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     alias: {
       libs: path.join(process.cwd(), 'app', 'libs'),
+
+      // testing new npm react on rails...
+      react: path.resolve('./node_modules/react'),
+      'react-dom': path.resolve('./node_modules/react-dom'),
     },
+
+    // testing new npm react on rails...
+    root: [path.join(__dirname, 'app')],
+    fallback: [path.join(__dirname, 'node_modules')],
   },
   plugins: [
     new webpack.DefinePlugin({

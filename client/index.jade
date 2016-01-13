@@ -10,8 +10,4 @@ html(style="height: 100%")
     script(src="vendor-bundle.js")
     script(src="app-bundle.js")
     script.
-      ReactDOM.render(React.createElement(
-              DeploySageApp,
-              !{props}),
-              document.getElementById('container')
-      )
+      ReactOnRails.render("DeploySageApp", !{props}, 'container')
