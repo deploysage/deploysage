@@ -294,7 +294,7 @@ GEM
     rails_stdout_logging (0.0.4)
     rainbow (2.0.0)
     rake (10.4.2)
-    react_on_rails (2.0.0.rc.3)
+    react_on_rails (2.0.1)
       connection_pool
       execjs (~> 2.5)
       rails (>= 3.2)
@@ -422,7 +422,7 @@ DEPENDENCIES
   rails!
   rails-controller-testing
   rails_stdout_logging
-  react_on_rails (= 2.0.0.rc.3)
+  react_on_rails (= 2.0.1)
   rspec-core!
   rspec-expectations!
   rspec-mocks!
