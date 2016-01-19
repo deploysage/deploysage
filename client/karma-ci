@@ -2,8 +2,7 @@
 var _ = require('underscore');
 var Karma = require('karma').Server;
 var portscanner = require('portscanner');
-var RailsServer = require('../support/rails_server');
-var KarmaUtils = require('../support/karma_utils');
+var KarmaUtils = require('./app/libs/spec/karma_utils');
 
 printHelp();
 

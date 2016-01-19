@@ -5,7 +5,8 @@ capybara-*.html
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
+/tmp/**/*
+/client/tmp/**/*
 !/log/.keep
 !/tmp/.keep
 

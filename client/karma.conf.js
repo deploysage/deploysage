@@ -19,7 +19,7 @@ module.exports = function(config, options) {
 
   // list of files / patterns to load in the browser
   options.files = [
-    {pattern: 'spec/javascripts/fixtures/**/*.json', served: true, included: false, watched: false},
+    //{pattern: 'spec/javascripts/fixtures/**/*.json', served: true, included: false, watched: false},
     writeSpecIndex(options.files),
   ];
 

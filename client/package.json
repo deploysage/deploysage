@@ -107,8 +107,11 @@
     "karma-phantomjs-launcher": "0.2.1",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
+    "phantomjs": "^1.9.19",
+    "portscanner": "^1.0.0",
     "react-addons-test-utils": "^0.14.3",
     "react-transform-hmr": "^1.0.1",
+    "tmp": "0.0.26",
     "webpack-dev-server": "^1.12.1"
   }
 }
