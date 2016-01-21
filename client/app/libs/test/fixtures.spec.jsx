@@ -1,4 +1,4 @@
-import { expect } from 'libs/test/testHelper';
+import { expect } from './testHelper';
 
 import fixtures from './fixtures';
 
