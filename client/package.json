@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/deploysage/deploysage",
   "scripts": {
+    "spec": "npm run jasmine",
     "test": "NODE_PATH=./app mocha --compilers js:babel-core/register --require ./app/libs/test/testHelper.js --require ./app/libs/test/testNullCompiler.js 'app/**/*.spec.@(js|jsx)'",
     "test:debug": "npm run test -- --debug-brk",
     "start": "node server-express.js",
@@ -97,6 +98,8 @@
     "eslint-plugin-react": "^3.11.3",
     "express": "^4.13.3",
     "jade": "^1.11.0",
+    "jasmine": "^2.4.1  ",
+    "jasmine-es6": "^0.1.1  ",
     "jscs": "^2.7.0",
     "jsdom": "^7.0.2",
     "mocha": "^2.3.4",

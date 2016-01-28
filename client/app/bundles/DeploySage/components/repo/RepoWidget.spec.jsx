@@ -1,5 +1,5 @@
-import { React, expect, TestUtils } from 'libs/test/testHelper';
-import { fixtureImmutableState } from 'libs/test/fixtures';
+import { React, expect, TestUtils } from '../../../../libs/test/testHelper';
+import { fixtureImmutableState } from '../../../../libs/test/fixtures';
 
 import RepoWidget from './RepoWidget';
 
