@@ -4,7 +4,7 @@ import Input from 'react-bootstrap/lib/Input';
 import _ from 'lodash';
 
 import css from './RepoWidget.scss';
-import BaseComponent from 'libs/components/BaseComponent';
+import BaseComponent from '../../../../libs/components/BaseComponent.jsx';
 
 export default class RepoWidget extends BaseComponent {
   constructor(props, context) {

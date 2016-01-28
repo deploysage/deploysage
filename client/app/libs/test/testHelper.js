@@ -1,5 +1,5 @@
 import React from 'react';
-//import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-addons-test-utils';
 import jsdom from 'jsdom';
 import chai from 'chai';
 import chaiImmutable from 'chai-immutable';

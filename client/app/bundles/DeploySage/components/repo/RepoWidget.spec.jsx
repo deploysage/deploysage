@@ -1,9 +1,8 @@
 //import { React, expect } from '../../../../libs/test/testHelper';
 import { React, expect, TestUtils } from '../../../../libs/test/testHelper';
-import TestUtils from 'react/lib/ReactTestUtils';
 import { fixtureImmutableState } from '../../../../libs/test/fixtures';
 
-import RepoWidget from './RepoWidget';
+import RepoWidget from './RepoWidget.jsx';
 
 const {
   renderIntoDocument,
