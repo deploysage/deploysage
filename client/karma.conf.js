@@ -3,15 +3,18 @@
 process.env.NODE_ENV = 'test';
 
 var spawnSync     = require('child_process').spawnSync;
-var fs            = require('fs');
+var fs            = require('graceful-fs');
 var path          = require('path');
 var tmp           = require('tmp');
 var glob          = require('glob');
 var _             = require('underscore');
 var webpack       = require('webpack');
-var webpackConfig = require('./webpack.client.rails.build.config.js');
 
 module.exports = function(config, options) {
+  // Run tests in test environment
+  // So that hot reloading doesnt blow up
+  process.env['NODE_ENV'] = 'test';
+
   options = options || {};
 
   // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -20,7 +23,9 @@ module.exports = function(config, options) {
   // list of files / patterns to load in the browser
   options.files = [
     //{pattern: 'spec/javascripts/fixtures/**/*.json', served: true, included: false, watched: false},
-    writeSpecIndex(options.files),
+    'node_modules/es5-shim/es5-shim.js',
+    'SpecSuite.js',
+    //writeSpecIndex(options.files),
   ];
 
   // list of files to exclude
@@ -33,31 +38,54 @@ module.exports = function(config, options) {
   // preprocess matching files before serving them to the browser
   // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
   options.preprocessors = {
-    '/**/*Spec.js': ['webpack']
+    'SpecSuite.js': ['sourcemap', 'webpack'],
+  };
+
+  options.webpack = {
+    devtool: 'eval',
+    entry: {
+      vendor: [
+        'bootstrap-loader',
+        'babel-polyfill',
+        'es5-shim/es5-shim',
+        'es5-shim/es5-sham',
+        'jquery',
+        'react',
+        'react-dom'
+      ],
+    },
+    module: {
+      loaders: require('./webpack.client.rails.build.config.js').module.loaders,
+    },
+    node: {
+      constants: "empty",
+      child_process: "empty",
+      fs: "empty",
+      net: "empty",
+      tls: "empty"
+    },
   };
 
   options.webpackMiddleware = {
     noInfo: true
   };
 
-  options.webpack = webpackConfig,
-
   // you can define custom flags
-  options.customLaunchers = {
-    'PhantomJS_custom': {
-      base: 'PhantomJS',
-      options: {
-        settings: {},
-      },
-      flags: ['--load-images=false'],
-      debug: false
-    }
-  };
+  //options.customLaunchers = {
+  //  'PhantomJS_custom': {
+  //    base: 'PhantomJS',
+  //    options: {
+  //      settings: {},
+  //    },
+  //    flags: ['--load-images=false'],
+  //    debug: false
+  //  }
+  //};
 
-  options.phantomjsLauncher = {
-    // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
-    exitOnResourceError: true
-  };
+  //options.phantomjsLauncher = {
+  //  // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
+  //  exitOnResourceError: true
+  //};
 
   // overridable config
   _.defaults(options, {
@@ -65,18 +93,19 @@ module.exports = function(config, options) {
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: [
+      'jasmine-diff',
       'progress'
     ],
 
     // web server port
     port: 9876,
 
-    // enable / disable colors in the output (reporters and logs)
     colors: true,
 
     // level of logging
     // possible values: 'OFF' || 'ERROR' || 'WARN' || 'INFO' || 'DEBUG'
-    logLevel: 'INFO',
+    //logLevel: 'INFO',
+    logLevel: 'DEBUG',
 
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
@@ -84,15 +113,27 @@ module.exports = function(config, options) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
-      'PhantomJS_custom'
+      'PhantomJS',
+      //'PhantomJS_custom',
       // 'Chrome',
+    ],
+
+    plugins: [
+      require('karma-webpack'),
+      require('karma-sourcemap-loader'),
+      require('karma-jasmine'),
+      require('karma-phantomjs-launcher'),
+      require('karma-chrome-launcher'),
+      require('karma-jasmine-diff-reporter')
     ],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
 
-    browserNoActivityTimeout: 60000
+    browserNoActivityTimeout: 60000,
+
+    autoWatchBatchDelay: 500,
   });
 
   config.set(options);

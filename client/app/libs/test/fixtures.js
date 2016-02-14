@@ -1,7 +1,7 @@
 const Immutable = require('immutable');
 const jsonFormatter = require('../formatters/jsonFormatter');
 const YAML = require('yamljs');
-const fs = require('fs');
+const fs = require('graceful-fs');
 const _ = require('lodash');
 
 function readFixtureFile(fixtureType) {
