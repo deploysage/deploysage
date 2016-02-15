@@ -1,3 +1,5 @@
+require 'rainbow'
+
 if Rails.env.development? || Rails.env.test?
   # See tasks/linters.rake
 
