@@ -82,6 +82,11 @@ bin/spring stop
 # Run focused specs from Rubymine, so spring has rubymine libs loaded
 ```
 
+Hack 'autorunner' (would be better to have karma or mocha autorun, but [that's not easy](https://www.pivotaltracker.com/story/show/110931190):
+```
+export NODE_PATH=./app && watch -n 5 "clear && node_modules/mocha/bin/mocha --compilers js:babel-core/register --require ./app/libs/test/testHelper.js --require ./app/libs/test/testNullCompiler.js 'app/**/*.spec.@(js|jsx)'"
+```
+
 ### Running App in Dev Env (with hot reloading)
 
 ```
