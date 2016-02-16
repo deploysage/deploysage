@@ -13,6 +13,7 @@ const actions = {};
 
 describe('Page', () => {
   const $$deploySageStore = fixtureImmutableState();
+  const renderer = TestUtils.createRenderer();
 
   it('renders', () => {
     const component = renderIntoDocument(
@@ -27,5 +28,24 @@ describe('Page', () => {
 
     expect(list[0].props.actions).to.equal(actions);
     expect(list[0].props.$$deploySageStore).to.equal($$deploySageStore);
+  });
+
+  it('renders with shallow rendering', () => {
+    renderer.render(
+      <Page
+        actions={actions}
+        $$deploySageStore={$$deploySageStore}
+      />
+    );
+
+    const result = renderer.getRenderOutput();
+
+    expect(result.type).to.equal('div');
+
+    // TODO: doesn't work!
+    //expect(result.className).to.equal('page');
+
+    // TODO: can't assert on actual children as shown in shallow render examples
+    //expect(result.props.children).to.equal([]);
   });
 });

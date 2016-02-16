@@ -1,5 +1,4 @@
-import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import React from 'react/addons';
 import jsdom from 'jsdom';
 import chai from 'chai';
 import chaiImmutable from 'chai-immutable';
@@ -30,6 +29,8 @@ const {
 } = chai;
 
 chai.use(chaiImmutable);
+
+const TestUtils = React.addons.TestUtils;
 
 export {
   React,
