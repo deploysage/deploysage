@@ -27,6 +27,6 @@ describe('RepoWidget', () => {
     expect(orgName.textContent).to.equal('Organization: Fixture Organization 1');
 
     const repoName = findRenderedDOMComponentWithClass(component, 'js-repo-url');
-    expect(repoName.textContent).to.equal('Repo URL: https://github.com/deploysage/fixture-repo-1.git');
+    expect(repoName.textContent).to.equal('https://github.com/deploysage/fixture-repo-1.git');
   });
 });

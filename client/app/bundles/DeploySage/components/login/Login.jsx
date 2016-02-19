@@ -20,7 +20,7 @@ export default class Login extends BaseComponent {
     return (
       <span className={css.login}>
         <span>
-          <a href={this.props.origin + '/request_token'}>
+          <a id="signin" href={`http://${this.props.origin}/request_token`}>
             <div className={css.signInWithTwitterGray} />
           </a>
         </span>

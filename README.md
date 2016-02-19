@@ -62,6 +62,7 @@ rm -rf /usr/local/var/postgres
 initdb /usr/local/var/postgres -E utf8
 ```
 
+
 ### Rails Setup
 
 ```
@@ -146,7 +147,6 @@ SKIP_EAGER_LOAD=true SKIP_CACHE_CLASSES=true bin/start-local-prod
 * [Redux](http://redux.js.org/)
 * [Webpack](https://webpack.github.io)
 * [ActionCable WebSockets](https://github.com/rails/rails/tree/master/actioncable)
-* [Redis](http://redis.io)
 * [JSON Web Tokens](http://jwt.io)
 * [GitHub API](https://developer.github.com)
 * [Clockwork Gem](https://github.com/tomykaira/clockwork)

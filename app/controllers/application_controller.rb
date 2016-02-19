@@ -2,7 +2,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery # use default of :null_session, since this is an "API" controller
 
-  before_action :allow_cross_origin_requests, if: proc { Rails.env.development? }
   before_action :authenticate_request, only: [:current_user]
 
   def preflight

@@ -22,7 +22,7 @@ describe('Auth', () => {
     // const list = scryRenderedComponentsWithType(component, Login);
     // exp ect(list.length).to.equal(1);
     //
-    // expect(list[0].props.origin).to.equal('http://localhost:3000');
+    // expect(list[0].props.origin).to.equal('localhost:3000');
     // expect(list[0].props.uiState).to.equal('unauthenticated');
   });
 });

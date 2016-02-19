@@ -26,6 +26,10 @@ chdir APP_ROOT do
 
   puts "\n== Starting with a clean slate! =="
 
+  puts "\n== Setting DB Environment =="
+  # Rails fails on db:drop:all step unless this has been run
+  system! 'bin/rails db:environment:set RAILS_ENV=development'
+
   puts "\n== Deleting databases =="
   system! 'bin/rake db:drop:all'
 
@@ -40,6 +44,10 @@ chdir APP_ROOT do
 
   puts "\n== Preparing dev database =="
   system! 'bin/rake db:setup'
+
+  puts "\n== Setting DB Environment =="
+  # Do this again proactively...  TODO: understand what it does and why?
+  system! 'bin/rails db:environment:set RAILS_ENV=development'
 
   puts "\n== Preparing test database =="
   system! 'bin/rake db:test:prepare'

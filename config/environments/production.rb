@@ -83,4 +83,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # OAuth config:
+  # ORIGIN is the react client, which is where it redirects after authenticating
+  ENV['ORIGIN'] = 'http://127.0.0.1:5000'
+  # OAUTH_CALLBACK must match callback URL in OAuth provider config
+  ENV['OAUTH_CALLBACK'] = 'http://127.0.0.1:5000/access_token'
+  # DS_ORIGIN is passed to client as origin, for building links like auth callback.
+  ENV['DS_ORIGIN'] = '127.0.0.1:5000'
 end

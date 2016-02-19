@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Start a server that is configured like the one that Capybara starts up internally to run the integration specs
+# Useful for debugging issues that only occur during integration tests
+source bin/setup-fake-oauth.sh && bin/spring stop && RAILS_ENV=test RACK_ENV=test PORT=3000 bin/rails s -b 127.0.0.1

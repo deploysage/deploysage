@@ -1,13 +1,20 @@
 #!/usr/bin/env bash
 
 bin/spring stop
+export DISABLE_SPRING=true
 export RAILS_ENV=production
 export RACK_ENV=production
+export DS_ORIGIN=http://127.0.0.1:5000
+
 export SECRET_KEY_BASE=not-the-real-prod-secret-key-base
+export TWITTER_CONSUMER_KEY=oumhO3S4GTRPyYPXN5KF2TbsC # same as dev
+export TWITTER_CONSUMER_SECRET=s9qfZsVHlPHxVLeffFYRiKVEtBIFnyvJdMViKllMF2nB392l7D # same as dev
+
 if [[ ${SKIP_ASSETS_REBUILD} == 'true' ]]; then
   echo 'Skipping assets rebuild'
 else
   bin/rake assets:clobber
   bin/rake assets:precompile
 fi
+
 bin/foreman start -f Procfile

@@ -17,14 +17,14 @@ export default class Page extends BaseComponent {
   };
 
   _handleLogout() {
-    sessionStorage.setItem('jwt', '');
+    sessionStorage.removeItem('jwt');
     window.location = '/';
   }
 
   render() {
     return (
       <div className={css.page}>
-        <div className={css.headerRow}>
+        <div className={`${css.headerRow} header-row`}>
           <span>Deploy Sage</span>
           <a href="#" onClick={this._handleLogout}>Log Out</a>
         </div>

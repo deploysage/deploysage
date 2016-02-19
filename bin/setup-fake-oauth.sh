@@ -1,0 +1,6 @@
+#@IgnoreInspection BashAddShebang
+export DS_FAKE_OAUTH_ENABLED=true
+export DS_FAKE_OAUTH_TOKEN=fake_oauth_token
+export DS_FAKE_OAUTH_SECRET=fake_oauth_secret
+export DS_FAKE_OAUTH_USER_ID=uid-1
+export DS_FAKE_OAUTH_SCREEN_NAME=deploysage-user-1
