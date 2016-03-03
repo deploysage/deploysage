@@ -43,9 +43,9 @@ describe('Page', () => {
     expect(result.type).to.equal('div');
 
     // TODO: doesn't work!
-    //expect(result.className).to.equal('page');
+    // expect(result.className).to.equal('page');
 
     // TODO: can't assert on actual children as shown in shallow render examples
-    //expect(result.props.children).to.equal([]);
+    // expect(result.props.children).to.equal([]);
   });
 });
