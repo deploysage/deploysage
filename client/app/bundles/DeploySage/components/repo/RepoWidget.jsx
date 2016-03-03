@@ -26,8 +26,9 @@ export default class RepoWidget extends BaseComponent {
 
   // React will automatically provide us with the event `e`
   _handleChange(e) {
-    const url = e.target.value;
-    this.props.actions.updateUrl(url);
+    if (typeof window !== 'undefined') {
+      Cable.channel.updateFromClient({ url: e.target.value }); // eslint-disable-line no-undef
+    }
   }
 
   render() {
@@ -49,8 +50,9 @@ export default class RepoWidget extends BaseComponent {
           size="100"
           onChange={this._handleChange}
         />
+        Repo URL:
         <div className={`${css.repoDisplay} js-repo-url`}>
-          Repo URL: {url}
+          {url}
         </div>
       </div>
     );

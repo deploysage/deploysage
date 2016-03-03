@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 
+//#= require action_cable
+
 // All webpack assets in development will be loaded via webpack dev server
 
 // This will soon be removed as it will be in vendor-bundle with react_on_rails 2.0

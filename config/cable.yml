@@ -1,0 +1,12 @@
+development:
+  port: 3000
+  adapter: postgresql
+  timeout: 1
+test:
+  port: 3000
+  adapter: postgresql
+  timeout: 1
+production:
+  port: 5000
+  adapter: postgresql
+  timeout: 1

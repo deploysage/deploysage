@@ -3,9 +3,9 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
-require 'capybara/rspec'
-require 'capybara-screenshot/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'process_helper'
+include ProcessHelper
 
 require_relative 'support/fixture_builder'
 
@@ -31,8 +31,6 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.before(:suite) do
     FactoryGirl.lint
-    # Next line will ensure that assets are built if webpack -w is not running
-    EnsureAssetsCompiled.check_built_assets
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -69,21 +67,6 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
-
-  # Capybara
-  require 'support/ensure_assets_compiled'
-  Capybara.register_driver :selenium_chrome do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
-  end
-  Capybara.javascript_driver = :selenium_chrome
-
-  Capybara::Screenshot.register_driver(:selenium_chrome) do |js_driver, path|
-    js_driver.browser.save_screenshot(path)
-  end
-
-  Capybara.default_max_wait_time = 5
-
-  Capybara::Screenshot.prune_strategy = { keep: 10 }
 end
 
 def pi_day

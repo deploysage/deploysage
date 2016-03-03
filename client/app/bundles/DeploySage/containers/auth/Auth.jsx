@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import Immutable from 'immutable';
 import Reqwest from 'reqwest';
 import Uri from 'jsuri';
+import actionCableSetup from 'libs/actioncable/actionCableSetup';
 
 // import Uri from 'jsuri';
 import BaseComponent from 'libs/components/BaseComponent';
@@ -35,21 +36,23 @@ export default class Auth extends BaseComponent {
   }
 
   componentDidMount() {
-    if (!!sessionStorage.getItem('jwt')) {
-      this._loadCurrentUserFromApi();
+    const jwt = sessionStorage.getItem('jwt');
+    if (!!jwt && jwt !== 'null' && jwt !== 'undefined') {
+      const origin = this.props.$$deploySageStore.getIn(['result', 'clientState', 'origin']);
+      this._loadCurrentUserFromApi(origin);
+      actionCableSetup(this.props.actions, origin);
     }
   }
 
   _copyJwtFromUriToSessionStorage() {
     const jwt = new Uri(location.search).getQueryParamValue('jwt');
-    if (!!jwt) {
+    if (!!jwt && jwt !== 'null' && jwt !== 'undefined') {
       sessionStorage.setItem('jwt', jwt);
     }
   }
 
-  _loadCurrentUserFromApi() {
-    const origin = this.props.$$deploySageStore.getIn(['result', 'clientState', 'origin']);
-    this._readFromApi(`${origin}/current_user`, this._authenticated.bind(this));
+  _loadCurrentUserFromApi(origin) {
+    this._readFromApi(`http://${origin}/current_user`, this._authenticated.bind(this));
   }
 
   _authenticated(user) {
@@ -75,6 +78,7 @@ export default class Auth extends BaseComponent {
   }
 
   _childWithProps(child) {
+    // TODO: DRY up
     const origin = this.props.$$deploySageStore.getIn(['result', 'clientState', 'origin']);
     return React.cloneElement(
       child,

@@ -5,8 +5,10 @@
 # Development rails requires both rails and rails-assets
 # (and rails-server-assets if server rendering)
 rails: PORT=3000 rails s -b 127.0.0.1
+
 # Run the hot reload server for client development
 rails-assets: sh -c 'rm -f app/assets/webpack/* && HOT_RAILS_PORT=3500 npm run build:dev:client'
+
 # Keep the JS fresh for server rendering. Remove if not server rendering
 rails-server-assets: sh -c 'npm run build:dev:server'
 

@@ -1,0 +1,5 @@
+ENV['DS_FAKE_OAUTH_ENABLED'] = 'true'
+ENV['DS_FAKE_OAUTH_TOKEN'] = 'fake_oauth_token'
+ENV['DS_FAKE_OAUTH_SECRET'] = 'fake_oauth_secret'
+ENV['DS_FAKE_OAUTH_USER_ID'] = 'uid-1'
+ENV['DS_FAKE_OAUTH_SCREEN_NAME'] = 'deploysage-user-1'

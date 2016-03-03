@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.2.3"
 
-gem 'rails', github: 'rails/rails'
-gem 'arel', github: 'rails/arel'
+gem 'rails', '5.0.0.beta2'
 gem 'rack', github: 'rack/rack'
 
 gem 'awesome_print'
@@ -47,6 +46,7 @@ group :test do
   gem "coveralls", require: false
   gem 'factory_girl_rails', '~> 4.0'
   gem 'fork'
+  gem 'rails-controller-testing'
   gem 'rspec-core', github: 'rspec/rspec-core'
   gem 'rspec-expectations', github: 'rspec/rspec-expectations'
   gem 'rspec-mocks', github: 'rspec/rspec-mocks'
@@ -56,7 +56,6 @@ group :test do
   gem 'rspec_junit_formatter', '0.2.2'
   gem "selenium-webdriver"
   gem "shoulda-matchers"
-  gem 'rails-controller-testing'
 end
 
 group :development, :test do
