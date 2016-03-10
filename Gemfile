@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.2.3"
 
-gem 'rails', '5.0.0.beta2'
+gem 'rails', '5.0.0.beta3'
 gem 'rack', github: 'rack/rack'
 
 gem 'awesome_print'
@@ -24,7 +24,7 @@ gem 'foreman'
 gem 'jwt'
 gem 'oauth'
 gem 'puma'
-gem 'react_on_rails', '2.0.1'
+gem 'react_on_rails', '3.0.6'
 gem 'therubyracer'
 gem "uglifier"
 

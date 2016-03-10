@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/rack/rack.git
-  revision: 7cb3772a03f1b713622f68e178f90a71a66aff0d
+  revision: 05bdc51dd7d39f6cea66481cd89143da0df1b41c
   specs:
     rack (2.0.0.alpha)
       json
@@ -16,14 +16,14 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-core.git
-  revision: 8cb45cc8779d09b13e054ecb94c911b7e14f7fde
+  revision: 350c21b6f66a54267ff615ed16604e017122e6be
   specs:
     rspec-core (3.5.0.pre)
       rspec-support (= 3.5.0.pre)
 
 GIT
   remote: git://github.com/rspec/rspec-expectations.git
-  revision: 87376eed1f580682c86ea88448ab0411be238c07
+  revision: 08e93b7d3b3a7e8ff74c54e7e38a54c27ec0f84b
   specs:
     rspec-expectations (3.5.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-mocks.git
-  revision: b94e242ebbc51081fc2245e37c574f5d6d02b7f8
+  revision: 31baac3ace4ec0aff97d9e4e1928b06d18c685f8
   specs:
     rspec-mocks (3.5.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-rails.git
-  revision: 7f2b695a2e70af1aa4f78346143e71e926bbccd7
+  revision: 73890bc07bc256a0dc0f1e6674239a94dceeead2
   specs:
     rspec-rails (3.5.0.pre)
       actionpack (>= 3.0)
@@ -52,7 +52,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-support.git
-  revision: b0ff0f6e157288c33f8dc6d57f4ee157d43152fa
+  revision: 3c86358e132970c96d31e9f6c3aea508b9b4e094
   specs:
     rspec-support (3.5.0.pre)
 
@@ -67,43 +67,41 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (5.0.0.beta2)
-      actionpack (= 5.0.0.beta2)
+    actioncable (5.0.0.beta3)
+      actionpack (= 5.0.0.beta3)
       nio4r (~> 1.2)
       websocket-driver (~> 0.6.1)
-    actionmailer (5.0.0.beta2)
-      actionpack (= 5.0.0.beta2)
-      actionview (= 5.0.0.beta2)
-      activejob (= 5.0.0.beta2)
+    actionmailer (5.0.0.beta3)
+      actionpack (= 5.0.0.beta3)
+      actionview (= 5.0.0.beta3)
+      activejob (= 5.0.0.beta3)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-    actionpack (5.0.0.beta2)
-      actionview (= 5.0.0.beta2)
-      activesupport (= 5.0.0.beta2)
+    actionpack (5.0.0.beta3)
+      actionview (= 5.0.0.beta3)
+      activesupport (= 5.0.0.beta3)
       rack (~> 2.x)
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (5.0.0.beta2)
-      activesupport (= 5.0.0.beta2)
+    actionview (5.0.0.beta3)
+      activesupport (= 5.0.0.beta3)
       builder (~> 3.1)
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    activejob (5.0.0.beta2)
-      activesupport (= 5.0.0.beta2)
+    activejob (5.0.0.beta3)
+      activesupport (= 5.0.0.beta3)
       globalid (>= 0.3.6)
-    activemodel (5.0.0.beta2)
-      activesupport (= 5.0.0.beta2)
-    activerecord (5.0.0.beta2)
-      activemodel (= 5.0.0.beta2)
-      activesupport (= 5.0.0.beta2)
+    activemodel (5.0.0.beta3)
+      activesupport (= 5.0.0.beta3)
+    activerecord (5.0.0.beta3)
+      activemodel (= 5.0.0.beta3)
+      activesupport (= 5.0.0.beta3)
       arel (~> 7.0)
-    activesupport (5.0.0.beta2)
+    activesupport (5.0.0.beta3)
       concurrent-ruby (~> 1.0)
       i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
-      method_source
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
@@ -152,7 +150,7 @@ GEM
       nokogiri (~> 1.6)
     codeclimate-test-reporter (0.4.8)
       simplecov (>= 0.7.1, < 1.0.0)
-    concurrent-ruby (1.0.0)
+    concurrent-ruby (1.0.1)
     connection_pool (2.2.0)
     coveralls (0.8.10)
       json (~> 1.8)
@@ -199,13 +197,13 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.99)
+    mime-types (2.99.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
     netrc (0.11.0)
     nio4r (1.2.1)
-    nokogiri (1.6.7.1)
+    nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     oauth (0.4.7)
     parser (2.2.3.0)
@@ -216,17 +214,17 @@ GEM
     puma (2.15.3)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (5.0.0.beta2)
-      actioncable (= 5.0.0.beta2)
-      actionmailer (= 5.0.0.beta2)
-      actionpack (= 5.0.0.beta2)
-      actionview (= 5.0.0.beta2)
-      activejob (= 5.0.0.beta2)
-      activemodel (= 5.0.0.beta2)
-      activerecord (= 5.0.0.beta2)
-      activesupport (= 5.0.0.beta2)
+    rails (5.0.0.beta3)
+      actioncable (= 5.0.0.beta3)
+      actionmailer (= 5.0.0.beta3)
+      actionpack (= 5.0.0.beta3)
+      actionview (= 5.0.0.beta3)
+      activejob (= 5.0.0.beta3)
+      activemodel (= 5.0.0.beta3)
+      activerecord (= 5.0.0.beta3)
+      activesupport (= 5.0.0.beta3)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 5.0.0.beta2)
+      railties (= 5.0.0.beta3)
       sprockets-rails (>= 2.0.0)
     rails-controller-testing (0.0.3)
       rails (>= 4.2)
@@ -239,19 +237,20 @@ GEM
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     rails_stdout_logging (0.0.4)
-    railties (5.0.0.beta2)
-      actionpack (= 5.0.0.beta2)
-      activesupport (= 5.0.0.beta2)
+    railties (5.0.0.beta3)
+      actionpack (= 5.0.0.beta3)
+      activesupport (= 5.0.0.beta3)
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rainbow (2.0.0)
-    rake (10.5.0)
-    react_on_rails (2.0.1)
+    rainbow (2.1.0)
+    rake (11.0.1)
+    react_on_rails (3.0.6)
       connection_pool
       execjs (~> 2.5)
+      foreman
       rails (>= 3.2)
-      rainbow (~> 2.0)
+      rainbow (~> 2.1)
     ref (2.0.0)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -313,7 +312,7 @@ GEM
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.0.0)
+    sprockets-rails (3.0.4)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
@@ -368,10 +367,10 @@ DEPENDENCIES
   process_helper
   puma
   rack!
-  rails (= 5.0.0.beta2)
+  rails (= 5.0.0.beta3)
   rails-controller-testing
   rails_stdout_logging
-  react_on_rails (= 2.0.1)
+  react_on_rails (= 3.0.6)
   rspec-core!
   rspec-expectations!
   rspec-mocks!
