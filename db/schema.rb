@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20160103025638) do
     t.string   "token",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["token"], name: "index_oauths_on_token", using: :btree
   end
+
+  add_index "oauths", ["token"], name: "index_oauths_on_token", using: :btree
 
   create_table "orgs", force: :cascade do |t|
     t.string   "name",       null: false
@@ -43,7 +44,8 @@ ActiveRecord::Schema.define(version: 20160103025638) do
     t.string   "uid",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["uid"], name: "index_users_on_uid", using: :btree
   end
+
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
 end

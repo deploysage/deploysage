@@ -3,8 +3,12 @@
 rm -rf vendor/bundle
 rm .bundle/config
 ln -sf ../config/bundle_config .bundle/config
-pkill -f -i ruby[^m] # this sometimes misses processes
-killall -9 ruby   # the above sometimes doesn't kill ruby tasks
+if [ ${SKIP_KILL_RUBY:-'false'} == 'true' ]; then
+  echo 'SKIP_KILL_RUBY was "true", not killing it...'
+else
+  pkill -f -i ruby[^m] # this sometimes misses processes
+  killall -9 ruby   # the above sometimes doesn't kill ruby tasks
+fi
 pkill -9 -f -i rspec
 pkill -9 -f -i rake
 pkill -9 -f -i rails
