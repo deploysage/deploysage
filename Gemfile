@@ -24,7 +24,7 @@ gem 'foreman'
 gem 'jwt'
 gem 'oauth'
 gem 'puma'
-gem 'react_on_rails', '2.0.1'
+gem 'react_on_rails', '3.0.6'
 gem 'therubyracer'
 gem "uglifier"
 
