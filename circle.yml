@@ -17,6 +17,8 @@ dependencies:
     - sudo dpkg -i google-chrome.deb
     - sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
     - rm google-chrome.deb
+    - bundle check || bundle install
+    - bundle exec update_rubygems
 test:
   override:
     - bin/rake ci
