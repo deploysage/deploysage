@@ -38,19 +38,19 @@ chdir APP_ROOT do
   system! db_env_set_cmd
 
   puts "\n== Deleting databases =="
-  system! 'bin/rake db:drop:all'
+  system! 'bin/rails db:drop:all'
 
   puts "\n== Cleaning fixtures =="
-  system! 'bin/rake spec:fixture_builder:clean'
+  system! 'bin/rails spec:fixture_builder:clean'
 
   puts "\n== Creating database =="
-  system! 'bin/rake db:create:all'
+  system! 'bin/rails db:create:all'
 
   puts "\n== Migrating dev database =="
-  system! 'bin/rake db:migrate'
+  system! 'bin/rails db:migrate'
 
   puts "\n== Preparing dev database =="
-  system! 'bin/rake db:setup'
+  system! 'bin/rails db:setup'
 
   puts "\n== Setting DB Environment =="
   # Do this again proactively...  TODO: understand what it does and why?
@@ -61,16 +61,16 @@ chdir APP_ROOT do
   end
 
   puts "\n== Preparing test database =="
-  system! 'bin/rake db:test:prepare'
+  system! 'bin/rails db:test:prepare'
 
   puts "\n== Building fixtures =="
-  system! 'bin/rake spec:fixture_builder:build'
+  system! 'bin/rails spec:fixture_builder:build'
 
   puts "\n== Loading fixtures into dev database =="
-  system! 'bin/rake db:fixtures:load'
+  system! 'bin/rails db:fixtures:load'
 
   puts "\n== Removing old logs and tempfiles =="
-  system! 'bin/rake log:clear tmp:clear'
+  system! 'bin/rails log:clear tmp:clear'
   system! 'rm -f client/npm-debug.log.*'
 
   puts "\n== Starting foreman (with `bin/start`) =="
