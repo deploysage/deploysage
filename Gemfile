@@ -71,7 +71,7 @@ group :development, :test do
 
   ################################################################################
   # Linters and Security
-  gem 'rubocop', '>= 0.27.0', require: false
+  gem 'rubocop', '>= 0.38.0', require: false
   gem 'ruby-lint', '~> 2.0', require: false
   # Critical that require: false be set! https://github.com/brigade/scss-lint/issues/278
   gem "scss_lint", require: false

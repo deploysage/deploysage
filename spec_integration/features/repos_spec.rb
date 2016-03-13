@@ -9,7 +9,7 @@ RSpec.feature 'Repos' do
   it 'shows url' do
     repo = repos(:fixture_repo_1)
     el = find('.js-repo-url')
-    expected_value = "#{repo.url}"
+    expected_value = repo.url
     expect(el.text).to eq expected_value
   end
 

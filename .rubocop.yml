@@ -2,7 +2,6 @@
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
 AllCops:
-  RunRailsCops: true
   Include:
     - '**/Rakefile'
     - '**/config.ru'
@@ -18,6 +17,9 @@ Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 20
 
+Rails:
+  Enabled: true
+
 Style/FileName:
   # File names listed in AllCops:Include are excluded by default. Add extra
   # excludes here.
@@ -27,14 +29,19 @@ Style/FileName:
 Style/MultilineOperationIndentation:
   EnforcedStyle: indented
 
+Style/SignalException:
+  # prefer fail for app code, but rails generates raise in binstubs so allow that too
+  EnforcedStyle: semantic
+
 Style/SpaceAroundEqualsInParameterDefault:
   # compatibility with RubyMine defaults (apparently can't override?)
   EnforcedStyle: space
 
-Style/TrailingComma:
-  # can't make this only apply to arrays and not params, so it's disabled
-  Enabled: false
-  #EnforcedStyleForMultiline: comma
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: no_comma
 
 Style/MultilineOperationIndentation:
   # can't convince rubymine 7 to not indent 4 spaces with mult-line expect(x).to receive ...

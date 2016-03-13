@@ -15,11 +15,8 @@ class EnsureAssetsCompiled
   def self.build_assets_for_type(type)
     unless running_webpack_watch?(type)
       build_output = `cd client && npm run build:#{type}`
-      if build_output =~ /error/i
-        fail "Error in building assets!\n#{build_output}"
-      else
-        puts 'On-demand webpack build completed.  Run `bin/start-spec` to avoid this delay.'
-      end
+      fail "Error in building assets!\n#{build_output}" if build_output =~ /error/i
+      puts 'On-demand webpack build completed.  Run `bin/start-spec` to avoid this delay.'
     end
   end
 

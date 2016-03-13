@@ -54,7 +54,7 @@ RSpec.describe PageController do
           expect(orgs.size).to eq(1)
           expect(orgs.first).to eq(
             id: '1',
-            name: Org.first.name,
+            name: Org.first.name
           )
         end
 
@@ -66,7 +66,7 @@ RSpec.describe PageController do
             id: '1',
             org_id: '1',
             github_identifier: repo.github_identifier,
-            url: repo.url,
+            url: repo.url
           )
         end
       end

@@ -34,7 +34,7 @@ class CreateFixtures
       {
         secret: 'secret-1',
         token: 'token-1',
-      }
+      },
     ]
     create_fixture_model(:oauth, model_hashes) do |model|
       nameify(model['token'])
@@ -43,7 +43,9 @@ class CreateFixtures
 
   def create_orgs
     model_hashes = [
-      { name: 'Fixture Organization 1' }
+      {
+        name: 'Fixture Organization 1',
+      },
     ]
     create_fixture_model(:org, model_hashes) do |model|
       nameify(model['name'])
@@ -56,7 +58,7 @@ class CreateFixtures
         org_id: models[:org][:fixture_organization_1].id,
         github_identifier: 47_444_606,
         url: 'https://github.com/deploysage/fixture-repo-1.git',
-      }
+      },
     ]
     create_fixture_model(:repo, model_hashes) do |model|
       nameify(model['url'].split('/').last.split('.').first)
@@ -68,7 +70,7 @@ class CreateFixtures
       {
         uid: 'uid-1',
         handle: 'deploysage-user-1',
-      }
+      },
     ]
     create_fixture_model(:user, model_hashes) do |model|
       nameify(model['handle'])
