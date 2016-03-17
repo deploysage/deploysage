@@ -17,8 +17,11 @@ chdir APP_ROOT do
   puts "== Killing all processes (except ruby so we don't kill this script) =="
   system! 'SKIP_KILL_RUBY=true bin/kill-everything'
 
+  puts '== Forcing bundler to version 1.10.6 =='
+  system!('gem uninstall bundler -a -I -x --force && gem install bundler:1.10.6')
+
   puts '== Installing dependencies =='
-  system! 'gem install bundler --conservative'
+  # system! 'gem install bundler --conservative'
   system('bundle check') || system!('bundle install')
   system!('npm install')
 

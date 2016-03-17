@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.3.0"
 
+gem 'bundler', '1.10.6'
 gem 'rubygems-update', '2.6.1'
 
 gem 'rails', '5.0.0.beta3'
