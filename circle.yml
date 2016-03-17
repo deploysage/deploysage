@@ -21,4 +21,4 @@ dependencies:
     - bundle exec update_rubygems
 test:
   override:
-    - bin/rake ci
+    - bundle exec rake ci
