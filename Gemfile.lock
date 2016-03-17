@@ -349,7 +349,6 @@ DEPENDENCIES
   awesome_print
   bootstrap-sass
   brakeman
-  bundler (= 1.10.6)
   bundler-audit
   capybara
   capybara-screenshot
@@ -391,4 +390,4 @@ DEPENDENCIES
   uglifier
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

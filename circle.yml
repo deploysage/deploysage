@@ -19,7 +19,6 @@ dependencies:
     - rm google-chrome.deb
     - bundle check || bundle install
     - bundle exec update_rubygems
-    - gem uninstall bundler -a -I -x --force && gem install bundler:1.10.6
 test:
   override:
     - bin/rake ci
