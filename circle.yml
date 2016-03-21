@@ -1,24 +1,35 @@
 ---
 general:
-  artifacts:
-    - "tmp/capybara" # capybara screenshots
-    - "~/deploysage/tmp/capybara" # capybara screenshots
+ artifacts:
+  - 'tmp/capybara' # capybara screenshots
+  - '~/deploysage/tmp/capybara' # capybara screenshots
 machine:
   environment:
     RAILS_ENV: test
     RACK_ENV: test
-  ruby:
-    version: 2.3.0
   node:
     version: 5.3.0
+  post:
+    - rvm install 2.3.0 # if not cached or re-running with clean cache
+    - cp ~/deploysage/ci/rvm_environment/ruby-2.3.0 ~/.rvm/environments
+    - rvm use 2.3.0 --default
+    - rvm rubygems 2.6.2
+    - if [[ ! $(gem which bundler) ]]; then rvm 2.3.0 do gem install bundler -v 1.11.2; fi
 dependencies:
-  pre:
-    - curl -L -o google-chrome.deb https://s3.amazonaws.com/circle-downloads/google-chrome-stable_current_amd64_47.0.2526.73-1.deb
-    - sudo dpkg -i google-chrome.deb
-    - sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-    - rm google-chrome.deb
-    - bundle check || bundle install
-    - bundle exec update_rubygems
+ cache_directories:
+  - '~/.rvm/environments/ruby-2.3.0'
+  - '~/.rvm/gems/ruby-2.3.0'
+  - '~/.rvm/rubies/ruby-2.3.0'
+  - '~/google-chrome.deb'
+  - 'client/node_modules'
+ override:
+  - du -shc ~/deploysage/vendor/bundle ~/.m2 ~/.ivy2 ~/.go_workspace ~/.gradle ~/deploysage/node_modules ~/.rvm/environments/ruby-2.3.0 ~/.rvm/gems/ruby-2.3.0 ~/.rvm/rubies/ruby-2.3.0 ~/google-chrome.deb ~/deploysage/client/node_modules || true
+  - rm -rf ~/.m2 ~/.ivy2 ~/.go_workspace ~/.gradle
+  - if [[ ! -f ~/google-chrome.deb ]]; then curl -L -o ~/google-chrome.deb https://s3.amazonaws.com/circle-downloads/google-chrome-stable_current_amd64_47.0.2526.73-1.deb; fi
+  - sudo dpkg -i ~/google-chrome.deb
+  - sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
+  - bundle check || bundle install
+  - cd client && npm install
 test:
-  override:
-    - bin/rake ci
+ override:
+  - bin/rake ci
