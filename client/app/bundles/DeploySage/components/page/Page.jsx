@@ -22,11 +22,19 @@ export default class Page extends BaseComponent {
   }
 
   render() {
+    const orgName = this.props.$$deploySageStore.getIn(['entities', 'orgs', '1', 'name']);
+
     return (
       <div className={css.page}>
         <div className={`${css.headerRow} header-row`}>
           <span>Deploy Sage</span>
+          &nbsp;
           <a href="#" onClick={this._handleLogout}>Log Out</a>
+          &nbsp;
+          <span className="js-org-name">
+            Organization: {orgName}
+          </span>
+
         </div>
         <div className={css.contextRow}>
           <RepoWidget {...this.props} />

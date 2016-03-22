@@ -6,6 +6,7 @@ import RepoWidget from './../repo/RepoWidget';
 
 const {
   renderIntoDocument,
+  findRenderedDOMComponentWithClass,
   scryRenderedComponentsWithType,
   } = TestUtils;
 
@@ -47,5 +48,16 @@ describe('Page', () => {
 
     // TODO: can't assert on actual children as shown in shallow render examples
     // expect(result.props.children).to.equal([]);
+  });
+
+  it('receives org name from props', () => {
+    const component = renderIntoDocument(
+      <Page
+        actions={actions}
+        $$deploySageStore={$$deploySageStore}
+      />
+    );
+    const orgName = findRenderedDOMComponentWithClass(component, 'js-org-name');
+    expect(orgName.textContent).to.equal('Organization: Fixture Organization 1');
   });
 });

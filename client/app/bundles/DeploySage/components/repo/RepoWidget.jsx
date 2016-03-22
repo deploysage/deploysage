@@ -35,13 +35,9 @@ export default class RepoWidget extends BaseComponent {
     const $$deploySageStore = this.props.$$deploySageStore;
     const repoId = $$deploySageStore.getIn(['result', 'repos']).first();
     const url = $$deploySageStore.getIn(['entities', 'repos', repoId, 'url']);
-    const orgName = $$deploySageStore.getIn(['entities', 'orgs', '1', 'name']);
 
     return (
       <div className={css.repo}>
-        <h1 className="js-org-name">
-          Organization: {orgName}
-        </h1>
         <Input
           type="text"
           id="repo-url"
