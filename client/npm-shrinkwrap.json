@@ -1755,9 +1755,9 @@
       "resolved": "https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.4.tgz"
     },
     "fbjs": {
-      "version": "0.3.2",
-      "from": "fbjs@>=0.3.1 <0.4.0",
-      "resolved": "https://registry.npmjs.org/fbjs/-/fbjs-0.3.2.tgz",
+      "version": "0.6.1",
+      "from": "fbjs@>=0.6.1 <0.7.0",
+      "resolved": "https://registry.npmjs.org/fbjs/-/fbjs-0.6.1.tgz",
       "dependencies": {
         "asap": {
           "version": "2.0.3",
@@ -1765,9 +1765,9 @@
           "resolved": "https://registry.npmjs.org/asap/-/asap-2.0.3.tgz"
         },
         "promise": {
-          "version": "7.0.4",
+          "version": "7.1.1",
           "from": "promise@>=7.0.3 <8.0.0",
-          "resolved": "https://registry.npmjs.org/promise/-/promise-7.0.4.tgz"
+          "resolved": "https://registry.npmjs.org/promise/-/promise-7.1.1.tgz"
         }
       }
     },
@@ -4308,14 +4308,19 @@
       "resolved": "https://registry.npmjs.org/raw-body/-/raw-body-2.1.5.tgz"
     },
     "react": {
-      "version": "0.14.3",
-      "from": "react@>=0.14.3 <0.15.0",
-      "resolved": "https://registry.npmjs.org/react/-/react-0.14.3.tgz"
+      "version": "0.14.7",
+      "from": "react@>=0.14.7 <0.15.0",
+      "resolved": "https://registry.npmjs.org/react/-/react-0.14.7.tgz"
     },
     "react-addons-pure-render-mixin": {
-      "version": "0.14.3",
-      "from": "react-addons-pure-render-mixin@>=0.14.3 <0.15.0",
-      "resolved": "https://registry.npmjs.org/react-addons-pure-render-mixin/-/react-addons-pure-render-mixin-0.14.3.tgz"
+      "version": "0.14.7",
+      "from": "react-addons-pure-render-mixin@>=0.14.7 <0.15.0",
+      "resolved": "https://registry.npmjs.org/react-addons-pure-render-mixin/-/react-addons-pure-render-mixin-0.14.7.tgz"
+    },
+    "react-addons-test-utils": {
+      "version": "0.14.7",
+      "from": "react-addons-test-utils@>=0.14.7 <0.15.0",
+      "resolved": "https://registry.npmjs.org/react-addons-test-utils/-/react-addons-test-utils-0.14.7.tgz"
     },
     "react-bootstrap": {
       "version": "0.28.1",
@@ -4328,9 +4333,9 @@
       "resolved": "https://registry.npmjs.org/react-deep-force-update/-/react-deep-force-update-1.0.0.tgz"
     },
     "react-dom": {
-      "version": "0.14.3",
-      "from": "react-dom@>=0.14.3 <0.15.0",
-      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-0.14.3.tgz"
+      "version": "0.14.7",
+      "from": "react-dom@>=0.14.7 <0.15.0",
+      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-0.14.7.tgz"
     },
     "react-on-rails": {
       "version": "3.0.6",

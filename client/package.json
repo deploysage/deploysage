@@ -65,10 +65,10 @@
     "node-uuid": "^1.4.7",
     "normalizr": "^1.4.0",
     "postcss-loader": "^0.8.0",
-    "react": "^0.14.3",
-    "react-addons-pure-render-mixin": "^0.14.3",
+    "react": "^0.14.7",
+    "react-addons-pure-render-mixin": "^0.14.7",
     "react-bootstrap": "^0.28.1",
-    "react-dom": "^0.14.3",
+    "react-dom": "^0.14.7",
     "react-on-rails": "3.0.6",
     "react-redux": "^4.0.0",
     "redux": "^3.0.4",
@@ -100,6 +100,7 @@
     "jscs": "^2.7.0",
     "jsdom": "^7.0.2",
     "mocha": "^2.3.4",
+    "react-addons-test-utils": "^0.14.7",
     "react-transform-hmr": "^1.0.1",
     "webpack-dev-server": "^1.12.1"
   }
