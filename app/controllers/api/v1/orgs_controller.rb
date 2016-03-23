@@ -21,7 +21,7 @@ module Api
         @org = Org.new(org_params)
 
         if @org.save
-          render json: @org, status: :created, location: @org
+          render json: @org, status: :created, location: api_v1_orgs_url
         else
           render json: @org.errors, status: :unprocessable_entity
         end
