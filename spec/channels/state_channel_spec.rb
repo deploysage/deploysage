@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe StateChannel do
-  let(:connection) { double(identifiers: []) }
+  let(:connection) { double(identifiers: [], pubsub: nil) }
   let(:identifier) { double }
 
   subject { StateChannel.new(connection, identifier) }
