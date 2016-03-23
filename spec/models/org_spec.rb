@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Org do
-  subject {orgs(:fixture_organization_1)}
+  subject { orgs(:fixture_organization_1) }
 
   it 'has fixtures' do
     expect(subject.id).to eq(1)

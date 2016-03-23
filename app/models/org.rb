@@ -1,5 +1,5 @@
 # :nodoc:
 class Org < ActiveRecord::Base
   has_many :repos
-  validates_presence_of :name
+  validates :name, presence: true
 end

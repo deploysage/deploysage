@@ -26,4 +26,18 @@ RSpec.describe Repo do
   #     expect(subject.org).to be_an_instance_of(Org)
   #   end
   # end
+
+  describe 'validation' do
+    it 'presence of url' do
+      subject.update_attributes(url: nil)
+      subject.valid?
+      expect(subject.errors[:url].first).to match(/blank/)
+    end
+
+    it 'presence of github_identifier' do
+      subject.update_attributes(github_identifier: nil)
+      subject.valid?
+      expect(subject.errors[:github_identifier].first).to match(/blank/)
+    end
+  end
 end

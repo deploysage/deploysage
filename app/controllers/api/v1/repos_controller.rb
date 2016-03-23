@@ -21,7 +21,7 @@ module Api
         @repo = Repo.new(repo_params)
 
         if @repo.save
-          render json: @repo, status: :created, location: @repo
+          render json: @repo, status: :created, location: api_v1_repos_url
         else
           render json: @repo.errors, status: :unprocessable_entity
         end
