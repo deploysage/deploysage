@@ -13,7 +13,7 @@ RSpec.describe Api::V1::OrgsController do
 
     describe '#show' do
       it 'works' do
-        get :show, id: org
+        get :show, params: { id: org }
       end
     end
 

@@ -13,7 +13,7 @@ RSpec.describe Api::V1::ReposController do
 
     describe '#show' do
       it 'works' do
-        get :show, id: repo
+        get :show, params: { id: repo }
       end
     end
 
