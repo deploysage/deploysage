@@ -35,7 +35,11 @@ chdir APP_ROOT do
   puts "\n== Setting DB Environment =="
   # Rails fails on db:drop:all step unless this has been run, but fails if it db doesn't exist (!?)
   db_env_set_cmd = 'bin/rails db:environment:set RAILS_ENV=development'
-  system! db_env_set_cmd
+  begin
+    system! db_env_set_cmd
+  rescue
+    puts "rails db:environment:set command failed but we don't care..."
+  end
 
   puts "\n== Deleting databases =="
   system! 'bin/rails db:drop:all'
