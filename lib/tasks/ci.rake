@@ -35,7 +35,7 @@ if Rails.env.development? || Rails.env.test?
       process 'RAILS_ENV=test bin/rspec -r rspec_junit_formatter --format RspecJunitFormatter ' \
         '-o $CIRCLE_TEST_REPORTS/rspec/junit.xml'
     else
-      # process "bin/spring stop"
+      process "bin/spring stop"
       process "bin/rspec spec_integration"
     end
   end
