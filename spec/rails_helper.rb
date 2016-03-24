@@ -28,6 +28,16 @@ require_relative 'support/fixture_builder'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+module ActionDispatch
+  module Integration
+    module RequestHelpers
+      def options(path, parameters = {})
+        process(:options, path, parameters)
+      end
+    end
+  end
+end
+
 RSpec.configure do |config|
   config.before(:suite) do
     FactoryGirl.lint

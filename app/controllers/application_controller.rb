@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_request, only: [:current_user]
 
   def preflight
-    render nothing: true
+    render json: {}
   end
 
   def current_user
@@ -14,14 +14,16 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def allow_cross_origin_requests
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-    headers['Access-Control-Allow-Headers'] =
-      'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-    headers['Access-Control-Max-Age'] = '1728000'
-  end
+  # Unused for now, see:
+  # http://fredguest.com/2015/03/06/building-a-stateless-rails-api-with-react-and-twitter-oauth/
+  # def allow_cross_origin_requests
+  #   headers['Access-Control-Allow-Origin'] = '*'
+  #   headers['Access-Control-Request-Method'] = '*'
+  #   headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+  #   headers['Access-Control-Allow-Headers'] =
+  #     'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  #   headers['Access-Control-Max-Age'] = '1728000'
+  # end
 
   def authenticate_request
     uid = JWT.decode(
@@ -30,6 +32,6 @@ class ApplicationController < ActionController::Base
     )[0]['uid']
     @current_user = User.find_by(uid: uid)
   rescue JWT::DecodeError
-    render json: 'authentication failed', status: 401
+    render json: { error: 'authentication failed' }, status: 401
   end
 end
