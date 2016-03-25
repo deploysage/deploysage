@@ -5,6 +5,7 @@ general:
   - '~/deploysage/tmp/capybara' # capybara screenshots
 machine:
   environment:
+    DISABLE_SPRING: true
     RAILS_ENV: test
     RACK_ENV: test
   node:
