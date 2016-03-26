@@ -1,9 +1,9 @@
 require_relative '../bin/setup_fake_oauth'
 require_relative '../spec/rails_helper'
+require_relative '../spec_requests/ensure_assets_compiled'
 
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
-require 'support/ensure_assets_compiled'
 
 Capybara.configure do |config|
   config.register_driver :selenium_chrome do |app|
@@ -42,12 +42,5 @@ Capybara.configure do |config|
       Dir.chdir(Rails.application.root)
       server.start
     end
-  end
-end
-
-RSpec.configure do |config|
-  config.before(:suite) do
-    # Next line will ensure that assets are built if webpack -w is not running
-    EnsureAssetsCompiled.check_built_assets
   end
 end

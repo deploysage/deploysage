@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative '../requests_helper'
 
 RSpec.shared_examples 'signin' do
   it 'signs in' do

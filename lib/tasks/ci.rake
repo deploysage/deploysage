@@ -29,6 +29,16 @@ if Rails.env.development? || Rails.env.test?
     end
   end
 
+  task :rspec_request_tests do
+    puts Rainbow("Running RSpec Request tests").green
+    if ENV['CIRCLECI']
+      process 'RAILS_ENV=test bin/rspec -r rspec_junit_formatter --format RspecJunitFormatter ' \
+        '-o $CIRCLE_TEST_REPORTS/rspec/junit.xml'
+    else
+      process "bin/rspec #{ENV['RSPEC_OPTS']} spec_requests"
+    end
+  end
+
   task :rspec_integration_tests do
     puts Rainbow("Running RSpec Capybara integration tests").green
     if ENV['CIRCLECI']
