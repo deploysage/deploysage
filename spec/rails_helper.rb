@@ -40,7 +40,9 @@ end
 
 RSpec.configure do |config|
   config.before(:suite) do
-    FactoryGirl.lint
+    ChangesCapture.disable do
+      FactoryGirl.lint
+    end
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
