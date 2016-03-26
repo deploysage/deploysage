@@ -21,6 +21,7 @@ gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem "sass-rails"
 gem 'bootstrap-sass'
 gem 'foreman'
+gem 'json-patch'
 gem 'jwt'
 gem 'oauth'
 gem 'puma'

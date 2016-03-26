@@ -46,6 +46,12 @@ class CreateFixtures
       {
         name: 'Fixture Organization 1',
       },
+      {
+        name: 'Fixture Organization 2',
+      },
+      {
+        name: 'Fixture Organization 3',
+      },
     ]
     create_fixture_model(:org, model_hashes) do |model|
       nameify(model['name'])
