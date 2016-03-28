@@ -62,11 +62,6 @@ if Rails.env.development? || Rails.env.test?
         puts ""
         raise(e)
       end
-      if ENV['CIRCLECI']
-        require 'simplecov'
-        require 'codeclimate-test-reporter'
-        CodeClimate::TestReporter::Formatter.new.format(SimpleCov.result)
-      end
     end
   end
 
