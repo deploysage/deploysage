@@ -13,20 +13,20 @@ export default function deploySageReducer($$state, action) {
 
   switch (type) {
     case actionTypes.AUTHENTICATED:
-      {
-        const clientState = { uiState: 'authenticated', currentUser: user };
-        return $$state.mergeIn(['result', 'clientState'], clientState);
-      }
+    { // eslint-disable-line indent
+      const clientState = { uiState: 'authenticated', currentUser: user };
+      return $$state.mergeIn(['result', 'clientState'], clientState);
+    }
 
     case actionTypes.REPO_URL_UPDATE:
-      {
-        const repoId = $$state.getIn(['result', 'repos']).first();
-        return $$state.setIn(['entities', 'repos', repoId, 'url'], url);
-      }
+    { // eslint-disable-line indent
+      const repoId = $$state.getIn(['result', 'repos']).first();
+      return $$state.setIn(['entities', 'repos', repoId, 'url'], url);
+    }
 
-    default:
-      {
-        return $$state;
-      }
+    default: // eslint-disable-line indent
+    { // eslint-disable-line indent
+      return $$state;
+    }
   }
 }
