@@ -8,4 +8,4 @@
 //= require app-bundle
 
 // Non-webpack assets
-//= require application_dev
+//= require application_non_webpack

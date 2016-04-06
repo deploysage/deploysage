@@ -244,7 +244,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
     rake (11.0.1)
-    react_on_rails (3.0.6)
+    react_on_rails (5.0.0.rc.1)
       connection_pool
       execjs (~> 2.5)
       foreman
@@ -370,7 +370,7 @@ DEPENDENCIES
   rails (= 5.0.0.beta3)
   rails-controller-testing
   rails_stdout_logging
-  react_on_rails (= 3.0.6)
+  react_on_rails (~> 5.0.0.rc.1)
   rspec-core!
   rspec-expectations!
   rspec-mocks!
