@@ -25,7 +25,7 @@ gem 'json-patch'
 gem 'jwt'
 gem 'oauth'
 gem 'puma'
-gem 'react_on_rails', '3.0.6'
+gem "react_on_rails", "~> 5.0.0.rc.1"
 gem 'therubyracer'
 gem "uglifier"
 
