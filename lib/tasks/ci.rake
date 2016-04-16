@@ -52,7 +52,38 @@ if Rails.env.development? || Rails.env.test?
 
   namespace :ci do
     desc "Run all audits and tests"
-    task all: [:environment, :lint, :rspec_tests, :rspec_integration_tests, :js_tests, :bundle_audit, :security_audit] do
+    task all: [
+      :environment,
+      :lint,
+      :rspec_tests,
+      :js_tests,
+      :rspec_integration_tests,
+      :bundle_audit,
+      :security_audit
+    ] do
+      begin
+        puts Rainbow("PASSED").green
+        puts ""
+      rescue Exception => e
+        puts "#{e}"
+        puts Rainbow("FAILED").red
+        puts ""
+        raise(e)
+      end
+    end
+
+    # DUPLICATED FROM ci:all IN ORDER TO RUN VIA bin/ci AS A WORKAROUND
+    # TO INTEGRATION TESTS WHICH ARE FLAKY ONLY AS PART OF ENTIRE RUN.
+    # SEE https://www.pivotaltracker.com/story/show/116186847
+    desc "Run all audits and tests except for integration specs"
+    task all_without_integration: [
+      :environment,
+      :lint,
+      :rspec_tests,
+      :js_tests,
+      :bundle_audit,
+      :security_audit
+    ] do
       begin
         puts Rainbow("PASSED").green
         puts ""
@@ -66,6 +97,7 @@ if Rails.env.development? || Rails.env.test?
   end
 
   task ci: "ci:all"
+  task ci_without_integration: "ci:all_without_integration"
 
   task(:default).clear.enhance([:ci])
 end

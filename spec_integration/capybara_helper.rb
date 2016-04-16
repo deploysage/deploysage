@@ -40,6 +40,7 @@ Capybara.configure do |config|
       # otherwise the --environment option given to the server won't propagate.
       require APP_PATH
       Dir.chdir(Rails.application.root)
+      # $DEBUG = true
       server.start
     end
   end
