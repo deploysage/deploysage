@@ -57,4 +57,5 @@ Rails.application.configure do
   ENV['OAUTH_CALLBACK'] = 'http://127.0.0.1:3000/access_token'
   # DS_ORIGIN is passed to client as origin, for building links like auth callback.
   ENV['DS_ORIGIN'] = '127.0.0.1:3000'
+  ENV['REACT_ON_RAILS_ENV'] = 'HOT'
 end
