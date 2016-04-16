@@ -97,6 +97,9 @@ bin/start # make sure you run bin/setup first
 * Express Dev Server Rendering: [localhost:4000](http://localhost:4000)
   (Note that this is client only, login/logout/oauth and any functionality
   which requires the server is not supported)
+  * **NOTE: Redux under Express Dev Server is currently broken since
+    ActionCable integration.  See
+    https://www.pivotaltracker.com/story/show/114935745**
 * Rails Server Rendering: [127.0.0.1:3000](http://127.0.0.1:3000)
   (Note this must use 127.0.0.1 and not localhost, for outh callbacks to work)
 * Rails API Server: [localhost:3000/api/v1](http://localhost:3000/api/v1)
