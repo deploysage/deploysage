@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+bin/spring stop
+bin/rake rspec_integration_tests && bin/rake ci_without_integration
