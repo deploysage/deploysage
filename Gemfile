@@ -66,7 +66,7 @@ group :development, :test do
   ################################################################################
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
-  gem "spring-commands-rspec"
+  gem 'spring-commands-rspec', git: 'https://github.com/thewoolleyman/spring-commands-rspec.git'
 
   ################################################################################
   # Linters and Security

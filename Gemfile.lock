@@ -64,6 +64,13 @@ GIT
       activerecord (>= 2)
       activesupport (>= 2)
 
+GIT
+  remote: https://github.com/thewoolleyman/spring-commands-rspec.git
+  revision: 567ef04de3df8ec5339dbe5aa84c1fe2467547c1
+  specs:
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -305,8 +312,6 @@ GEM
       tilt (>= 1.3.3, < 2.1)
     slop (3.6.0)
     spring (1.6.4)
-    spring-commands-rspec (1.0.4)
-      spring (>= 0.9.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -385,7 +390,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   spring
-  spring-commands-rspec
+  spring-commands-rspec!
   therubyracer
   uglifier
 
