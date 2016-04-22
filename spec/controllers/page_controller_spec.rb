@@ -5,7 +5,7 @@ RSpec.describe PageController do
     describe 'assigns @state' do
       attr_reader :state
 
-      describe 'for client_state' do
+      describe 'for clientState' do
         before do
           allow(ENV).to receive(:fetch).and_call_original
         end
@@ -20,8 +20,8 @@ RSpec.describe PageController do
 
           @state = assigns(:state)
 
-          client_state = state.fetch(:client_state)
-          ui_state = client_state.fetch(:ui_state)
+          client_state = state.fetch('clientState')
+          ui_state = client_state.fetch('uiState')
           expect(ui_state).to eq('unauthenticated')
         end
 
@@ -35,8 +35,8 @@ RSpec.describe PageController do
 
           @state = assigns(:state)
 
-          client_state = state.fetch(:client_state)
-          ui_state = client_state.fetch(:ui_state)
+          client_state = state.fetch('clientState')
+          ui_state = client_state.fetch('uiState')
           expect(ui_state).to eq('authenticated')
         end
       end
@@ -49,24 +49,26 @@ RSpec.describe PageController do
         end
 
         it 'including only a single org ever' do
-          orgs = state.fetch(:orgs)
-          expect(orgs).to be_a(Array)
-          expect(orgs.size).to eq(1)
-          expect(orgs.first).to eq(
-            id: '1',
-            name: Org.first.name
+          orgs = state.fetch('result').fetch('orgs')
+          expect(orgs.first).to eq('1')
+
+          orgs = state.fetch('entities').fetch('orgs')
+          expect(orgs.length).to eq(1)
+          expect(orgs.fetch('1')).to include(
+            'id' => '1',
+            'name' => Org.first.name
           )
         end
 
         it 'including repos' do
-          repos = state.fetch(:repos)
+          repos = state.fetch('result').fetch('repos')
           expect(repos).to be_a(Array)
-          repo = Repo.first
-          expect(repos.first).to eq(
-            id: '1',
-            org_id: '1',
-            github_identifier: repo.github_identifier,
-            url: repo.url
+
+          repos = state.fetch('entities').fetch('repos')
+          expect(repos.fetch('1')).to include(
+            'id' => '1',
+            'orgId' => '1',
+            'githubIdentifier' => Repo.find_by_id(1).github_identifier
           )
         end
       end

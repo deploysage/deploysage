@@ -17,7 +17,7 @@ export default class UiStateMachine extends BaseComponent {
   };
 
   render() {
-    const uiState = this.props.$$deploySageStore.getIn(['result', 'clientState', 'uiState']);
+    const uiState = this.props.$$deploySageStore.getIn(['clientState', 'uiState']);
     if (uiState === 'unauthenticated') {
       return (<UnauthenticatedPage {...this.props} />);
     } else if (uiState === 'authenticated') {

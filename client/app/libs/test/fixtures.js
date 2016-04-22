@@ -1,8 +1,9 @@
 const Immutable = require('immutable');
-const jsonFormatter = require('../formatters/jsonFormatter');
 const YAML = require('yamljs');
 const fs = require('fs');
 const _ = require('lodash');
+const normalizeFormatter = require('./normalizeFormatter');
+const camelizeFormatter = require('./camelizeFormatter');
 
 function readFixtureFile(fixtureType) {
   return fs.readFileSync(`../spec/fixtures/${fixtureType}.yml`, 'utf8');
@@ -32,20 +33,21 @@ function loadFixtures() {
 function fixtureInitialState() {
   const fixtures = loadFixtures();
 
+  const initialState = camelizeFormatter.camelizeJson(
+    normalizeFormatter.normalizeJson(fixtures)
+  );
+
   // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
-  return {
-    client_state: {
-      origin: '127.0.0.1:3000',
-      ui_state: process.env.DS_UI_STATE || 'authenticated',
-    },
-    orgs: fixtures.orgs,
-    repos: fixtures.repos,
+  initialState.clientState = {
+    origin: '127.0.0.1:3000',
+    uiState: process.env.DS_UI_STATE || 'authenticated',
   };
+
+  return initialState;
 }
 
 function fixtureImmutableState() {
-  const formattedFixtureInitialState = jsonFormatter.formatJson(fixtureInitialState());
-  return Immutable.fromJS(formattedFixtureInitialState);
+  return Immutable.fromJS(fixtureInitialState());
 }
 
 module.exports = {
