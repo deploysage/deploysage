@@ -19,12 +19,12 @@ describe('UiStateMachine', () => {
   describe('with unauthenticated clientState', () => {
     beforeEach(() => {
       $$deploySageStore = fixtureImmutableState().setIn(
-        ['result', 'clientState', 'uiState'],
+        ['clientState', 'uiState'],
         'unauthenticated'
       );
     });
 
-    it('is not tested (need to mock sessionStorate) TODO: write tests for this', () => {
+    it('is not tested (need to mock sessionStorage) TODO: write tests for this', () => {
       // const component = renderIntoDocument(
       //   <UiStateMachine $$deploySageStore={$$deploySageStore} actions={actions}/>
       // );
@@ -39,7 +39,7 @@ describe('UiStateMachine', () => {
   describe('with authenticated clientState', () => {
     beforeEach(() => {
       $$deploySageStore = fixtureImmutableState().setIn(
-        ['result', 'clientState', 'uiState'],
+        ['clientState', 'uiState'],
         'authenticated'
       );
     });
@@ -59,7 +59,7 @@ describe('UiStateMachine', () => {
   describe('with invalid clientState', () => {
     beforeEach(() => {
       $$deploySageStore = fixtureImmutableState().setIn(
-        ['result', 'clientState', 'uiState'],
+        ['clientState', 'uiState'],
         'invalid'
       );
     });

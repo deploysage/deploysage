@@ -43,6 +43,10 @@ Style/TrailingCommaInLiteral:
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: no_comma
 
+Style/MultilineMethodCallIndentation:
+  # can't convince rubymine to not indent 2 spaces with mult-line method calls
+  Enabled: false
+
 Style/MultilineOperationIndentation:
   # can't convince rubymine 7 to not indent 4 spaces with mult-line expect(x).to receive ...
   Enabled: false

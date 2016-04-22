@@ -5,10 +5,12 @@ require 'rails_helper'
 RSpec.describe 'json patch target document integration' do
   it 'generates target doc with all non-ignored models' do
     target_document = ChangesCapture.target_document
-    expect(target_document['result']['orgs']).to eq(Org.all.map(&:id).sort)
+    expect(target_document['result']['orgs']).to eq(Org.all.map { |org| org.id.to_s }.sort)
     first_org = Org.first
-    expect(target_document['entities']['orgs'][first_org['id'].to_s]).to eq(first_org.attributes)
+    first_org_id = target_document['entities']['orgs'][first_org['id'].to_s]['id']
+    expect(first_org_id).to eq(first_org.attributes['id'].to_s)
     last_org = Org.last
-    expect(target_document['entities']['orgs'][last_org['id'].to_s]).to eq(last_org.attributes)
+    last_org_id = target_document['entities']['orgs'][last_org['id'].to_s]['id']
+    expect(last_org_id).to eq(last_org.attributes['id'].to_s)
   end
 end
