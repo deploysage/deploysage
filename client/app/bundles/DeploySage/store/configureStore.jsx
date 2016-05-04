@@ -1,6 +1,5 @@
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 import Immutable from 'immutable';
-import { formatJson } from 'libs/formatters/jsonFormatter';
 
 // See https://github.com/gaearon/redux-thunk and http://redux.js.org/docs/advanced/AsyncActions.html
 // This is not actually used for this simple example, but you'd probably want to use this once your app has
@@ -12,11 +11,10 @@ import reducers from '../reducers';
 
 export default props => {
   // props is how we get initial props from Rails view into redux.
-  const formattedProps = formatJson(props);
 
   // Redux expects to initialize the store using an Object, not an Immutable.Map
   const initialState = {
-    $$deploySageStore: Immutable.fromJS(formattedProps),
+    $$deploySageStore: Immutable.fromJS(props),
   };
 
   const reducer = combineReducers(reducers);

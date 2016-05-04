@@ -5,11 +5,12 @@ import fixtures from './fixtures';
 describe('fixtures', () => {
   it('.fixtureInitialState reads fixtures and stringifies IDs', () => {
     const state = fixtures.fixtureInitialState();
-    const repo = state.repos[0];
+    const repo = state.entities.repos['1'];
+
     expect(repo.id).to.equal('1');
 
     // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
-    expect(repo.org_id).to.equal('1');
+    expect(repo.orgId).to.equal('1');
   });
 
   it('.fixtureImmutableState returns a camelized normalized Immutable', () => {

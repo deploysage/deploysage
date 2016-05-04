@@ -12,7 +12,7 @@
 describe('Auth', () => {
   // const $$deploySageStore = fixtureImmutableState();
 
-  it('is not tested (need to mock sessionStorate - TODO: write tests for this', () => {
+  it('is not tested (need to mock sessionStorage - TODO: write tests for this', () => {
     // const component = renderIntoDocument(
     //   <Auth $ $deploySageStore={$$deploySageStore}>
     //     <Login/>

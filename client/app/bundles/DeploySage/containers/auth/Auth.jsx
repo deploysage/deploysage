@@ -38,7 +38,7 @@ export default class Auth extends BaseComponent {
   componentDidMount() {
     const jwt = sessionStorage.getItem('jwt');
     if (!!jwt && jwt !== 'null' && jwt !== 'undefined') {
-      const origin = this.props.$$deploySageStore.getIn(['result', 'clientState', 'origin']);
+      const origin = this.props.$$deploySageStore.getIn(['clientState', 'origin']);
       this._loadCurrentUserFromApi(origin);
       actionCableSetup(this.props.actions, origin);
     }
@@ -79,7 +79,7 @@ export default class Auth extends BaseComponent {
 
   _childWithProps(child) {
     // TODO: DRY up
-    const origin = this.props.$$deploySageStore.getIn(['result', 'clientState', 'origin']);
+    const origin = this.props.$$deploySageStore.getIn(['clientState', 'origin']);
     return React.cloneElement(
       child,
       { origin }

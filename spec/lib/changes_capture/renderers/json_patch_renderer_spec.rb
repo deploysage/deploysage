@@ -13,7 +13,7 @@ RSpec.describe ChangesCapture::JsonPatchRenderer do
 
       captured_changes = [
         {
-          id: 2,
+          id: '2',
           action: :create,
           model_name: 'org',
           name: [nil, 'new_name'],
@@ -63,7 +63,7 @@ RSpec.describe ChangesCapture::JsonPatchRenderer do
     it 'update generates replace operation' do
       captured_changes = [
         {
-          id: 1,
+          id: '1',
           action: :update,
           model_name: 'org',
           name: %w(original_name new_name),
@@ -90,52 +90,3 @@ RSpec.describe ChangesCapture::JsonPatchRenderer do
     end
   end
 end
-
-# {
-#   result: {
-#     orgs: ['1'],
-#     repos: ['2'],
-#   },
-#   entities: {
-#     orgs: {
-#       '1': { id: '1', name: 'foo' },
-#     },
-#     repos: {
-#       '2': { id: '2', githubIdentifier: '314159', url: 'https://github.com/u/r.git' },
-#     },
-#   },
-# }
-#
-# [
-#   { "op": "test", "path": "/a/b/c", "value": "foo" },
-#   { "op": "remove", "path": "/a/b/c" },
-#   { "op": "add", "path": "/a/b/c", "value": ["foo", "bar"] },
-#   { "op": "replace", "path": "/a/b/c", "value": 42 },
-#   { "op": "move", "from": "/a/b/c", "path": "/a/b/d" },
-#   { "op": "copy", "from": "/a/b/d", "path": "/a/b/e" }
-# ]
-#
-# # target_document = { "foo" => ["bar", "baz"] }
-# # operations_document = [{ "op" => "add", "path" => "/foo/1", "value" => "qux" }]
-#
-# # JSON::Patch.new(target_document, operations_document).call
-# { "foo" => ["bar", "qux", "baz"] }
-#
-# {
-#   clientState: {
-#     uiState: 'unauthenticated',
-#   },
-#   orgs: [
-#     {
-#       id: '1',
-#       name: 'foo',
-#     },
-#   ],
-#   repos: [
-#     {
-#       id: '2',
-#       githubIdentifier: '314159',
-#       url: 'https://github.com/u/r.git',
-#     },
-#   ],
-# }
