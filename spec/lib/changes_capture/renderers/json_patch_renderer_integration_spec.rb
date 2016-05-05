@@ -40,7 +40,7 @@ RSpec.describe 'json patch renderer integration' do
         updated_document = JSON::Patch.new(target_document, change_operations_document).call
         org_object = updated_document['entities']['orgs']['1']
         expect(org_object['name']).to eq(new_name)
-        expect(org_object['updated_at']).to be > orig_updated_at
+        expect(org_object['updatedAt']).to be > orig_updated_at
         expect(updated_document['result']).to eq(target_document['result'])
       end
 

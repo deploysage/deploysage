@@ -35,7 +35,7 @@ RSpec.describe ChangesCapture::JsonPatchRenderer do
         }.stringify_keys!,
         {
           op: 'add',
-          path: "/entities/orgs/#{new_id}/created_at",
+          path: "/entities/orgs/#{new_id}/createdAt",
           value: time,
         }.stringify_keys!,
         {
@@ -45,7 +45,7 @@ RSpec.describe ChangesCapture::JsonPatchRenderer do
         }.stringify_keys!,
         {
           op: 'add',
-          path: "/entities/orgs/#{new_id}/updated_at",
+          path: "/entities/orgs/#{new_id}/updatedAt",
           value: time,
         }.stringify_keys!,
         {
@@ -79,7 +79,7 @@ RSpec.describe ChangesCapture::JsonPatchRenderer do
         }.stringify_keys!,
         {
           op: 'replace',
-          path: '/entities/orgs/1/updated_at',
+          path: '/entities/orgs/1/updatedAt',
           value: time,
         }.stringify_keys!,
       ]

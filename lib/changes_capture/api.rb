@@ -67,10 +67,12 @@ module ChangesCapture
         instances_with_attributes = value[1]
         entities[model_class_pluralized] =
           instances_with_attributes.each_with_object({}) do |instance_with_attributes, memo|
-            instance_with_attributes.each_key do |key|
+            instance_with_attributes.keys.each do |key|
               if key == 'id' || key =~ /_id$/
                 instance_with_attributes[key] = instance_with_attributes[key].to_s
               end
+              camelized_key = key.camelize(:lower)
+              instance_with_attributes[camelized_key] = instance_with_attributes.delete(key)
             end
 
             memo[instance_with_attributes.fetch('id')] = instance_with_attributes

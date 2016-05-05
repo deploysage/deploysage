@@ -7,9 +7,9 @@ export function authenticated(user) {
   };
 }
 
-export function updateUrl(url) {
+export function applyChangeOperations(changeOperationsDocument) {
   return {
-    type: actionTypes.REPO_URL_UPDATE,
-    url,
+    type: actionTypes.APPLY_CHANGE_OPERATIONS,
+    changeOperationsDocument,
   };
 }

@@ -20,8 +20,8 @@ export default (actions, origin) => {
         disconnected() {
         },
 
-        received(url) {
-          return actions.updateUrl(url);
+        received(changeOperationsDocument) {
+          return actions.applyChangeOperations(changeOperationsDocument);
         },
 
         updateFromClient(updates) {

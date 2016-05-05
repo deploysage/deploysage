@@ -9,8 +9,6 @@ const {
   } = TestUtils;
 
 const actions = {
-  updateUrl: () => {
-  },
 };
 
 describe('RepoWidget', () => {

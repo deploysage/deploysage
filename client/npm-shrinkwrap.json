@@ -2879,6 +2879,11 @@
       "from": "ieee754@>=1.1.4 <2.0.0",
       "resolved": "https://registry.npmjs.org/ieee754/-/ieee754-1.1.6.tgz"
     },
+    "immpatch": {
+      "version": "0.2.0",
+      "from": "immpatch@>=0.2.0 <0.3.0",
+      "resolved": "https://registry.npmjs.org/immpatch/-/immpatch-0.2.0.tgz"
+    },
     "immutable": {
       "version": "3.7.6",
       "from": "immutable@>=3.7.5 <4.0.0",
