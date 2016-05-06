@@ -41,13 +41,13 @@ export default class Page extends BaseComponent {
         </div>
         <div className={css.columnsRow}>
           <div className={css.column}>
-            left column
+            Deploys
           </div>
           <div className={css.middleColumn}>
-            middle column
+            Repos and Commits
           </div>
           <div className={css.column}>
-            right column
+            Externally Linked Items
           </div>
         </div>
       </div>
