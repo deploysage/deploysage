@@ -2,7 +2,7 @@ import { React, expect, TestUtils, wrapperFuncs } from 'libs/test/testHelper';
 import { fixtureImmutableState } from 'libs/test/fixtures';
 
 import Page from './Page';
-import RepoWidget from './../repo/RepoWidget';
+import RepoWidget from './../RepoWidget/RepoWidget';
 
 describe('Page', () => {
   const $$deploySageStore = fixtureImmutableState();

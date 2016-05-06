@@ -1,6 +1,6 @@
 import React from 'react';
-import Auth from './../../containers/auth/Auth';
-import Login from './../login/Login';
+import Auth from './../../containers/Auth/Auth';
+import Login from './../Login/Login';
 
 import css from './UnauthenticatedPage.scss';
 import BaseComponent from 'libs/components/BaseComponent';

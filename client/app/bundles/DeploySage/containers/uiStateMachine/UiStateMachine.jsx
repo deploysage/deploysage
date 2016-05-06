@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Immutable from 'immutable';
-import Page from '../../components/page/Page';
-import UnauthenticatedPage from '../../components/unauthenticatedPage/UnauthenticatedPage';
+import Page from '../../components/Page/Page';
+import UnauthenticatedPage from '../../components/UnauthenticatedPage/UnauthenticatedPage';
 
 // import Uri from 'jsuri';
 import BaseComponent from 'libs/components/BaseComponent';
