@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Immutable from 'immutable';
+import RepoList from './../RepoList/RepoList';
 import RepoWidget from './../RepoWidget/RepoWidget';
 import _ from 'lodash';
 
@@ -13,6 +14,11 @@ export default class Page extends BaseComponent {
   }
 
   static propTypes = {
+    actions: PropTypes.object.isRequired,
+
+    // We prefix all property and variable names pointing to Immutable.js objects with '$$'.
+    // This allows us to immediately know we don't call $$deploySageStore['someProperty'], but instead use
+    // the Immutable.js `get` API for Immutable.Map
     $$deploySageStore: PropTypes.instanceOf(Immutable.Map).isRequired,
   };
 
@@ -31,7 +37,7 @@ export default class Page extends BaseComponent {
           &nbsp;
           <a href="#" onClick={this._handleLogout}>Log Out</a>
           &nbsp;
-          <span className="js-org-name">
+          <span className="org-name">
             Organization: {orgName}
           </span>
 
@@ -44,7 +50,10 @@ export default class Page extends BaseComponent {
             Deploys
           </div>
           <div className={css.middleColumn}>
-            Repos and Commits
+            <div>Repos and Commits</div>
+            <div>
+              <RepoList {...this.props} />
+            </div>
           </div>
           <div className={css.column}>
             Externally Linked Items
