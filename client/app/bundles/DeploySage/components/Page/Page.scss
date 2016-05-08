@@ -29,7 +29,6 @@
   %column {
     border-color: $brown;
     border-top: 1px solid;
-    padding: 5px;
     width: 100%;
   }
 
@@ -39,7 +38,13 @@
 
   .middleColumn {
     @extend %column;
-    border-left: 1px solid;
-    border-right: 1px solid;
+    border-left: 3px solid;
+    border-right: 3px solid;
+  }
+
+  .columnHeader {
+    background-color: black;
+    color: white;
+    padding: 3px;
   }
 }

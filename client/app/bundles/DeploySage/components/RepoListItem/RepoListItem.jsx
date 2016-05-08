@@ -20,6 +20,8 @@ export default class RepoListItem extends BaseComponent {
 
     return (
       <div className={css.repoListItem}>
+        <div className={css.delete}/>
+        <div className={css.update}/>
         <div className={`${css.url} spec-RepoListItem-url`}>
           {$$repo.getIn(['url'])}
         </div>

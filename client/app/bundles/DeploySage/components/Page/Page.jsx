@@ -47,16 +47,22 @@ export default class Page extends BaseComponent {
         </div>
         <div className={css.columnsRow}>
           <div className={css.column}>
-            Deploys
+            <div className={css.columnHeader}>
+              Deploys
+            </div>
           </div>
           <div className={css.middleColumn}>
-            <div>Repos and Commits</div>
+            <div className={css.columnHeader}>
+              Repos and Commits
+            </div>
             <div>
               <RepoList {...this.props} />
             </div>
           </div>
           <div className={css.column}>
-            Externally Linked Items
+            <div className={css.columnHeader}>
+              Externally Linked Items
+            </div>
           </div>
         </div>
       </div>

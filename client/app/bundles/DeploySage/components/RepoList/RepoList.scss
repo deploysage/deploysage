@@ -3,6 +3,8 @@
   flex-direction: column;
 
   .row {
+    border-bottom: 1px solid $green3;
+    border-top: 1px solid $grey-medium;
     padding: 2px;
   }
 }
