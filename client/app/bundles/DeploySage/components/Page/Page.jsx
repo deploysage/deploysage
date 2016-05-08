@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Immutable from 'immutable';
+import ColumnHeader from './../ColumnHeader/ColumnHeader';
 import RepoList from './../RepoList/RepoList';
 import RepoWidget from './../RepoWidget/RepoWidget';
 import _ from 'lodash';
@@ -47,22 +48,13 @@ export default class Page extends BaseComponent {
         </div>
         <div className={css.columnsRow}>
           <div className={css.column}>
-            <div className={css.columnHeader}>
-              Deploys
-            </div>
+            <ColumnHeader {...this.props} headerText="Deploys"/>
           </div>
           <div className={css.middleColumn}>
-            <div className={css.columnHeader}>
-              Repos and Commits
-            </div>
-            <div>
-              <RepoList {...this.props} />
-            </div>
+            <RepoList {...this.props} />
           </div>
           <div className={css.column}>
-            <div className={css.columnHeader}>
-              Externally Linked Items
-            </div>
+            <ColumnHeader {...this.props} headerText="Externally Linked Items"/>
           </div>
         </div>
       </div>

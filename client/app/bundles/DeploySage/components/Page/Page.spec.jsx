@@ -19,7 +19,7 @@ describe('Page', () => {
 
   describe('with shallow render', () => {
     it('receives org name from props', () => {
-      const actual = (shallowWrapper().find('span.org-name'));
+      const actual = shallowWrapper().find('span.org-name');
       const expected = 'Organization: Fixture Organization 1';
       expect(actual).to.have.text(expected);
     });
