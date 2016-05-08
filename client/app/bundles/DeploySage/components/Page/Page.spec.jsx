@@ -28,6 +28,7 @@ describe('Page', () => {
       const list = shallowWrapper().find(RepoWidget).first();
       expect(list.length).to.equal(1);
       expect(list.first()).to.have.prop('$$deploySageStore', $$deploySageStore);
+      expect(list.first()).to.have.prop('repoId', '1');
     });
   });
 

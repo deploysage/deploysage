@@ -24,9 +24,11 @@ export default (actions, origin) => {
           return actions.applyChangeOperations(changeOperationsDocument);
         },
 
-        updateFromClient(updates) {
-          return this.perform('update_from_client', {
-            updates,
+        update(type, id, data) {
+          return this.perform('update', {
+            type,
+            id,
+            data,
           });
         },
       });
