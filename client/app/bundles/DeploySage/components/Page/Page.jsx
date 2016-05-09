@@ -44,7 +44,7 @@ export default class Page extends BaseComponent {
 
         </div>
         <div className={css.contextRow}>
-          <RepoWidget {...this.props} />
+          <RepoWidget {...this.props} repoId="1" />
         </div>
         <div className={css.columnsRow}>
           <div className={css.column}>
