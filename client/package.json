@@ -105,6 +105,8 @@
     "mocha": "^2.3.4",
     "react-addons-test-utils": "^0.14.7",
     "react-transform-hmr": "^1.0.1",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
     "webpack-dev-server": "^1.12.1"
   }
 }

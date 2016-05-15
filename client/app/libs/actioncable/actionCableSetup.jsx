@@ -11,9 +11,9 @@ export default (actions, origin) => {
     // Can't set up ActionCable until the JSON Web Token is available in SessionStorage for auth
     if (!!jwt && jwt !== 'null' && jwt !== 'undefined') {
       const cableUrl = `ws://${origin}/cable?jwt=` + jwt;
-      const cable = ActionCable.createConsumer(cableUrl); // eslint-disable-line no-undef
+      const actionCable = ActionCable.createConsumer(cableUrl); // eslint-disable-line no-undef
       window.Cable = {};
-      Cable.channel = cable.subscriptions.create('StateChannel', { // eslint-disable-line no-undef
+      Cable.channel = actionCable.subscriptions.create('StateChannel', { // eslint-disable-line no-undef
         connected() {
         },
 

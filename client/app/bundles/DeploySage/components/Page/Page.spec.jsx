@@ -2,7 +2,7 @@ import { React, expect, TestUtils, wrapperFuncs } from 'libs/test/testHelper';
 import { fixtureImmutableState } from 'libs/test/fixtures';
 
 import Page from './Page';
-import RepoWidget from './../RepoWidget/RepoWidget';
+import MainPane from './../MainPane/MainPane';
 
 describe('Page', () => {
   const actions = { };
@@ -24,11 +24,10 @@ describe('Page', () => {
       expect(actual).to.have.text(expected);
     });
 
-    it('renders list of RepoWidgets', () => {
-      const list = shallowWrapper().find(RepoWidget).first();
+    it('renders MainPane', () => {
+      const list = shallowWrapper().find(MainPane).first();
       expect(list.length).to.equal(1);
       expect(list.first()).to.have.prop('$$deploySageStore', $$deploySageStore);
-      expect(list.first()).to.have.prop('repoId', '1');
     });
   });
 
@@ -50,8 +49,8 @@ describe('Page', () => {
       expect(orgName.textContent).to.equal('Organization: Fixture Organization 1');
     });
 
-    it('renders list of RepoWidgets', () => {
-      const list = scryRenderedComponentsWithType(component, RepoWidget);
+    it('renders MainPane', () => {
+      const list = scryRenderedComponentsWithType(component, MainPane);
       expect(list.length).to.equal(1);
 
       expect(list[0].props.actions).to.equal(actions);

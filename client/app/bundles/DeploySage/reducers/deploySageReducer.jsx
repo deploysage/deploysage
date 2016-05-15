@@ -15,7 +15,18 @@ export default function deploySageReducer($$state, action) {
   switch (type) {
     case actionTypes.AUTHENTICATED:
     { // eslint-disable-line indent
-      const clientState = { uiState: 'authenticated', currentUser: user };
+      const clientState = {
+        uiState: 'authenticated',
+        currentUser: user,
+        activePane: {
+          paneType: 'Form',
+          model: 'Repo',
+          paneProps: {
+            action: 'update',
+            id: '1',
+          },
+        },
+      };
       return $$state.mergeIn(['clientState'], clientState);
     }
 

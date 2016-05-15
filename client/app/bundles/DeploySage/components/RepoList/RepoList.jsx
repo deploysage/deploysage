@@ -21,7 +21,7 @@ export default class RepoList extends BaseComponent {
 
     return (
       <div className={css.repoList}>
-        <ColumnHeader {...this.props} headerText="Repos and Commits"/>
+        <ColumnHeader {...this.props} headerText="Repos and Commits" modelType="Repo"/>
         <div>
           {$$repoIds.map((repoId) =>
             <div key={`row-${repoId}`} className={css.row}>

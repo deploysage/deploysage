@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Immutable from 'immutable';
 import ColumnHeader from './../ColumnHeader/ColumnHeader';
 import RepoList from './../RepoList/RepoList';
-import RepoWidget from './../RepoWidget/RepoWidget';
+import MainPane from './../MainPane/MainPane';
 import _ from 'lodash';
 
 import css from './Page.scss';
@@ -44,7 +44,7 @@ export default class Page extends BaseComponent {
 
         </div>
         <div className={css.contextRow}>
-          <RepoWidget {...this.props} repoId="1" />
+          <MainPane {...this.props} />
         </div>
         <div className={css.columnsRow}>
           <div className={css.column}>

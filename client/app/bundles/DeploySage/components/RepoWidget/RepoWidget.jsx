@@ -19,19 +19,22 @@ export default class RepoWidget extends BaseComponent {
   static propTypes = {
     actions: PropTypes.object.isRequired,
     $$deploySageStore: PropTypes.instanceOf(Immutable.Map).isRequired,
-    repoId: PropTypes.string.isRequired,
   };
 
   // React will automatically provide us with the event `e`
   _handleChange(e) {
     if (typeof window !== 'undefined') {
-      Cable.channel.update('repo', this.props.repoId, { url: e.target.value }); // eslint-disable-line no-undef
+      this.props.cable.channel.update('repo', this.repoId(), { url: e.target.value }); // eslint-disable-line no-undef
     }
+  }
+
+  repoId() {
+    return this.props.$$deploySageStore.getIn(['clientState', 'activePane', 'paneProps', 'id']);
   }
 
   render() {
     const $$deploySageStore = this.props.$$deploySageStore;
-    const url = $$deploySageStore.getIn(['entities', 'repos', this.props.repoId, 'url']);
+    const url = $$deploySageStore.getIn(['entities', 'repos', this.repoId(), 'url']);
 
     return (
       <div className={css.repo}>

@@ -4,7 +4,8 @@ import jsdom from 'jsdom';
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import chaiImmutable from 'chai-immutable';
-import { shallow as shallowRender, render as staticRender } from 'enzyme';
+import sinonChai from 'sinon-chai';
+import { shallow as shallowRender, render as staticRender, mount } from 'enzyme';
 
 const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
 const win = doc.defaultView;
@@ -29,17 +30,21 @@ propagateToGlobal(win);
 // everything we need for our tests
 export { shallow as shallowRender } from 'enzyme';
 export { render as staticRender } from 'enzyme';
+export { mount } from 'enzyme';
+
 const {
   expect,
 } = chai;
 
 chai.use(chaiImmutable);
 chai.use(chaiEnzyme());
+chai.use(sinonChai);
 
 export function wrapperFuncs(Component, defaultProps) {
   return {
     staticWrapper: () => staticRender(<Component {...defaultProps} />),
     shallowWrapper: () => shallowRender(<Component {...defaultProps} />),
+    mountWrapper: () => mount(<Component {...defaultProps} />),
   };
 }
 

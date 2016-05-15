@@ -33,7 +33,7 @@ class DeploySage extends BaseComponent {
     // This is equivalent to:
     // <RepoWidget $$deploySageStore={$$deploySageStore} actions={actions} />
     return (
-      <UiStateMachine {...{ $$deploySageStore, actions }} />
+      <UiStateMachine {...{ $$deploySageStore, actions }} cable={window.Cable}/>
     );
   }
 }

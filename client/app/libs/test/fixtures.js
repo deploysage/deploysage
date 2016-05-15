@@ -37,10 +37,20 @@ function fixtureInitialState() {
     normalizeFormatter.normalizeJson(fixtures)
   );
 
+  // TODO: this duplicates the default activePane in fixtures.js, but will
+  // eventually change to be a default splash pane
   // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
   initialState.clientState = {
     origin: '127.0.0.1:3000',
     uiState: process.env.DS_UI_STATE || 'authenticated',
+    activePane: {
+      paneType: 'Form',
+      model: 'Repo',
+      paneProps: {
+        action: 'update',
+        id: '1',
+      },
+    },
   };
 
   return initialState;
