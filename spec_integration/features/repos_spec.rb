@@ -8,13 +8,13 @@ RSpec.feature 'Repos' do
 
   it 'shows url' do
     repo = repos(:fixture_repo_1)
-    el = find('.spec-RepoWidget-url')
+    el = find('.spec-RepoForm-url')
     expected_value = repo.url
     expect(el.text).to eq expected_value
   end
 
   it 'updates url' do
-    display_element_locator = '.spec-RepoWidget-url'
+    display_element_locator = '.spec-RepoForm-url'
     input_field_locator = '#repo-url'
     # NOTE: this find will fail if there is no text content
     expected_text = find(display_element_locator).text

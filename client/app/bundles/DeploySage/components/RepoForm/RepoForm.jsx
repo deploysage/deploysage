@@ -3,10 +3,10 @@ import Immutable from 'immutable';
 import Input from 'react-bootstrap/lib/Input';
 import _ from 'lodash';
 
-import css from './RepoWidget.scss';
+import css from './RepoForm.scss';
 import BaseComponent from 'libs/components/BaseComponent';
 
-export default class RepoWidget extends BaseComponent {
+export default class RepoForm extends BaseComponent {
   constructor(props, context) {
     super(props, context);
 
@@ -47,7 +47,7 @@ export default class RepoWidget extends BaseComponent {
           onChange={this._handleChange}
         />
         Repo URL:
-        <div className={`${css.repoDisplay} spec-RepoWidget-url`}>
+        <div className={`${css.repoDisplay} spec-RepoForm-url`}>
           {url}
         </div>
       </div>

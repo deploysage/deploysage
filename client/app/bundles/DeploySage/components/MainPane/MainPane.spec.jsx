@@ -2,7 +2,7 @@ import { expect, wrapperFuncs } from 'libs/test/testHelper';
 import { fixtureImmutableState } from 'libs/test/fixtures';
 
 import MainPane from './MainPane';
-import RepoWidget from './../RepoWidget/RepoWidget';
+import RepoForm from './../RepoForm/RepoForm';
 
 describe('MainPane', () => {
   const actions = { };
@@ -18,8 +18,8 @@ describe('MainPane', () => {
       shallowWrapper = wrapperFuncs(MainPane, { actions, $$deploySageStore }).shallowWrapper;
     });
 
-    it('renders a RepoWidget', () => {
-      const list = shallowWrapper().find(RepoWidget).first();
+    it('renders a RepoForm', () => {
+      const list = shallowWrapper().find(RepoForm).first();
       expect(list.length).to.equal(1);
       expect(list.first()).to.have.prop('$$deploySageStore', $$deploySageStore);
     });

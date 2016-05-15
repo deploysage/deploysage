@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Immutable from 'immutable';
-import RepoWidget from './../RepoWidget/RepoWidget';
+import RepoForm from './../RepoForm/RepoForm';
 
 import css from './MainPane.scss';
 import BaseComponent from 'libs/components/BaseComponent';
@@ -17,7 +17,7 @@ export default class MainPane extends BaseComponent {
 
   render() {
     const paneComponentMap = {
-      RepoForm: RepoWidget,
+      RepoForm,
     };
 
     const activePane = this.props.$$deploySageStore.getIn(['clientState', 'activePane']);

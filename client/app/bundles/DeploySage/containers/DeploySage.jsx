@@ -31,7 +31,7 @@ class DeploySage extends BaseComponent {
 
     // This uses the ES2015 spread operator to pass properties as it is more DRY
     // This is equivalent to:
-    // <RepoWidget $$deploySageStore={$$deploySageStore} actions={actions} />
+    // <RepoForm $$deploySageStore={$$deploySageStore} actions={actions} />
     return (
       <UiStateMachine {...{ $$deploySageStore, actions }} cable={window.Cable}/>
     );
