@@ -48,11 +48,11 @@ update msg model =
 
 -- SUBSCRIPTIONS
 
-port receiveUpdate : (String -> msg) -> Sub msg
+port receiveChangeOperationsDocument : (String -> msg) -> Sub msg
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  receiveUpdate Receive
+  receiveChangeOperationsDocument Receive
 
 -- VIEW
 
