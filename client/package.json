@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "babel-cli": "^6.3.17",
+    "babel-eslint": "^5.0.0-beta6",
     "elm": "0.17.1",
     "elm-hot-loader": "^0.3.2",
     "elm-webpack-loader": "^3.0.1",
@@ -37,7 +38,6 @@
   },
   "devDependencies": {
     "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.0.0",
     "jscs": "^2.7.0",
     "webpack-dev-server": "^1.12.1"
   }

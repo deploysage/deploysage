@@ -12,6 +12,7 @@
     "node_modules/**"
   ],
   "esprima": "babel-jscs",
+  "maximumLineLength": 120,
   "validateQuoteMarks": {
     "mark": "'",
     "escape": true,
