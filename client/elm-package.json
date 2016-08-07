@@ -4,8 +4,7 @@
     "repository": "https://github.com/deploysage/deploysage.git",
     "license": "MIT",
     "source-directories": [
-        "app/bundles/DeploySageElm",
-        "app/bundles/Test"
+        "app/bundles"
     ],
     "exposed-modules": [],
     "dependencies": {

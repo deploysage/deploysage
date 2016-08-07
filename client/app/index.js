@@ -6,10 +6,11 @@ if (typeof window !== 'undefined') {
   const jwt = sessionStorage.getItem('jwt');
 
   // Can't set up ActionCable until the JSON Web Token is available in SessionStorage for auth
-  if (!!jwt && jwt !== 'null' && jwt !== 'undefined') {
-    const Elm = require('./bundles/DeploySageElm/Main.elm');
+  // TODO: get jwt working under Elm
+  // if (!!jwt && jwt !== 'null' && jwt !== 'undefined') {
+    const Elm = require('./bundles/DeploySageElm/App.elm');
     const mountNode = document.getElementById('main');
-    const main = Elm.Main.embed(mountNode);
+    const main = Elm.DeploySageElm.App.embed(mountNode);
     const cableUrl = appSettings.websocketProtocol // eslint-disable-line no-undef
       + '//' + appSettings.origin + '/cable'; // eslint-disable-line no-undef
     const actionCable = ActionCable.createConsumer(cableUrl); // eslint-disable-line no-undef
@@ -35,5 +36,5 @@ if (typeof window !== 'undefined') {
 
     // TODO: is there a more elegant approach than this bind?
     main.ports.publishUpdate.subscribe(channel.updateFromClient.bind(channel));
-  }
+  // }
 }

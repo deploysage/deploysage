@@ -1,4 +1,4 @@
-module Utils.Reverser exposing (reverseIt)
+module DeploySageElm.Utils.Reverser exposing (reverseIt)
 
 import String exposing (reverse)
 
