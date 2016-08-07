@@ -4,6 +4,6 @@
 require 'process_helper'
 include ProcessHelper
 
-require File.expand_path('../config/application', __FILE__)
+require_relative 'config/application'
 
 Rails.application.load_tasks

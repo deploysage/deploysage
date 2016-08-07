@@ -16,7 +16,7 @@ if Rails.env.development? || Rails.env.test?
 
   task :js_tests do
     puts Rainbow("Running JavaScript tests").green
-    process "npm run test:client"
+    process "npm test"
   end
 
   task :rspec_tests do

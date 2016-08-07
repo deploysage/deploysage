@@ -2,33 +2,12 @@
 <html style="height: 100%;">
 <head>
   <title>Deploy Sage (rails dev)</title>
-  <%= env_stylesheet_link_tag(
-        static: 'application_static',
-        hot: 'application_non_webpack',
-        media: 'all'
-      ) %>
 
   <%= action_cable_meta_tag %>
-
-  <%# NOTE: the include for the application_static/non_webpack must come BEFORE the include for
-     app-bundle.js in order for actioncable to be available to redux %>
-  <%= env_javascript_include_tag(
-        static: 'application_static',
-        hot: 'application_non_webpack',
-        'data-turbolinks-track' => "reload"
-      ) %>
-
-  <!-- This is to load the hot assets. -->
-  <%= env_javascript_include_tag(
-        hot: [
-          'http://localhost:3500/vendor-bundle.js',
-          'http://localhost:3500/app-bundle.js'
-        ]
-      ) %>
-
   <%= csrf_meta_tags %>
+
   <style>
-    #DeploySageApp-react-component-0 {
+    #main {
       width: 100%;
       display: flex;
     }
@@ -39,5 +18,13 @@
   <div id="container" style="width: 100%; display: flex">
     <%= yield %>
   </div>
+
+  <%= javascript_include_tag('application') %>
+  <% if Rails.env.production? %>
+    <%= javascript_include_tag('app-static') %>
+  <% else %>
+    <%= javascript_include_tag('http://localhost:3500/app-bundle.js') %>
+  <% end %>
+
 </body>
 </html>

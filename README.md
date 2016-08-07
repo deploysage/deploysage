@@ -260,10 +260,11 @@ bin/spring stop
 # Run focused specs from Rubymine, so spring has rubymine libs loaded
 ```
 
-Hack 'autorunner' (would be better to have karma or mocha autorun, but [that's not easy](https://www.pivotaltracker.com/story/show/110931190):
-```
-export NODE_PATH=./app && watch -n 5 "clear && node_modules/mocha/bin/mocha --compilers js:babel-core/register --require ./app/libs/test/testHelper.js --require ./app/libs/test/testNullCompiler.js 'app/**/*.spec.@(js|jsx)'"
-```
+Running Elm Test Suite with 'autorunner' hack
+(would be better to have karma or mocha autorun, but [that's not easy](https://www.pivotaltracker.com/story/show/110931190):
+
+* `npm test` (run and exit, for use in CI)
+* `npm run tdd` ("autorunner", requires `brew install watch`)
 
 ### Running App in Dev Env (with hot reloading)
 
@@ -271,12 +272,6 @@ export NODE_PATH=./app && watch -n 5 "clear && node_modules/mocha/bin/mocha --co
 bin/start # make sure you run bin/setup first
 ```
 
-* Express Dev Server Rendering: [localhost:4000](http://localhost:4000)
-  (Note that this is client only, login/logout/oauth and any functionality
-  which requires the server is not supported)
-  * **NOTE: Redux under Express Dev Server is currently broken since
-    ActionCable integration.  See
-    https://www.pivotaltracker.com/story/show/114935745**
 * Rails Server Rendering: [127.0.0.1:3000](http://127.0.0.1:3000)
   (Note this must use 127.0.0.1 and not localhost, for outh callbacks to work)
 * Rails API Server: [localhost:3000/api/v1](http://localhost:3000/api/v1)
@@ -284,6 +279,10 @@ bin/start # make sure you run bin/setup first
 ### Running App in Simulated Production Env
 
 (Note: Foreman defaults to using port 5000)
+
+* `RAILS_ENV=production rake db:create`
+* `RAILS_ENV=production rake db:migrate`
+* In a new terminal: `tail -f log/*`
 
 ```
 bin/start-local-prod
@@ -297,6 +296,14 @@ Flags for debugging local prod env:
 ```
 SKIP_EAGER_LOAD=true SKIP_CACHE_CLASSES=true bin/start-local-prod
 ```
+
+## Deploying to CloudFoundry
+
+* `cf login`, enter email, password, org, and space.
+* `cf push deploysage`
+* Initial setup only (app still needs setup to run):
+  * Add ElephantSQL Postgres service - any instance name, same space/app
+  * `cf restage deploysage`
 
 ### CodeClimate
 

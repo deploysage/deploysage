@@ -2,7 +2,7 @@ if %w(development test).include? Rails.env
   namespace :lint do
     # require "rubocop/rake_task"
     # require "slim_lint/rake_task"
-    require "scss_lint/rake_task"
+    # require "scss_lint/rake_task"
 
     # This fails: https://github.com/bbatsov/rubocop/issues/1840
     # RuboCop::RakeTask.new
@@ -32,20 +32,20 @@ if %w(development test).include? Rails.env
     #   t.files = ["app/views"]
     # end
 
-    SCSSLint::RakeTask.new do |t|
-      t.files = ["app/assets/stylesheets/", "client/"]
-    end
+    # SCSSLint::RakeTask.new do |t|
+    #   t.files = ["app/assets/stylesheets/", "client/"]
+    # end
 
     desc "eslint"
     task :eslint do
-      cmd = "cd client && npm run eslint"
+      cmd = "cd client && node_modules/eslint/bin/eslint.js --max-warnings 1 --ext .js,.jsx ."
       puts "Running eslint via `#{cmd}`"
       sh cmd
     end
 
     desc "jscs"
     task :jscs do
-      cmd = "cd client && npm run jscs ."
+      cmd = "cd client && node_modules/jscs/bin/jscs ."
       puts "Running jscs via `#{cmd}`"
       sh cmd
     end
@@ -58,10 +58,10 @@ if %w(development test).include? Rails.env
     # desc "See docs for task 'slim_lint'"
     # task slim: :slim_lint
 
-    desc "See docs for task 'scss_lint'"
-    task scss: :scss_lint
+    # desc "See docs for task 'scss_lint'"
+    # task scss: :scss_lint
 
-    task lint: [:rubocop, :ruby, :js, :scss] do
+    task lint: [:rubocop, :ruby, :js] do
       puts "Completed all linting"
     end
   end

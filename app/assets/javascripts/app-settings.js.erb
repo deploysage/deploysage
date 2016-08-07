@@ -1,0 +1,7 @@
+<%# TODO: pass down everything needed from @state %>
+
+
+const appSettings = {
+  websocketProtocol: "<%= ENV.fetch('WEBSOCKET_PROTOCOL', 'ws:') %>",
+  origin: "<%= ENV.fetch('ORIGIN') %>"
+};

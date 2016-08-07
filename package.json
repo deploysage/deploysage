@@ -8,23 +8,19 @@
     "npm": "3.3.12"
   },
   "scripts": {
-    "postinstall": "cd client && npm install",
-    "test:client": "(cd client && npm run test --silent)",
-    "lint": "(cd client && npm run lint --silent)",
     "build:clean": "rm app/assets/webpack/*",
-    "build:client": "(cd client && npm run build:client --silent)",
-    "build:server": "(cd client && npm run build:server --silent)",
+    "build:prod:client": "(cd client && npm run build:prod:client --silent)",
     "build:dev:client": "(cd client && npm run build:dev:client --silent)",
-    "build:dev:server": "(cd client && npm run build:dev:server --silent)",
-    "build:test:client": "(cd client && npm run build:test:client --silent)",
-    "start": "(cd client && npm run start --silent)"
+    "postinstall": "cd client && npm install",
+    "tdd": "(cd client && watch npm test)",
+    "test": "(cd client && npm test)"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/deploysage/deploysage.git"
   },
   "keywords": [
-    "react"
+    "elm"
   ],
   "author": "thewoolleyman",
   "license": "MIT",

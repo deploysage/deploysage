@@ -4,12 +4,12 @@ capybara-*.html
 .rspec
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
+log/*
+tmp/*
 !/log/.keep
 !/tmp/.keep
 
-/public/system
+public/system
 /coverage/
 /spec/tmp
 **.orig
@@ -36,21 +36,16 @@ spec/fixtures/*.yml
 # dotenv
 .env.local
 
-# React on Rails
-npm-debug.log*
+# Generated assets
+app/assets/webpack/
+public/assets/**/*
+
+# NodeJS/NPM
+npm-debug.log
 node_modules
 client/*.log.*
 
-# Generated js bundles
-/app/assets/webpack/
-
-# React on Rails
-npm-debug.log
-node_modules
-
-# Generated js bundles
-/app/assets/javascripts/generated/*
-/public/assets/**/*
-
-# Redis
-dump.rdb
+# Elm
+client/elm-stuff
+#client/elm-stuff/packages
+#client/elm-stuff/build-artifacts

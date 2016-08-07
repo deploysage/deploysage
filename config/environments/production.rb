@@ -14,7 +14,7 @@ Rails.application.configure do
   config.eager_load = true unless ENV['SKIP_EAGER_LOAD'] == 'true'
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Disable serving static files from the `/public` folder by default since
@@ -26,10 +26,7 @@ Rails.application.configure do
   config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  # config.assets.compile = false
-  # WORKAROUND for bug in react_on_rails, see https://www.pivotaltracker.com/story/show/110549168
-  # and https://github.com/shakacode/react_on_rails/issues/170
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -53,7 +50,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  # config.log_tags = [ :subdomain, :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
@@ -81,14 +78,25 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # Use a different logger for distributed setups.
+  # require 'syslog/logger'
+  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
+
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
+    logger = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
+  end
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
   # OAuth config:
   # ORIGIN is the react client, which is where it redirects after authenticating
-  ENV['ORIGIN'] = 'http://127.0.0.1:5000'
+  port = ENV.fetch('PORT', '5000')
+  ENV['ORIGIN'] ||= "127.0.0.1:#{port}"
   # OAUTH_CALLBACK must match callback URL in OAuth provider config
-  ENV['OAUTH_CALLBACK'] = 'http://127.0.0.1:5000/access_token'
+  ENV['OAUTH_CALLBACK'] = "http://127.0.0.1:#{port}/access_token"
   # DS_ORIGIN is passed to client as origin, for building links like auth callback.
-  ENV['DS_ORIGIN'] = '127.0.0.1:5000'
+  ENV['DS_ORIGIN'] = "127.0.0.1:#{port}"
 end

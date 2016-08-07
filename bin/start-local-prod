@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
+set -e
+
 bin/spring stop
 export DISABLE_SPRING=true
 export RAILS_ENV=production
 export RACK_ENV=production
-export DS_ORIGIN=http://127.0.0.1:5000
+export RAILS_SERVE_STATIC_FILES=true
+export PORT=5000
+export DS_ORIGIN=http://127.0.0.1:${PORT}
 
 export SECRET_KEY_BASE=not-the-real-prod-secret-key-base
 export TWITTER_CONSUMER_KEY=oumhO3S4GTRPyYPXN5KF2TbsC # same as dev

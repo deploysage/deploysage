@@ -5,8 +5,10 @@
     ".jsx"
   ],
   "excludeFiles": [
+    "app/bundles/**",
     "assets/**",
     "build/**",
+    "elm-stuff/**",
     "node_modules/**"
   ],
   "esprima": "babel-jscs",

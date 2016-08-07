@@ -25,7 +25,6 @@ gem 'json-patch'
 gem 'jwt'
 gem 'oauth'
 gem 'puma'
-gem "react_on_rails", "~> 5.0.0.rc.1"
 gem 'therubyracer'
 gem "uglifier"
 
@@ -63,10 +62,13 @@ group :development, :test do
   # Must be loaded first to set env vars for subsequent gems
   gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
+  gem 'listen', '~> 3.0.5'
+
   ################################################################################
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
   gem 'spring-commands-rspec', git: 'https://github.com/thewoolleyman/spring-commands-rspec.git'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 
   ################################################################################
   # Linters and Security
