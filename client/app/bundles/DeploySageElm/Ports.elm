@@ -2,15 +2,7 @@ port module DeploySageElm.Ports exposing (..)
 
 import DeploySageElm.Types exposing (..)
 
-port publishUpdate : String -> Cmd msg
-
-update : Msg -> Model -> (Model, Cmd Msg)
-update msg model =
-  case msg of
-    Publish newState ->
-      (model, publishUpdate newState)
-    Receive newState ->
-      ({ model | state = newState }, Cmd.none)
+port updateFromClient : String -> Cmd msg
 
 port receiveChangeOperationsDocument : (String -> msg) -> Sub msg
 

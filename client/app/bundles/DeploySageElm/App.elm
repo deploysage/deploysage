@@ -1,5 +1,6 @@
 module DeploySageElm.App exposing (main)
 
+import DeploySageElm.Ports as Ports
 import DeploySageElm.State as State
 import DeploySageElm.View as View
 import Html.App
@@ -13,5 +14,5 @@ main =
             )
         , view = View.root
         , update = State.update
-        , subscriptions = always Sub.none
+        , subscriptions = Ports.subscriptions
         }

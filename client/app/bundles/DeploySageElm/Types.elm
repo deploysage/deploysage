@@ -6,5 +6,16 @@ type Msg
 
 
 type alias Model =
-    { state : String
+    { url : String
     }
+
+--{
+--        result: {
+--          orgs: %w(1 2),
+--        },
+--        entities: {
+--          orgs: {
+--            '1' => { id: '1', name: org.name },
+--            '2' => { id: '2', name: org2.name },
+--          },
+--        },

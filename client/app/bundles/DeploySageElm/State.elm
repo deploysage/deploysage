@@ -6,7 +6,7 @@ import DeploySageElm.Types exposing (..)
 
 initialModel : Model
 initialModel =
-    { state = ""
+    { url = ""
     }
 
 initialCommands : Cmd Msg
@@ -19,6 +19,6 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
     Publish newState ->
-      (model, publishUpdate newState)
+      (model, updateFromClient newState)
     Receive newState ->
       ({ model | state = newState }, Cmd.none)

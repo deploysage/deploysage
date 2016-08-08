@@ -10,7 +10,7 @@ if (typeof window !== 'undefined') {
   // if (!!jwt && jwt !== 'null' && jwt !== 'undefined') {
     const Elm = require('./bundles/DeploySageElm/App.elm');
     const mountNode = document.getElementById('main');
-    const main = Elm.DeploySageElm.App.embed(mountNode);
+    const app = Elm.DeploySageElm.App.embed(mountNode);
     const cableUrl = appSettings.websocketProtocol // eslint-disable-line no-undef
       + '//' + appSettings.origin + '/cable'; // eslint-disable-line no-undef
     const actionCable = ActionCable.createConsumer(cableUrl); // eslint-disable-line no-undef
@@ -23,7 +23,7 @@ if (typeof window !== 'undefined') {
 
       received(changeOperationsDocument) {
         console.log('<--- StateChannel received changeOperationsDocument: ' + changeOperationsDocument);
-        main.ports.receiveChangeOperationsDocument.send(changeOperationsDocument);
+        app.ports.receiveChangeOperationsDocument.send(changeOperationsDocument);
       },
 
       updateFromClient(updates) {
@@ -35,6 +35,6 @@ if (typeof window !== 'undefined') {
     });
 
     // TODO: is there a more elegant approach than this bind?
-    main.ports.publishUpdate.subscribe(channel.updateFromClient.bind(channel));
+    app.ports.updateFromClient.subscribe(channel.updateFromClient.bind(channel));
   // }
 }
