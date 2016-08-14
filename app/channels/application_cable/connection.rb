@@ -18,10 +18,7 @@ module ApplicationCable
       end
 
       # TODO: hook up JWT auth, for now just return
-      Rails.logger.debug 111111
-      Rails.logger.debug User.first.inspect
       return User.first
-      Rails.logger.debug 2222
 
       if verified_user
         verified_user

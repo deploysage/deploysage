@@ -50,3 +50,4 @@ client/elm-stuff
 #client/elm-stuff/packages
 #client/elm-stuff/build-artifacts
 #client/elm-stuff/exact-dependencies.json
+client/app/bundles/Test/Suite.js

@@ -23,6 +23,7 @@
   "scripts": {
     "build:prod.client": "NODE_ENV=production webpack --config webpack.static.config.js",
     "build:dev:client": "babel-node server-hot.js",
+    "clean": "rm -rf elm-stuff/build-artifacts",
     "postinstall": "`npm bin`/elm-package install -y",
     "pretest": "`npm bin`/elm-make app/bundles/Test/Suite.elm --output app/bundles/Test/Suite.js",
     "tdd": "watch npm test",

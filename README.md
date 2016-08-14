@@ -266,6 +266,8 @@ Running Elm Test Suite with 'autorunner' hack
 * `npm test` (run and exit, for use in CI)
 * `npm run tdd` ("autorunner", requires `brew install watch`)
 
+If you get Elm compilation errors, try `npm run clean`
+
 ### Running App in Dev Env (with hot reloading)
 
 ```

@@ -5,7 +5,7 @@ import Test.Runner.Log
 import Html.App
 import Html
 
-import Utils.ReverserTest exposing (..)
+import DeploySageElm.Utils.ReverserTest exposing (reverser)
 
 suite : Program Never
 suite =
