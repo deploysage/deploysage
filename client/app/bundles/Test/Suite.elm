@@ -1,4 +1,4 @@
-module Suite exposing (suite)
+module Suite exposing (main)
 
 import Test exposing (concat)
 import Test.Runner.Log
@@ -7,8 +7,8 @@ import Html
 
 import DeploySageElm.Utils.ReverserTest exposing (reverser)
 
-suite : Program Never
-suite =
+main : Program Never
+main =
     Html.App.beginnerProgram
         { model = ()
         , update = \_ _ -> ()
