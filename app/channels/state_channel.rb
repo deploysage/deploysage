@@ -8,15 +8,17 @@ class StateChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def update_from_client(data)
-    updates = data.fetch('updates')
-    url = updates.fetch('url')
-    repo = Repo.first
-    unless repo
-      msg = 'REPO NOT FOUND!  If on development env, load fixture data (run bin/setup).'
-      Rails.logger.error(msg)
-      fail msg
+  # Client Operations:
+
+  def update(payload)
+    type = payload.fetch('type')
+    clazz = type.classify.constantize
+    id = payload.fetch('id')
+    model = clazz.find(id)
+    data = payload.fetch('data')
+    data_with_underscore_keys = data.each_with_object({}) do |value, memo|
+      memo[value[0].underscore] = value[1]
     end
-    repo.update!(url: url)
+    model.update_attributes!(data_with_underscore_keys)
   end
 end

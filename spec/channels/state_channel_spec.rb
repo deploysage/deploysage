@@ -19,25 +19,38 @@ RSpec.describe StateChannel do
     end
   end
 
-  describe '#update_from_client' do
-    let(:data) do
+  describe '#update' do
+    let(:repo) { repos(:fixture_repo_1) }
+    let(:repo_id) { repo.id }
+    let(:payload) do
+      p repo
       {
-        'updates' => {
+        'type' => 'repo',
+        'id' => repo_id,
+        'data' => {
           'url' => 'updated url',
+          'githubIdentifier' => 42,
         },
       }
     end
 
-    it 'applies changes to repo' do
-      subject.update_from_client(data)
-      expect(Repo.first.url).to eq('updated url')
+    it 'applies changes to model' do
+      subject.update(payload)
+      expect(repo.reload.url).to eq('updated url')
     end
 
-    it 'fails if repo not found' do
-      allow(Repo).to receive(:first).and_return(nil)
-      expect do
-        subject.update_from_client(data)
-      end.to raise_error(/REPO NOT FOUND/)
+    it 'converts camel case attributes' do
+      subject.update(payload)
+      expect(repo.reload.github_identifier).to eq(42)
+    end
+
+    describe 'when model not found' do
+      let(:repo_id) { 0 }
+      it 'fails if model not found' do
+        expect do
+          subject.update(payload)
+        end.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 end

@@ -11,7 +11,7 @@ export default class RepoWidget extends BaseComponent {
     super(props, context);
 
     // Uses lodash to bind all methods to the context of the object instance, otherwise
-    // the methods defined here would not refer to the component's class, not the component
+    // the methods defined here would refer to the component's class, not the component
     // instance itself.
     _.bindAll(this, '_handleChange');
   }
@@ -19,19 +19,19 @@ export default class RepoWidget extends BaseComponent {
   static propTypes = {
     actions: PropTypes.object.isRequired,
     $$deploySageStore: PropTypes.instanceOf(Immutable.Map).isRequired,
+    repoId: PropTypes.string.isRequired,
   };
 
   // React will automatically provide us with the event `e`
   _handleChange(e) {
     if (typeof window !== 'undefined') {
-      Cable.channel.updateFromClient({ url: e.target.value }); // eslint-disable-line no-undef
+      Cable.channel.update('repo', this.props.repoId, { url: e.target.value }); // eslint-disable-line no-undef
     }
   }
 
   render() {
     const $$deploySageStore = this.props.$$deploySageStore;
-    const repoId = $$deploySageStore.getIn(['result', 'repos']).first();
-    const url = $$deploySageStore.getIn(['entities', 'repos', repoId, 'url']);
+    const url = $$deploySageStore.getIn(['entities', 'repos', this.props.repoId, 'url']);
 
     return (
       <div className={css.repo}>
