@@ -21,7 +21,7 @@ describe('RepoWidget', () => {
         $$deploySageStore={$$deploySageStore}
       />
     );
-    const repoName = findRenderedDOMComponentWithClass(component, 'js-repo-url');
+    const repoName = findRenderedDOMComponentWithClass(component, 'spec-RepoWidget-url');
     expect(repoName.textContent).to.equal('https://github.com/deploysage/fixture-repo-1.git');
   });
 });

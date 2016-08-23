@@ -17,9 +17,6 @@ export default class RepoWidget extends BaseComponent {
   }
 
   static propTypes = {
-    // We prefix all property and variable names pointing to Immutable.js objects with '$$'.
-    // This allows us to immediately know we don't call $$deploySageStore['someProperty'], but instead use
-    // the Immutable.js `get` API for Immutable.Map
     actions: PropTypes.object.isRequired,
     $$deploySageStore: PropTypes.instanceOf(Immutable.Map).isRequired,
   };
@@ -47,7 +44,7 @@ export default class RepoWidget extends BaseComponent {
           onChange={this._handleChange}
         />
         Repo URL:
-        <div className={`${css.repoDisplay} js-repo-url`}>
+        <div className={`${css.repoDisplay} spec-RepoWidget-url`}>
           {url}
         </div>
       </div>
