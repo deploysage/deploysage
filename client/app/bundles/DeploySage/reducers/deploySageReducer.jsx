@@ -1,4 +1,5 @@
 import actionTypes from '../actions/actionTypes';
+import patch from 'immpatch';
 
 export default function deploySageReducer($$state, action) {
   if ($$state === undefined) {
@@ -9,7 +10,7 @@ export default function deploySageReducer($$state, action) {
     return {};
   }
 
-  const { type, url, user } = action;
+  const { type, changeOperationsDocument, user } = action;
 
   switch (type) {
     case actionTypes.AUTHENTICATED:
@@ -18,10 +19,10 @@ export default function deploySageReducer($$state, action) {
       return $$state.mergeIn(['clientState'], clientState);
     }
 
-    case actionTypes.REPO_URL_UPDATE:
+    case actionTypes.APPLY_CHANGE_OPERATIONS:
     { // eslint-disable-line indent
-      const repoId = $$state.getIn(['result', 'repos']).first();
-      return $$state.setIn(['entities', 'repos', repoId, 'url'], url);
+
+      return patch($$state, changeOperationsDocument);
     }
 
     default: // eslint-disable-line indent

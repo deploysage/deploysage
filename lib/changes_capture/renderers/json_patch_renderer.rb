@@ -23,20 +23,15 @@ module ChangesCapture
 
     private
 
+    # rubocop:disable Metrics/AbcSize
     def op_info_struct_from_change(change)
-      op_action_map = {
-        create: 'add',
-        update: 'replace',
-        destroy: 'remove',
-      }
-
       OpInfo.new(
         op_action_map[change.delete(:action)],
         change.delete(:id),
         change.delete(:model_name).pluralize,
         change.keys.sort.map do |field_name|
           {
-            field_name: field_name,
+            field_name: field_name.to_s.camelize(:lower),
             change: {
               old: change[field_name][0],
               new: change[field_name][1],
@@ -45,6 +40,14 @@ module ChangesCapture
         end,
         change.delete(:destroyed_id_index)
       )
+    end
+
+    def op_action_map
+      {
+        create: 'add',
+        update: 'replace',
+        destroy: 'remove',
+      }
     end
 
     def op_objects_from_change(op_info)
