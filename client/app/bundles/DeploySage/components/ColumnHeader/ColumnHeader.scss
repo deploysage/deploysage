@@ -1,0 +1,22 @@
+.columnHeader {
+  background-color: $black;
+  color: $white;
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+
+  .headerText {
+    flex-grow: 1;
+    font-weight: bold;
+  }
+
+  .controls {
+    background: url('./images/plus.png') no-repeat;
+    background-size: contain;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 16px;
+    margin: 2px;
+    width: 16px;
+  }
+}
