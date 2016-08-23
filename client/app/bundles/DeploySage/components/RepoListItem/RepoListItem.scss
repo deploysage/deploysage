@@ -1,4 +1,27 @@
 .repoListItem {
+  display: flex;
+  flex-direction: row;
+
+  .delete {
+    background: url('./images/x.png') no-repeat;
+    background-size: contain;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 16px;
+    margin: 2px;
+    width: 16px;
+  }
+
+  .update {
+    background: url('./images/edit.png') no-repeat;
+    background-size: contain;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 16px;
+    margin: 2px;
+    width: 16px;
+  }
+
   .url {
     font-weight: bold;
   }
