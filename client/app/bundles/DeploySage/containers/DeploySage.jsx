@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import BaseComponent from 'libs/components/BaseComponent';
-import UiStateMachine from './uiStateMachine/UiStateMachine';
+import UiStateMachine from './UiStateMachine/UiStateMachine';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';

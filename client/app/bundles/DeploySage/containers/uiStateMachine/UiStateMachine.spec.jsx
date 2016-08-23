@@ -1,7 +1,7 @@
 import { React, expect, TestUtils } from 'libs/test/testHelper';
 import { fixtureImmutableState } from 'libs/test/fixtures';
-import Page from '../../components/page/Page';
-import UnauthenticatedPage from '../../components/unauthenticatedPage/UnauthenticatedPage';
+import Page from '../../components/Page/Page';
+import UnauthenticatedPage from '../../components/UnauthenticatedPage/UnauthenticatedPage';
 
 import UiStateMachine from './UiStateMachine';
 

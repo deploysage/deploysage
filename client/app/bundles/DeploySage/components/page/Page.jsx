@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Immutable from 'immutable';
-import RepoWidget from './../repo/RepoWidget';
+import RepoWidget from './../RepoWidget/RepoWidget';
 import _ from 'lodash';
 
 import css from './Page.scss';

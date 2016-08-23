@@ -2,7 +2,7 @@
 // import { fixtureImmutableState } from 'libs/test/fixtures';
 
 // import Auth from './Auth';
-// import Login from './../../components/login/Login';
+// import Login from './../../components/Login/Login';
 
 // const {
 //  renderIntoDocument,
