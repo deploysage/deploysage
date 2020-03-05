@@ -59,7 +59,7 @@
     "jquery": "^2.1.4",
     "jsuri": "^1.3.1",
     "loader-utils": "^0.2.11",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.13",
     "marked": "^0.3.5",
     "mirror-creator": "^0.0.1",
     "node-sass": "^3.4.2",
