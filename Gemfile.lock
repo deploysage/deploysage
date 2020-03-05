@@ -217,7 +217,7 @@ GEM
     pg (0.18.4)
     powerpack (0.1.1)
     process_helper (0.0.3)
-    puma (2.15.3)
+    puma (3.12.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.beta3)
